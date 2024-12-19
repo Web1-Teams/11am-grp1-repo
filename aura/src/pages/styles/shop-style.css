@@ -557,3 +557,11 @@ footer{
     border-radius: 7px; /* Optional: rounded corners for the thumb */
     border: 4px solid #996dc6; /* Optional: add border to thumb to create spacing */
   }
+
+  .filter-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  *{
+    scroll-behavior: smooth;
+  }
