@@ -74,42 +74,41 @@ const Shop = ({ cartItems, setCartItems }) => {
 
   const addToCart = (item) => {
     setCartItems((prevCartItems) => {
-      if (prevCartItems.some(cartItem => cartItem.id === item.id)) {
-        return prevCartItems;
-      }
       const updatedCart = [...prevCartItems, item];
       return updatedCart;
     });
   };
 
   return (
-    <div className="layout">
-      <Navbar />
-      <ShopSidebar
-        categoryFilter={categoryFilter}
-        setCategoryFilter={setCategoryFilter}
-        priceFilter={priceFilter}
-        setPriceFilter={setPriceFilter}
-        isFilterActive={isFilterActive}
-        handleAllTabClick={handleAllTabClick}
-        handleFilterTabClick={handleFilterTabClick}
-      />
-      <main className="shop-items">
-        {currentItems.map(item => (
-          <ShopItem
-            key={item.id}
-            data={item}
-            addToCart={addToCart}
-            cartItems={cartItems}
-          />
-        ))}
-      </main>
-      <Footer
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onNext={handleNextPage}
-        onPrev={handlePrevPage}
-      />
+    <div className="shop-styling">
+      <div className="layout">
+        <Navbar />
+        <ShopSidebar
+          categoryFilter={categoryFilter}
+          setCategoryFilter={setCategoryFilter}
+          priceFilter={priceFilter}
+          setPriceFilter={setPriceFilter}
+          isFilterActive={isFilterActive}
+          handleAllTabClick={handleAllTabClick}
+          handleFilterTabClick={handleFilterTabClick}
+        />
+        <main className="shop-items">
+          {currentItems.map(item => (
+            <ShopItem
+              key={item.id}
+              data={item}
+              addToCart={addToCart}
+              cartItems={cartItems}
+            />
+          ))}
+        </main>
+        <Footer
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onNext={handleNextPage}
+          onPrev={handlePrevPage}
+        />
+      </div>
     </div>
   );
 };

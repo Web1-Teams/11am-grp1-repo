@@ -32,8 +32,7 @@ const ShopSidebar = ({
           <span className="glider"></span>
         </div>
 
-        {/* Always render the filters but apply disabling logic */}
-        <div className={`filter-category ${!isFilterActive ? 'filter-disabled' : ''}`}>
+        <div className={!isFilterActive ? 'filter-disabled' : ''}>
           <h3>Categories</h3>
           <div className="radio-input">
             <label className="label">
@@ -167,7 +166,7 @@ const ShopSidebar = ({
       </div>
 
       <button
-        className={`clear ${!isFilterActive ? 'filter-disabled' : ''}`}
+        className={!isFilterActive ? 'filter-disabled' : ''}
         onClick={() => { setCategoryFilter("All"); setPriceFilter("All"); }}
         disabled={!isFilterActive}
       >

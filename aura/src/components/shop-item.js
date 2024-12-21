@@ -6,9 +6,6 @@ const ShopItem = ({ data, addToCart, cartItems }) => {
         SetModal(!Modal);
     };
 
-    const handleAddToCart = () => {
-        addToCart(data);
-    };
     const isItemInCart = (cartItems || []).some(item => item.id === data.id);
     return (
         <div className="card">
@@ -48,7 +45,7 @@ const ShopItem = ({ data, addToCart, cartItems }) => {
                 </div>
                 <button
                     className={isItemInCart ? 'card-btn filter-disabled' : 'card-btn'}
-                    onClick={handleAddToCart}
+                    onClick={() => addToCart(data)}
                 >
                     {isItemInCart ? "In Cart" : "Add to Cart"}
                 </button>
