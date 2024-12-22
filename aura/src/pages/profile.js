@@ -9,7 +9,7 @@ import Modal from "../components/Modal";
 
 const Profile = () =>{
   return(
-      <div className='middle'>
+      <div className='myProfile'>
          <LeftSection/>
          <Middle/>
          <Modal/>
