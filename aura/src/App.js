@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Shop from "./pages/shop";
 import Main from "./pages/main";
-
+import Upload from "./pages/upload";
 import Cart from "./pages/cart";
 
 
@@ -23,7 +23,7 @@ function App() {
 
          
           <Route path="/about" element={<Shop />} />
-          <Route path="/upload" element={<Shop />} />
+          <Route path="/upload" element={<Upload />} />
           <Route path="/profile" element={<Shop />} />
           <Route path="/checkout" element={<Shop />} />
         </Routes>

@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #1a1a2e;
+    color: #fff;
+    padding: 20px;
+  }
+  .container-upload {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+.imageUpload{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#drop-area{
+    width: 500px;
+    height: 300px;
+    padding: 30px;
+    background: #2a2a3f;
+    text-align: center;
+    border-radius: 20px;
+}
+#img-view{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: 2px dashed ;
+    background-position: center;
+    background-size: cover;
+}
+#img-view img{
+    width: 100px;
+    margin-top: 25px;
+}
+#img-view span{
+    display: block;
+    font-size: 12px;
+    color: #777;
+    margin-top: 15px;
+}
+.toggle-buttons-price {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .toggle-buttons-price button {
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .toggle-buttons .sale {
+    background-color: #4e3dc9;
+    color: #fff;
+  }
+
+  .toggle-buttons .show {
+    background-color: #333;
+    color: #bbb;
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #bbb;
+  }
+
+  .form-group input,textarea{
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #2a2a3f;
+    color: #fff;
+  }
+
+  .form-group textarea {
+    resize: none;
+    height: 100px;
+  }
+  .post-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  .post-buttons button {
+    padding: 10px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .preview {
+    background-color: #333;
+    color: #bbb;
+  }
+  .post {
+    background-color: #4e3dc9;
+    color: #fff;
+  }
+  select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #2a2a3f;
+    color: #fff;
+    cursor: pointer;
+  }
