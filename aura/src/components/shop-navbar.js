@@ -2,9 +2,9 @@
 import logoImage from "../images/AURA.png";
 import { Link } from 'react-router-dom';
 
-const ShopNavbar = () => {
+const Navbar = () => {
     return (
-        <nav>
+        <nav className="shop-styling">
             <Link to="/home" className="logo">
                 <img src={logoImage} alt="logo" />
             </Link>
@@ -57,4 +57,4 @@ const ShopNavbar = () => {
     )
 }
 
-export default ShopNavbar;
+export default Navbar;

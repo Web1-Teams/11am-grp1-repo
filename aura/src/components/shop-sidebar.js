@@ -10,7 +10,7 @@ const ShopSidebar = ({
   handleFilterTabClick
 }) => {
   return (
-    <aside className="sidebar">
+    <aside className="sidebar shop-styling">
       <div className="container">
         <div className="tabs">
           <input
