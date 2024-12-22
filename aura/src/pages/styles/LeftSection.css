@@ -1,0 +1,230 @@
+.split {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    overflow-x: hidden;
+  }
+  
+
+.logos{
+    height: 10rem;
+    width: 10rem;
+    margin-left: 1.8rem;
+  }
+  
+  .left {
+    width: 15%;
+    left: 0;
+    background-color: #1A1A2E;
+  }
+  .NavContainers {
+    position: fixed;
+    background-color: #1A1A2E;
+    padding: 4px;
+    left: 100px;
+    top: 8rem;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    z-index: 10;
+  }
+  
+  #nav_lists {
+    list-style-type: none;
+    line-height: 2.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.938rem;
+    margin: 0;
+  }
+
+  
+.left a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+}
+
+.darkButtons{
+    border: #1e1e2e;
+    background-color: #1e1e2e;
+    border-radius: 1.563rem;
+   
+}
+.darkButtons{
+    color: white;
+}
+
+.darkButtons:hover, a:hover {
+    background-color: #996dc6;
+    border-radius: 1.563rem;
+    padding: 0 0.8rem;
+    transition: 250ms;
+}
+
+#gal-icons::after, #store-icons::after, #mas-icons::after, #dark-icons::after, #about-icons::after, #add-icons::after {
+    content: "";
+    color: #ffffff;
+    position: absolute;
+    background-color: #996dc6;
+    width: 0%;
+}
+
+#gal-icons i, #store-icons i, #mas-icons i, #dark-icons i, #about-icons i {
+    font-size: 1.5rem;
+}
+
+.menus {
+    font-size: 1rem; 
+}
+
+.left button:hover {
+    background-color: #996dc6;
+    transition: 250ms;
+}
+
+#dark-icons {
+    color: #ffffff;
+}
+
+#dark-icons::after {
+    content: "";
+    color: #ffffff;
+    position: absolute;
+    background-color: #996dc6;
+    width: 0%;
+}
+
+ #mas-icons   {
+    margin-right: 5.7rem;
+}
+#dark-icons{
+    margin-right: 6rem;
+}
+
+ #gal-icons {
+    margin-right: 7rem;
+}
+#store-icons{
+    margin-right: 7.2rem;
+}
+#about-icons{
+    margin-right: 7.3rem;
+}
+
+#add-icons{
+    margin-right: 7rem;
+}
+
+  .tabs1 {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 3rem;
+    font-size: 1.25rem;
+    background-color: #1A1A2E;
+    color: #fff;
+    border-top: 0.1rem solid #996DC6;
+  }
+  
+  .tab1 {
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    color: #ccc;
+    background-color: transparent;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .tab1.active {
+    font-weight: bold;
+    color: #fff;
+    background-color: #996DC6;
+  }
+  
+/* From Uiverse.io by vinodjangid07 */ 
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: rgb(227, 73, 160);
+}
+
+/* plus sign */
+.sign {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: white;
+}
+/* text */
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+/* hover effect on button width */
+.Btn:hover {
+  width: 125px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+
+.Btn:hover .sign {
+  width: 30%;
+  transition-duration: .3s;
+  padding-left: 5px;
+}
+/* hover effect button's text */
+.Btn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+/* button click effect*/
+.Btn:active {
+  transform: translate(2px ,2px);
+}
+
+
+.logout-container {
+  position: fixed;
+  background-color: #1A1A2E;
+  padding: 4px;
+  left: 35px;
+  top: 39rem;
+ 
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  
+  z-index: 10;
+}
