@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Shop from "./pages/shop";
 import Main from "./pages/main";
 import Cart from "./pages/cart";
+import CheckOut from "./pages/checkout";
 
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
           <Route path="/about" element={<Shop />} />
           <Route path="/upload" element={<Shop />} />
           <Route path="/profile" element={<Shop />} />
-          <Route path="/checkout" element={<Shop />} />
+          <Route path="/checkout" element={<CheckOut />} />
         </Routes>
       </BrowserRouter>
     </div>
