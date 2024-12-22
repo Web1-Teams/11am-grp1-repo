@@ -1,0 +1,291 @@
+[
+    {
+      "id": 1,
+      "title": "UIVERSE PREMIUM FONT (REGULAR)",
+      "subtitle": "By Artist A",
+      "price": 3.0,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Fonts",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 2,
+      "title": "Creative 3D Icon Pack",
+      "subtitle": "By Artist B",
+      "price": 5.0,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "3D Models",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 3,
+      "title": "Modern Web Graphics Set",
+      "subtitle": "By Artist C",
+      "price": 8.0,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Graphics",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 4,
+      "title": "Professional Resume Template",
+      "subtitle": "By Artist D",
+      "price": 2.5,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Templates",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 5,
+      "title": "Stylish UI Kit",
+      "subtitle": "By Artist E",
+      "price": 10.0,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Graphics",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 6,
+      "title": "High-Res Space Textures",
+      "subtitle": "By Artist F",
+      "price": 12.0,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Textures",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 7,
+      "title": "Hand-Drawn Icon Set",
+      "subtitle": "By Artist G",
+      "price": 4.0,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Icons",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 8,
+      "title": "Corporate Presentation Template",
+      "subtitle": "By Artist H",
+      "price": 6.0,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Templates",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 9,
+      "title": "Fantasy Character Model",
+      "subtitle": "By Artist I",
+      "price": 20.0,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "3D Models",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 10,
+      "title": "Creative Infographic Pack",
+      "subtitle": "By Artist J",
+      "price": 7.0,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Graphics",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 11,
+      "title": "Dark UI Dashboard Template",
+      "subtitle": "By Artist K",
+      "price": 15.0,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Templates",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 12,
+      "title": "Modern Font Collection",
+      "subtitle": "By Artist L",
+      "price": 3.5,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Fonts",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 13,
+      "title": "Retro Icon Pack",
+      "subtitle": "By Artist M",
+      "price": 5.5,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Icons",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 14,
+      "title": "Low-Poly Terrain Model",
+      "subtitle": "By Artist N",
+      "price": 18.0,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "3D Models",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 15,
+      "title": "Luxury Resume Template",
+      "subtitle": "By Artist O",
+      "price": 2.8,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Templates",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 16,
+      "title": "Nature Background Textures",
+      "subtitle": "By Artist P",
+      "price": 9.0,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Textures",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 17,
+      "title": "Elegant Business Card Design",
+      "subtitle": "By Artist Q",
+      "price": 4.5,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Graphics",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 18,
+      "title": "Vintage Poster Mockup",
+      "subtitle": "By Artist R",
+      "price": 6.5,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Graphics",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 19,
+      "title": "Dynamic Presentation Template",
+      "subtitle": "By Artist S",
+      "price": 11.0,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Templates",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 20,
+      "title": "Isometric City Pack",
+      "subtitle": "By Artist T",
+      "price": 25.0,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "3D Models",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 21,
+      "title": "Bold Typography Font",
+      "subtitle": "By Artist U",
+      "price": 2.2,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Fonts",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 22,
+      "title": "Abstract Gradient Backgrounds",
+      "subtitle": "By Artist V",
+      "price": 5.0,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Textures",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 23,
+      "title": "Playful Icon Set",
+      "subtitle": "By Artist W",
+      "price": 6.0,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Icons",
+
+      "isOwned": false,
+      "isWishlisted": false
+    },
+    {
+      "id": 24,
+      "title": "Professional Website Template",
+      "subtitle": "By Artist X",
+      "price": 3000.0,
+      "image": "https://placehold.co/200x150",
+      "modalImage": "https://placehold.co/600x400",
+      "category": "Templates",
+
+      "isOwned": false,
+      "isWishlisted": false
+    }
+  ]
+  

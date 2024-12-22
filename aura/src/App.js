@@ -8,6 +8,7 @@ import Cart from "./pages/cart";
 
 import Profile from "./pages/profile";
 
+
 function App() {
   // Function to load cart items from localStorage
   const loadCartItems = () => {
@@ -35,7 +36,9 @@ function App() {
           <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
           <Route path="/about" element={<Shop />} />
           <Route path="/upload" element={<Shop />} />
+
           <Route path="/profile" element={<Profile />} />
+
           <Route path="/checkout" element={<Shop />} />
         </Routes>
       </BrowserRouter>
