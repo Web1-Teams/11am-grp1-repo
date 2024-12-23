@@ -11,10 +11,9 @@ const ProfileTabs = () => {
   const [salePaintings, setSalePaintings] = useState([]);
 
   useEffect(() => {
-    // Fetch data from the JSON file
     const fetchPaintings = async () => {
       try {
-        const response = await fetch('/profile.json'); // Replace with the correct path to your JSON file
+        const response = await fetch('/profile.json'); 
         const data = await response.json();
         setShowPaintings(data.showPaintings);
         setSalePaintings(data.salePaintings);

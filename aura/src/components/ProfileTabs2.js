@@ -10,13 +10,12 @@ const ProfileTabs = () => {
   const [showPaintings, setShowPaintings] = useState([]);
   const [salePaintings, setSalePaintings] = useState([]);
 
-  // Fetch the JSON data from the public folder
   useEffect(() => {
     fetch('/profile2.json')
       .then((response) => response.json())
       .then((data) => {
-        setShowPaintings(data.showPaintings); // Assuming the JSON has 'showPaintings' array
-        setSalePaintings(data.salePaintings); // Assuming the JSON has 'salePaintings' array
+        setShowPaintings(data.showPaintings); 
+        setSalePaintings(data.salePaintings); 
       })
       .catch((error) => console.error('Error loading paintings data:', error));
   }, []);
