@@ -1,13 +1,12 @@
 
 import logoImage from "../images/AURA.png";
 import { Link } from 'react-router-dom';
+import "../pages/styles/shop-navbar-style.css"
 
 const Navbar = () => {
     return (
         <nav className="shop-styling">
-            <Link to="/home" className="logo">
-                <img src={logoImage} alt="logo" />
-            </Link>
+            <Link to="/home" className="logo" />
             <img
                 className="logo"
                 src={logoImage}

@@ -1,3 +1,6 @@
+import "../pages/styles/shop-footer-style.css"
+
+
 const Footer = ({ currentPage, totalPages, onNext, onPrev }) => {
     return (
         <footer className="footer">

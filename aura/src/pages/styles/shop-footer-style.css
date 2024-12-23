@@ -1,0 +1,35 @@
+.shop-styling .footer button > svg {
+    margin-left: 5px;
+    transition: all 0.4s ease-in;
+  }
+  
+  .shop-styling .next-footer:hover > svg {
+    font-size: 1.2em;
+    transform: translateX(6px);
+  }
+  .shop-styling footer{
+    display: flex;
+    grid-area: footer;
+    margin: 1%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+}
+.shop-styling .next-footer{
+
+    margin-left: 30em;
+  }
+  .shop-styling .back-footer{
+    margin-right: 30em;
+    flex-direction: row-reverse;
+  }
+  .shop-styling .back-footer > svg{
+    transform: rotate(180deg);
+    margin-right: 5px;
+  }
+  .shop-styling .back-footer:hover > svg {
+    font-size: 1.2em;
+    transform: rotate(180deg)
+    translateX(6px)
+  }
+

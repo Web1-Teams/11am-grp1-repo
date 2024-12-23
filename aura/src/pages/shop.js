@@ -1,10 +1,11 @@
+import "./styles/shop-page-style.css";
 import Footer from "../components/shop-footer";
 import ShopItem from "../components/shop-item";
 import Navbar from "../components/shop-navbar";
 import ShopSidebar from "../components/shop-sidebar";
-import "./styles/shop-style.css";
 import shopItems from "../data/shop-items-data.json";
 import { useState, useEffect, useMemo } from "react";
+
 
 const ITEMS_PER_PAGE = 12;
 

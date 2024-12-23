@@ -1,4 +1,5 @@
 import React from 'react';
+import "../pages/styles/shop-sidebar-style.css"
 
 const ShopSidebar = ({
   categoryFilter,
