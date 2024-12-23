@@ -1,4 +1,4 @@
-/* Modal */
+
 .modals {
     display: none;
     position: fixed;
@@ -14,7 +14,7 @@
   }
   
   .modals.open {
-    display: flex; /* Make sure it's displayed when open */
+    display: flex; 
   }
   
 

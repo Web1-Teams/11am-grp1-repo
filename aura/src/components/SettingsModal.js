@@ -8,59 +8,54 @@ const SettingsModal = () => {
     const closeSettingsBtn = document.querySelector(".close-settings");
     const saveSettingsBtn = document.querySelector(".save-settings");
 
+    const openModal = () => {
+      settingsModal.style.display = "flex";
+    };
+
+    const closeModal = () => {
+      settingsModal.style.display = "none";
+    };
+
+    const saveSettings = () => {
+      const notifications = document.getElementById("notifications")?.checked;
+      const darkMode = document.getElementById("darkModes")?.checked;
+      const language = document.getElementById("language")?.value;
+
+      console.log("Settings saved:");
+      console.log("Notifications: " + notifications);
+      console.log("Dark Mode: " + darkMode);
+      console.log("Language: " + language);
+
+      settingsModal.style.display = "none";
+    };
+
     if (gearIcon) {
-      gearIcon.addEventListener("click", () => {
-        settingsModal.style.display = "flex";
-      });
+      gearIcon.addEventListener("click", openModal);
     }
 
     if (closeSettingsBtn) {
-      closeSettingsBtn.addEventListener("click", () => {
-        settingsModal.style.display = "none";
-      });
+      closeSettingsBtn.addEventListener("click", closeModal);
     }
 
     window.addEventListener("click", (e) => {
       if (e.target === settingsModal) {
-        settingsModal.style.display = "none";
+        closeModal();
       }
     });
 
     if (saveSettingsBtn) {
-      saveSettingsBtn.addEventListener("click", () => {
-        const notifications = document.getElementById("notifications").checked;
-        const darkMode = document.getElementById("darkMode").checked;
-        const language = document.getElementById("language").value;
-
-        console.log("Settings saved:");
-        console.log("Notifications: " + notifications);
-        console.log("Dark Mode: " + darkMode);
-        console.log("Language: " + language);
-
-        settingsModal.style.display = "none";
-      });
+      saveSettingsBtn.addEventListener("click", saveSettings);
     }
 
     return () => {
-      if (gearIcon) gearIcon.removeEventListener("click", () => settingsModal.style.display = "flex");
-      if (closeSettingsBtn) closeSettingsBtn.removeEventListener("click", () => settingsModal.style.display = "none");
+      if (gearIcon) gearIcon.removeEventListener("click", openModal);
+      if (closeSettingsBtn) closeSettingsBtn.removeEventListener("click", closeModal);
       window.removeEventListener("click", (e) => {
         if (e.target === settingsModal) {
-          settingsModal.style.display = "none";
+          closeModal();
         }
       });
-      if (saveSettingsBtn) saveSettingsBtn.removeEventListener("click", () => {
-        const notifications = document.getElementById("notifications").checked;
-        const darkMode = document.getElementById("darkMode").checked;
-        const language = document.getElementById("language").value;
-
-        console.log("Settings saved:");
-        console.log("Notifications: " + notifications);
-        console.log("Dark Mode: " + darkMode);
-        console.log("Language: " + language);
-
-        settingsModal.style.display = "none";
-      });
+      if (saveSettingsBtn) saveSettingsBtn.removeEventListener("click", saveSettings);
     };
   }, []);
 

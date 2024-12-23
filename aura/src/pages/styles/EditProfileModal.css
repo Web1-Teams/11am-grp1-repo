@@ -8,7 +8,7 @@
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
 }
-/* Modal Header */
+
 .modal-header {
     display: flex;
     justify-content: space-between;
@@ -59,7 +59,6 @@
     resize: none;
 }
 
-/*profile picture */
 .profile-picture-preview {
     display: flex;
     align-items: center;
@@ -91,7 +90,6 @@ input[type="file"] {
     display: none;
 }
 
-/*form actions */
 .form-actions {
     display: flex;
     justify-content: flex-end;
@@ -123,7 +121,6 @@ input[type="file"] {
     background: #996DC6;
 }
 
-/*show modal when activated */
 .edit-profile-modal.active {
     display: flex;
 }
@@ -133,7 +130,6 @@ input[type="file"] {
     background-color: white;
 }
 
-/*modal overlay */
 .edit-profile-modal {
     display: none; 
     position: fixed;
@@ -148,7 +144,6 @@ input[type="file"] {
     z-index: 1000;
 }
 
-/*modal Content */
 .edit-profile-modal .modal-content {
     position: fixed;
     top: 50%;

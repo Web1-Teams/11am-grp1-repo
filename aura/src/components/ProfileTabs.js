@@ -10,20 +10,16 @@ const ProfileTabs = () => {
   const [showPaintings, setShowPaintings] = useState([]);
   const [salePaintings, setSalePaintings] = useState([]);
 
-  useEffect(() => {
-    const fetchPaintings = async () => {
-      try {
-        const response = await fetch('/profile.json'); 
-        const data = await response.json();
-        setShowPaintings(data.showPaintings);
-        setSalePaintings(data.salePaintings);
-      } catch (error) {
-        console.error('Error fetching the paintings data:', error);
-      }
-    };
-
-    fetchPaintings();
-  }, []);
+ useEffect(() => {
+     fetch('/profile.json')
+       .then((response) => response.json())
+       .then((data) => {
+         setShowPaintings(data.showPaintings); 
+         setSalePaintings(data.salePaintings); 
+       })
+       .catch((error) => console.error('Error loading paintings data:', error));
+   }, []);
+ 
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
