@@ -15,6 +15,7 @@
 * {
   user-select: none;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .shop-styling img {
@@ -67,7 +68,9 @@
       "sidebar main"
       "sidebar footer";
     min-height: 100vh;
+    transition: all 0.3 ease-in-out;
 }
+
 
 @media (max-width: 1200px) {
  
@@ -75,27 +78,21 @@
       grid-template-columns: 1fr;
   }
   
-  .shop-styling .group{
-      width: 300px;
-    }
     
     }
 
-    @media (max-width: 768px) {
+@media (max-width: 768px) {
       .shop-styling .shop-items{
-          grid-template-columns: repeat(1,1fr);
+          grid-template-columns: 1fr;
       }
-      .shop-styling .group{
-          width: 15em;
-          left:35%;
-        }
-        .shop-styling .profile{
-          margin-top: 2%;
-          margin-right: 2%;
-        }
-            
-    
-    }
+      .shop-styling .layout {
+        grid-template-columns:  5rem 1fr;
+      }
+      .shop-styling .layout.active {
+        grid-template-columns:  16rem 1fr;
+      }
+
+}
 
 
 

@@ -82,7 +82,7 @@ const Shop = ({ cartItems, setCartItems }) => {
 
   return (
     <div className="shop-styling">
-      <div className="layout">
+      <div className={isFilterActive ? "layout active" : 'layout'}>
         <Navbar />
         <ShopSidebar
           categoryFilter={categoryFilter}

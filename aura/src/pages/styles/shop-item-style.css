@@ -29,6 +29,9 @@
     justify-content: center;
     gap: 15px;
 }
+.card *{
+    overflow-x: visible;
+}
 
 .shop-styling .card-image {
     width: 100%;
@@ -40,6 +43,7 @@
     border-radius: 0.7em;
     cursor: pointer;
     position: relative;
+    overflow-x: hidden;
 }
 
 .shop-styling .content {

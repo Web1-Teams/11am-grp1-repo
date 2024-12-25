@@ -32,7 +32,7 @@ const ShopItem = ({ data, addToCart, cartItems }) => {
                                     <div className="left-section">
                                         <img className="modal-img" src={data.modalImage} alt={data.title} />
                                         <h1 className="left-title">{data.title}</h1>
-                                        <p className="description">Item's description...</p>
+                                        <p className="description left-desc">Item's description...</p>
                                     </div>
                                     <div className="right-section">
                                         <div className="right-desc">

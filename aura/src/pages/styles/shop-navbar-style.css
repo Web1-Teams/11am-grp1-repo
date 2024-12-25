@@ -12,7 +12,9 @@
     overflow: hidden; 
     justify-content: flex-end;
     align-items: center;
+    width: 98%;
   }
+
 
   .shop-styling .group {
     display: flex;
@@ -23,6 +25,10 @@
     left: 30%;
     top: 20px
   }
+  .shop-styling nav * {
+    overflow-x: visible;
+  }
+
   
   .shop-styling .group .input {
     height: 40px;
@@ -62,7 +68,7 @@
   .shop-styling .profile img{
     border-radius: 50%;
     box-shadow: 0 0 5px #996dc6, 0 0 0 1px #996dc6;
-
+    overflow-x: hidden;
   }
   .shop-styling .profile {
     margin-right: 1.5em;
@@ -78,6 +84,7 @@
     margin-bottom: 1.8em;
   }
 
+
   .shop-styling .logo {
     position: absolute;
     width: 200px;
@@ -87,6 +94,7 @@
     filter: drop-shadow(0 0 1px #996dc6);
     cursor: pointer;
     z-index: 5;
+    overflow-x: hidden;
   }
   .shop-styling .logo:hover{
     filter: drop-shadow(0 0 2px #996dc6);

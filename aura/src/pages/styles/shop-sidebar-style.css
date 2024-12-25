@@ -91,6 +91,7 @@
     margin-top: 15px;
   }
   
+  
   .shop-styling .tabs * {
     z-index: 2;
   }
@@ -129,5 +130,46 @@
     background-color: #fff;
     z-index: 1;
     border-radius: 99px;
-    transition: 0.25s ease-out;
+    transition: all 0.25s ease-out;
   }
+  .shop-styling .container {
+    position: absolute;
+    width: 100%;
+    height: 300%;
+    overflow-x: visible;
+    transition: left 0.3s ease-in-out; 
+  }
+  
+  .shop-styling .filters {
+    position: absolute;
+    transition: left 0.3s ease-in-out; 
+  }
+  .shop-styling .container *{
+    overflow-x: visible;
+  }
+
+
+@media (max-width: 768px) {
+.shop-styling .container{
+  left: -3em;
+  .filters{
+  left: -15em;
+  }
+  .glider{
+   left:-1em;
+  }
+}
+
+.shop-styling .container.active {
+  left: 1em;
+  .glider{
+    left:0.7em;
+  }
+  
+}
+
+.shop-styling .filters.active {
+  left: 0.5em;
+}
+
+}
