@@ -5,24 +5,33 @@ import '../pages/styles/ProfileHeader.css';
 
 const ProfileHeader = () => {
   return (
-    <div className="middle-top">
+    <div className="middle-top"> {/* Wrapper for the top section of the profile */}
+      
+      {/* Container for profile and background images */}
       <div className="profile-container">
-        <img src={prof} alt="Profile" className="profiles" />
-        <img src={back} alt="Background" className="back" />
+        <img src={prof} alt="Profile" className="profiles" /> {/* Profile picture */}
+        <img src={back} alt="Background" className="back" /> {/* Background image */}
       </div>
 
+      {/* Section for displaying user details and bio */}
       <div className="profile-details">
-        <p className="status">
-          <span><b>Sara Qadi</b></span>
+        <p className="status"> {/* Status section containing name, posts, followers, and actions */}
+          <span><b>Sara Qadi</b></span> {/* User's name */}
           <br />
           <br />
-          <span><strong>15</strong> Posts</span>
+          <span><strong>15</strong> Posts</span> {/* Number of posts */}
           {" | "}
-          <span><strong>350</strong> Followers</span>
-          <button id="editProfileButton" className="edit-profile-btn" >Edit Profile</button>
-          <i className="fa fa-gear"></i>
+          <span><strong>350</strong> Followers</span> {/* Number of followers */}
+          <button 
+            id="editProfileButton" 
+            className="edit-profile-btn"
+          >
+            Edit Profile {/* Button for editing profile */}
+          </button>
+          <i className="fa fa-gear"></i> {/* Settings icon */}
         </p>
 
+        {/* Textarea for editing or displaying the user's bio */}
         <textarea
           className="bio"
           rows="7"

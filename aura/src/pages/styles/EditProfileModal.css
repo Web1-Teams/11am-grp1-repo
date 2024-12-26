@@ -1,17 +1,18 @@
-
+/* Overlay for modal background, making it semi-transparent */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 999; /* Make sure it's above other content */
 }
 
+/* Header of the modal, keeps the title and close button in place */
 .modal-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Space between title and close button */
     align-items: center;
     margin-bottom: 1rem;
 }
@@ -19,21 +20,23 @@
 .modal-header h3 {
     font-size: 1.5rem;
     color: #333;
-    margin: 0;
+    margin: 0; /* Remove default margin */
 }
 
+/* Close button style */
 .close-btn {
     font-size: 1.5rem;
-    background: none;
-    border: none;
+    background: none; /* No background */
+    border: none; /* No border */
     color: #666;
-    cursor: pointer;
+    cursor: pointer; /* Show pointer on hover */
 }
 
 .close-btn:hover {
-    color: #996DC6;
+    color: #996DC6; /* Change color on hover */
 }
 
+/* Form fields styling */
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -42,23 +45,25 @@
     font-size: 1rem;
     color: #555;
     margin-bottom: 0.5rem;
-    display: block;
+    display: block; /* Makes the label block level */
 }
 
 .form-group input,
 .form-group textarea {
-    width: 100%;
+    width: 100%; /* Full width */
     padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 0.5rem; /* Rounded corners */
     font-size: 1rem;
     color: #333;
 }
 
+/* Prevent textarea resizing */
 .form-group textarea {
     resize: none;
 }
 
+/* Profile picture preview section */
 .profile-picture-preview {
     display: flex;
     align-items: center;
@@ -68,11 +73,12 @@
 .profile-picture-preview img {
     width: 60px;
     height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
+    border-radius: 50%; /* Makes it round */
+    object-fit: cover; /* Ensures image fits within the circle */
     border: 1px solid #ccc;
 }
 
+/* Update button style */
 .update-btn {
     padding: 0.5rem 1rem;
     background: #996DC6;
@@ -83,16 +89,18 @@
 }
 
 .update-btn:hover {
-    background: #996DC6;
+    background: #996DC6; /* Same color on hover */
 }
 
+/* Hide the file input field */
 input[type="file"] {
     display: none;
 }
 
+/* Actions for saving or canceling */
 .form-actions {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; /* Right-aligned buttons */
     gap: 1rem;
 }
 
@@ -105,7 +113,7 @@ input[type="file"] {
 }
 
 .cancel-btn:hover {
-    background: #bbb;
+    background: #bbb; /* Slightly darker gray on hover */
 }
 
 .save-btn {
@@ -118,43 +126,44 @@ input[type="file"] {
 }
 
 .save-btn:hover {
-    background: #996DC6;
+    background: #996DC6; /* Same color on hover */
 }
 
+/* When modal is active, display it */
 .edit-profile-modal.active {
     display: flex;
 }
 
-.bio2{
+/* The modal styling */
+.bio2 {
     font-family: 'Times New Roman', Times, serif;
-    background-color: white;
 }
 
 .edit-profile-modal {
-    display: none; 
+    display: none; /* Initially hidden */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Darkened background */
+    justify-content: center; /* Center modal */
     align-items: center;
     animation: fadeIn 0.3s ease-out;
-    z-index: 1000;
+    z-index: 1000; /* Ensure modal is on top */
 }
 
+/* Modal content itself */
 .edit-profile-modal .modal-content {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); /* Center it using transform */
     background: #fff;
     border-radius: 1rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slight shadow */
     width: 400px;
     padding: 2rem;
-    z-index: 1001; 
+    z-index: 1001; /* Above the overlay */
     font-family: 'Times New Roman', Times, serif;
 }
-
