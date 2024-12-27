@@ -1,11 +1,10 @@
-body {
+.checkout-style body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1a1a2e;
 }
 
-.container {
+.checkout-style .container {
     max-width: 900px;
     margin: 20px auto;
     padding: 20px;
@@ -14,54 +13,54 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+.checkout-style h1 {
     text-align: center;
-    color: #333;
+    color: #fff;
 }
 
-h2 {
+.checkout-style h2 {
     margin-bottom: 10px;
-    color: #555;
+    color: #fff;
 }
 
-.payment-form {
+.checkout-style .payment-form {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-.section {
+.checkout-style .section {
     width: 48%;
 }
 
-label {
+.checkout-style label {
     display: block;
     margin-bottom: 15px;
     font-size: 14px;
-    color: #444;
+    color: #fff;
 }
 
-input {
+.checkout-style input {
     width: 95%;
     padding: 10px;
     border: 1px solid #4f4f4f;
     border-radius: 4px;
     margin-top: 5px;
-    background-color: #444;
+    background-color: #fff;
 }
 
-.card-icons img {
+.checkout-style .card-icons img {
     width: 50px;
     height: 39px;
     object-fit: contain;
     margin-right: 10px;
 }
 
-button {
+.checkout-style button {
     width: 100%;
     padding: 15px;
     font-size: 16px;
-    color: #1E1E2C;
+    color: #fff;
     background-color: #996dc6;
     border: none;
     border-radius: 5px;
@@ -69,12 +68,12 @@ button {
     margin-top: 20px;
 }
 
-button:hover {
+.checkout-style button:hover {
     background-color: #996dc6;
 }
 
 @media (max-width: 768px) {
-    .section {
+    .checkout-style .section {
         width: 100%;
-    }
-}
+   }
+ }   

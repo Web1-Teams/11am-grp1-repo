@@ -96,10 +96,10 @@ const CheckOut = () => {
           <h2>Payment</h2>
           <label>Accepted Cards:</label>
           <div className="card-icons">
-            <img src="Paypal-Logo-2022.png" alt="PayPal" />
-            <img src="MasterCard_Logo.svg.png" alt="MasterCard" />
-            <img src="americanimages.png" alt="American Express" />
-            <img src="VISA-logo-768x432.png" alt="Visa" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/PayPal_logo.svg/512px-PayPal_logo.svg.png" alt="PayPal" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/512px-Mastercard-logo.svg.png" alt="MasterCard" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/640px-American_Express_logo_%282018%29.svg.png" alt="American Express" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" />
           </div>
           <label>
             Name On Card:
