@@ -1,8 +1,29 @@
 .shop-styling .sidebar {
-    top: 110px;
-    align-self: start;
-    grid-area: sidebar;
-    margin-left: 30px;
+  top: 100px;
+  align-self: start;
+  margin-left: 30px;
+  width: 16em;
+  height:auto;
+  position: fixed;
+  z-index: 10;
+  padding-left: 1em;
+  margin-left: 1em;
+}
+.shop-styling .sidebar *{
+overflow-x: visible;
+}
+.shop-styling .filters::-webkit-scrollbar {
+    width: 5px;
+}
+
+.shop-styling .filters::-webkit-scrollbar-thumb {
+    background-color: #996dc6; 
+    border-radius: 10px;
+}
+
+.shop-styling .filters::-webkit-scrollbar-track {
+    background-color: #2a2e3c;
+    border-radius: 10px;
 }
 
 .radio-input {
@@ -89,6 +110,8 @@
     border-radius: 99px;
     width:max-content;
     margin-top: 15px;
+    z-index: 5;
+    margin-bottom: 1em;
   }
   
   
@@ -138,15 +161,30 @@
     height: 300%;
     overflow-x: visible;
     transition: left 0.3s ease-in-out; 
+    height: max-content;
   }
   
   .shop-styling .filters {
     position: absolute;
-    transition: left 0.3s ease-in-out; 
+    transition: all 0.3s ease-in-out; 
+    overflow-y: scroll;
+    max-height: 80vh;
+    width: max-content;
+    padding-left:1em ;
+    padding-right: 1em;
+    padding-bottom: 2em;
   }
   .shop-styling .container *{
     overflow-x: visible;
   }
+  .shop-styling .container, .shop-styling .filters, .shop-styling .glider {
+    will-change: left;
+}
+
+.shop-styling .clr{
+  margin-top: 2em;
+  margin-bottom: 4em;
+}
 
 
 @media (max-width: 768px) {
@@ -170,6 +208,20 @@
 
 .shop-styling .filters.active {
   left: 0.5em;
+}
+.shop-styling .sidebar.active{
+  padding-left: 1em;
+  margin-left: 0em;
+}
+.shop-styling .sidebar{
+  padding-left: 0em;
+  margin-left: 0em;
+}
+.shop-styling .filters.active {
+  overflow-y: auto;
+}
+.shop-styling .filters {
+  overflow-y: hidden;
 }
 
 }

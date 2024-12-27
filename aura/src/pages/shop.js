@@ -93,17 +93,19 @@ const Shop = ({ cartItems, setCartItems }) => {
           handleAllTabClick={handleAllTabClick}
           handleFilterTabClick={handleFilterTabClick}
         />
-        <main className="shop-items">
+        <main className={isFilterActive ? "shop-items active" : "shop-items"}>
           {currentItems.map(item => (
             <ShopItem
               key={item.id}
               data={item}
               addToCart={addToCart}
               cartItems={cartItems}
+              isFilterActive={isFilterActive}
             />
           ))}
         </main>
         <Footer
+          isFilterActive={isFilterActive}
           currentPage={currentPage}
           totalPages={totalPages}
           onNext={handleNextPage}

@@ -12,7 +12,7 @@ const ShopSidebar = ({
 }) => {
   return (
     <>
-      <aside className="sidebar shop-styling">
+      <aside className={`sidebar shop-styling ${isFilterActive ? 'active' : ''}`}>
         <div className={`container ${isFilterActive ? 'active' : ''}`}> {/* Add active class */}
           <div className="tabs">
             <input
@@ -166,7 +166,7 @@ const ShopSidebar = ({
               </div>
             </div>
             <button
-              className={!isFilterActive ? 'filter-disabled' : ''}
+              className={!isFilterActive ? 'clr filter-disabled' : 'clr'}
               onClick={() => { setCategoryFilter("All"); setPriceFilter("All"); }}
               disabled={!isFilterActive}
             >

@@ -8,16 +8,12 @@ import Cart from "./pages/cart";
 
 
 function App() {
-  // Function to load cart items from localStorage
   const loadCartItems = () => {
     const savedCart = localStorage.getItem("cartItems");
     return savedCart ? JSON.parse(savedCart) : [];
   };
 
-  // State to manage cart items
   const [cartItems, setCartItems] = useState(loadCartItems());
-
-  // UseEffect to persist cart items in localStorage
   useEffect(() => {
     if (cartItems.length > 0) {
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
