@@ -5,7 +5,7 @@ import "./styles/menuebar.css"
 const Main = () => {
     return (
         <div>
-            <Navbar />
+            <div className="shop-styling"><Navbar /></div>
             <Menuebar />
         </div>
     )

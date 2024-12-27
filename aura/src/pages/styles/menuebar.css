@@ -32,6 +32,9 @@ a{
     text-decoration: none;
 
 }
+.dark-mode button{
+    all:unset;
+}
 .dark-mode{
     all:unset;
     border: #1e1e2e;
