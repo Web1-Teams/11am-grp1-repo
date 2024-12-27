@@ -1,50 +1,40 @@
-const CartItems = () => {
-    return (
-      <section className="cart-items">
-        <h2>Items in my cart</h2>
+const CartItems = ({ cartItems, setCartItems }) => {
+  const handleRemoveFromCart = (id) => {
+    setCartItems(prevItems => prevItems.filter(item => item.id !== id));
+  };
+  return (
+    <section className="cart-items">
+      <h2>Cart</h2>
+      {cartItems && cartItems.length > 0 ? (
         <table>
           <thead>
             <tr>
               <th>Item</th>
+              <th>Title</th>
               <th>Unit Price</th>
-              <th>Quantity</th>
-              <th>Final Price</th>
-              <th>Remove</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <img src="AURA.png" alt="Levi's Jeans 501" />
-              </td>
-              <td>22€</td>
-              <td>
-                <button>-</button> 2 <button>+</button>
-              </td>
-              <td>44€</td>
-              <td>
-                <button className="remove">x</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="AURA.png" alt="Shirt" />
-              </td>
-              <td>16€</td>
-              <td>
-                <button>-</button> 3 <button>+</button>
-              </td>
-              <td>48€</td>
-              <td>
-                <button className="remove">x</button>
-              </td>
-            </tr>
-            {/* Add other items similarly */}
+            {cartItems.map(item => (
+              <tr key={item.id}>
+                <td>
+                  <img src={item.image} alt={item.title} className="modal-img" />
+                </td>
+                <td>{item.title}</td>
+                <td>{item.price}€</td>
+                <td>
+                  <button className="clear" onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
-      </section>
-    );
-  };
-  
-  export default CartItems;
-  
+      ) : (
+        <p>No items in the cart</p>
+      )}
+    </section>
+  );
+};
+
+export default CartItems;

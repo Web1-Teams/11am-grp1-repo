@@ -1,21 +1,22 @@
-
 import { useState } from "react";
-
-
-const ShopItem = () => {
-
-
+const ShopItem = ({ data, addToCart, cartItems }) => {
     const [Modal, SetModal] = useState(false);
 
     const ToggleModal = () => {
         SetModal(!Modal);
-    }
+    };
 
+    const isItemInCart = (cartItems || []).some(item => item.id === data.id);
     return (
         <div className="card">
             <div className="wrapper">
                 <div className="img-container">
-                    <img className="card-image" src="https://placehold.co/600x400" width="200px" />
+                    <img
+                        className="card-image"
+                        src={data.image}
+                        alt={data.title}
+                        width="200px"
+                    />
                     <button onClick={ToggleModal} className="view-btn">
                         View
                     </button>
@@ -23,33 +24,34 @@ const ShopItem = () => {
                     {Modal && (
                         <>
                             <div className="pop-up">
-                                <img className="modal-img" src="https://placehold.co/600x400" />
+                                <img className="modal-img" src={data.modalImage} alt={data.title} />
                                 <div className="inner-modal">
-                                    <h1>Tiltle</h1>
-                                    <h4>subtitle</h4>
-                                    <p className="title price">$3</p>
+                                    <h1>{data.title}</h1>
+                                    <h4>{data.subtitle}</h4>
+                                    <p className="title price">${data.price}</p>
                                 </div>
-                                <div className="side-panel">
-
-                                </div>
-                                <button className="X-btn" onClick={ToggleModal}>X</button>
+                                <button className="X-btn" onClick={ToggleModal}>
+                                    X
+                                </button>
                             </div>
                             <div onClick={ToggleModal} className="overlay" />
                         </>
-
                     )}
-
                 </div>
                 <div className="content">
-                    <p className="title">UIVERSE PREMIUM FONT (REGULAR)<br /></p><br />
-                    <p className="name">By<br /> Artist</p>
-                    <p className="title price">$3</p>
-                    <p></p>
+                    <p className="title">{data.title}</p>
+                    <p className="name">{data.subtitle}</p>
+                    <p className="title price">${data.price}</p>
                 </div>
-                <button className="card-btn">Add to cart</button>
+                <button
+                    className={isItemInCart ? 'card-btn filter-disabled' : 'card-btn'}
+                    onClick={() => addToCart(data)}
+                >
+                    {isItemInCart ? "In Cart" : "Add to Cart"}
+                </button>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default ShopItem;
