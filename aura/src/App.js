@@ -5,6 +5,11 @@ import Shop from "./pages/shop";
 import Main from "./pages/main";
 
 import Cart from "./pages/cart";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import ResetPassword from "./pages/ResetPassword";
+import Verification from "./pages/Verification";
+import ForgotPassword from "./pages/ForgotPassword";
 
 
 
@@ -20,6 +25,11 @@ function App() {
           <Route path="/community" element={<Shop />} />
 
           <Route path="/cart" element={<Cart/>} />
+          <Route path="/sign-in" element={<SignIn/>} />
+          <Route path="/sign-up" element={<SignUp/>} />
+          <Route path="/reset-pass" element={<ResetPassword/>} />
+          <Route path="/verification" element={<Verification/>} />
+          <Route path="/forgot-pass" element={<ForgotPassword/>} />
 
          
           <Route path="/about" element={<Shop />} />
