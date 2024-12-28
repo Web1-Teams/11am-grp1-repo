@@ -54,7 +54,7 @@ const Main = () => {
     return (
 
         <div>
-
+            <div className="shop-styling"><Navbar /></div>
             <Menuebar />
             <div className="container">
                 {images.map((image, index) => (

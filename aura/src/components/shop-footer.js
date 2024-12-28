@@ -1,6 +1,9 @@
-const Footer = ({ currentPage, totalPages, onNext, onPrev }) => {
+import "../pages/styles/shop-footer-style.css"
+
+
+const Footer = ({ currentPage, totalPages, onNext, onPrev, isFilterActive }) => {
     return (
-        <footer className="footer">
+        <footer className={isFilterActive ? "footer active" : "footer"}>
             <div>
                 <button
                     className={`back-footer ${currentPage === 1 ? 'filter-disabled' : ''}`}
@@ -27,7 +30,7 @@ const Footer = ({ currentPage, totalPages, onNext, onPrev }) => {
             </div>
             <div>
                 <span>
-                    Page {currentPage} of {totalPages}
+                    <br /> {currentPage} of {totalPages}
                 </span>
             </div>
             <div>

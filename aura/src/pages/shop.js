@@ -1,10 +1,11 @@
+import "./styles/shop-page-style.css";
 import Footer from "../components/shop-footer";
 import ShopItem from "../components/shop-item";
 import Navbar from "../components/shop-navbar";
 import ShopSidebar from "../components/shop-sidebar";
-import "./styles/shop-style.css";
 import shopItems from "../data/shop-items-data.json";
 import { useState, useEffect, useMemo } from "react";
+
 
 const ITEMS_PER_PAGE = 12;
 
@@ -81,7 +82,7 @@ const Shop = ({ cartItems, setCartItems }) => {
 
   return (
     <div className="shop-styling">
-      <div className="layout">
+      <div className={isFilterActive ? "layout active" : 'layout'}>
         <Navbar />
         <ShopSidebar
           categoryFilter={categoryFilter}
@@ -92,17 +93,19 @@ const Shop = ({ cartItems, setCartItems }) => {
           handleAllTabClick={handleAllTabClick}
           handleFilterTabClick={handleFilterTabClick}
         />
-        <main className="shop-items">
+        <main className={isFilterActive ? "shop-items active" : "shop-items"}>
           {currentItems.map(item => (
             <ShopItem
               key={item.id}
               data={item}
               addToCart={addToCart}
               cartItems={cartItems}
+              isFilterActive={isFilterActive}
             />
           ))}
         </main>
         <Footer
+          isFilterActive={isFilterActive}
           currentPage={currentPage}
           totalPages={totalPages}
           onNext={handleNextPage}
