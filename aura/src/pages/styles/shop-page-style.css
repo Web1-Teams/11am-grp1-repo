@@ -1,4 +1,5 @@
 .shop-styling body {
+  all: unset;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -9,13 +10,17 @@
   height: auto;
   height: 100%;
   transition: all 0.2s ease-in-out;
+  color: #fff;
+}
+.shop-styling .text{
+  all: unset;
 }
 
 .shop-styling {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  color: #ffffff;
+  color: #fff;
 }
 
 * {

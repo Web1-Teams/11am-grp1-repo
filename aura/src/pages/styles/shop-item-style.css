@@ -179,12 +179,15 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 17em;
+        height: 15em;
+    }
+    .shop-styling .card *{
+        font-size: 9px;
     }
 
     .shop-styling .card:hover .card-btn,
     .card:hover .content {
-    margin-top: 0em;
+    margin-top: -2em;
     }
 
     .shop-styling .card-image {

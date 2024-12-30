@@ -1,19 +1,18 @@
 .shop-styling nav{
-  top:0;
-  grid-area: navbar;
-  margin:20px;
+  top:20px;
   position: fixed;
   display: flex;
   box-shadow: 0 0 5px #996dc6, 0 0 0 1px #996dc6;
   border-radius: 99px;
   height: 80px;
-  backdrop-filter: blur(10px);
-  z-index: 3;
+  backdrop-filter: blur(10px) drop-shadow(0 0 1px #996dc6);
+  z-index: 8;
   justify-content: flex-end;
   align-items: center;
-  width: 95%;
+  width: 98%;
+  left: 50%;
+  transform: translateX(-50%);
 }
-
 
 .shop-styling .group {
   display: flex;
@@ -88,7 +87,6 @@
 
 
 .shop-styling .logo {
-  width: 150px;
   height: 150px;
   filter: drop-shadow(0 0 1px #996dc6);
   cursor: pointer;
@@ -121,12 +119,13 @@
   position: absolute;
   height: 4px;
   width: 100%;
-  box-shadow: 0 0 5px #996dc6, 0 0 0 1px #996dc6;
+  box-shadow: 0 0 1px #996dc6, 0 0 0 1px #996dc6;
   border-radius: 9px;
   opacity: 1;
   left: 0;
   transform: rotate(0deg);
   transition: .25s ease-in-out;
+  filter: drop-shadow(0 0 1px #996dc6);
 }
 
 .burger span:nth-of-type(1) {
@@ -203,8 +202,9 @@
   gap: 10px;
   transition: all 0.1s ease-in-out;
   padding: 4px 7px;
-  border-radius: 10px;
+  border-radius: 99px;
   cursor: pointer;
+  height: 2em;
 }
 
 .menu-card .list .element svg {
@@ -217,11 +217,8 @@
 .menu-card .list .element:hover {
   background-color: #996dc6;
   color: #ffffff;
-  transform: translate(1px, -1px);
 }
-.menu-card .list .element:active {
-  transform: scale(0.99);
-}
+
 
 .menu-card .list:not(:last-child) .element:hover svg {
   stroke: #ffffff;
@@ -232,9 +229,137 @@
   width: 4px;
   
 }
+.m-search{
+  
+.form button {
+  all: unset;
+}
+.form button:hover{
+  all: unset;
+}
+  .form {
+    --input-text-color: #fff;
+    --input-bg-color: ;
+    --focus-input-bg-color: transparent;
+    --text-color: #fff;
+    --active-color: transparent;
+    --width-of-input: 10em;
+    --inline-padding-of-input: 0.9em;
+    --gap: 2em;
+    height: 3em;
+  }
+  /* form style */
+  .form {
+    font-size: 0.9rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    width: var(--width-of-input);
+    position: relative;
+    isolation: isolate;
+  }
+  /* a fancy bg for showing background and border when focus. */
+  .fancy-bg {
+    position: absolute;
+    width: 100%;
+    inset: 0;
+    background: var(--input-bg-color);
+    border-radius: 30px;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+  }
+  /* label styling */
+  label {
+    
+    padding: 0.8em;
+    height: 40px;
+    padding-inline: var(--inline-padding-of-input);
+    display: flex;
+    align-items: center;
+    position: fixed;
+  }
+  
+  .search,.close-btn {
+    position: absolute;
+  }
+  .search button,.close-btn button {
+    all: unset;
+  }
+  /* styling search-icon */
+  .search {
+    fill: var(--text-color);
+    left: var(--inline-padding-of-input);
+  }
+  /* svg -- size */
+  svg {
+    width: 17px;
+    display: block;
+  }
+  /* styling of close button */
+ 
+  /* styling of input */
+  .input {
+    color: var(--input-text-color);
+    width: 100%;
+    margin-inline: min(1.85em,calc(var(--inline-padding-of-input) + var(--gap)));
+    background: none;
+    border: none;
+  }
+  
+  .input:focus {
+    outline: none;
+  }
+  
+  .input::placeholder {
+    color: var(--text-color)
+  }
 
 
+  /* showing close button when typing */
+  .input:valid ~ .close-btn {
+    opacity: 1;
+    visibility: visible;
+  }
+  /* this is for the default background in input,when selecting autofill options -- you can remove this code if you do not want to override the browser style.  */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+  }
+  .close-btn {
+    border: none;
+    right: var(--inline-padding-of-input);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 0.1em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--active-color);
+    opacity: 0%;
+    visibility: hidden;
+    display: none;
+  }
+  
+}
 
+.m-search{
+  position: absolute;
+  .close-btn {
+    opacity: 0%;
+  }
+  left: 0.2em;
+}
+.m-search *{
+  transition: all 0.3s ease-in-out;
+  font-size: medium;
+}
 @media (max-width: 1024px) {
   .shop-styling .group{
     width: 250px;
@@ -268,3 +393,25 @@
 }
 
 
+.no-search{
+  .shop-styling .group{
+    display: none;
+  }
+  .shop-styling .cart{
+    display: none;
+  }
+  .shop-styling .logo{
+    position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  }
+  .burger{
+    position: absolute;
+    left :1.5em;
+  }
+  .menu{
+    left:2em;
+    right: unset;
+
+  }
+}
