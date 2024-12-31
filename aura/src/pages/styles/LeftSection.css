@@ -21,19 +21,23 @@
   
 }
 
+#nav_lists *{
+  box-sizing: border-box;
+}
+
 /* Container for the navigation menu on the left */
 .NavContainers {
   position: fixed;
   background-color: #1A1A2E;
   padding: 4px;
-  left: 100px; /* Move from the left edge */
+  left: 20px; /* Move from the left edge */
   top: 8rem; /* Position below logo */
-  width: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100px;
   z-index: 11; /* Ensure it's on top */
+
 }
 
 /* Navigation list (vertical) */
@@ -66,7 +70,7 @@
 }
 
 /* Dark button hover effect */
-.darkButtons:hover, a:hover {
+.darkButtons:hover, .NavContainers a:hover {
   background-color: #996dc6; /* Purple on hover */
   border-radius: 1.563rem;
   padding: 0 0.8rem; /* Padding change */
@@ -74,7 +78,7 @@
 }
 
 /* After content for icons (creates visual effect) */
-#gal-icons::after, #store-icons::after, #mas-icons::after, #dark-icons::after, #about-icons::after, #add-icons::after {
+#gal-icons::after, #store-icons::after, #mas-icons::after, #dark-icons::after, #add-icons::after {
   content: "";
   color: #ffffff;
   position: absolute;
@@ -83,7 +87,7 @@
 }
 
 /* Icon font size */
-#gal-icons i, #store-icons i, #mas-icons i, #dark-icons i, #about-icons i {
+#gal-icons i, #store-icons i, #mas-icons i, #dark-icons i {
   font-size: 1.5rem;
 }
 
@@ -101,6 +105,7 @@
 /* Dark icon styling */
 #dark-icons {
   color: #ffffff; /* White icon color */
+  
 }
 
 #dark-icons::after {
