@@ -6,7 +6,23 @@ import "../pages/styles/shop-navbar-style.css"
 
 const Navbar = ({ IsWithSearch = true, setSearchTerm }) => {
 
+    const savedTheme = localStorage.getItem('darkMode') === 'true';
+
     const [Menu, SetMenu] = useState(false);
+    const [isChecked, setIsChecked] = useState(savedTheme);
+
+    useEffect(() => {
+        if (!isChecked) {
+            document.querySelector("body").classList.add("dark-mode");
+        } else {
+            document.querySelector("body").classList.remove("dark-mode");
+        }
+        localStorage.setItem('darkMode', isChecked.toString());
+    }, [isChecked]);
+
+    const toggleTheme = () => {
+        setIsChecked(prevChecked => !prevChecked);
+    };
 
     const ToggleMenu = () => {
         SetMenu(!Menu);
@@ -164,6 +180,30 @@ const Navbar = ({ IsWithSearch = true, setSearchTerm }) => {
                             <li className="element">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20" fill="none" className="svg-icon"><g stroke-width="1.5" stroke-linecap="round" stroke="#fff"><circle r="2.5" cy="10" cx="10"></circle><path fill-rule="evenodd" d="m8.39079 2.80235c.53842-1.51424 2.67991-1.51424 3.21831-.00001.3392.95358 1.4284 1.40477 2.3425.97027 1.4514-.68995 2.9657.82427 2.2758 2.27575-.4345.91407.0166 2.00334.9702 2.34248 1.5143.53842 1.5143 2.67996 0 3.21836-.9536.3391-1.4047 1.4284-.9702 2.3425.6899 1.4514-.8244 2.9656-2.2758 2.2757-.9141-.4345-2.0033.0167-2.3425.9703-.5384 1.5142-2.67989 1.5142-3.21831 0-.33914-.9536-1.4284-1.4048-2.34247-.9703-1.45148.6899-2.96571-.8243-2.27575-2.2757.43449-.9141-.01669-2.0034-.97028-2.3425-1.51422-.5384-1.51422-2.67994.00001-3.21836.95358-.33914 1.40476-1.42841.97027-2.34248-.68996-1.45148.82427-2.9657 2.27575-2.27575.91407.4345 2.00333-.01669 2.34247-.97026z" clip-rule="evenodd"></path></g></svg>
                                 <p className="label">Settings</p>
+                            </li>
+                            <li className="element" onClick={() => toggleTheme()}>
+                                <label htmlFor="themeToggle" className="themeToggle st-sunMoonThemeToggleBtn" type="checkbox">
+                                    <input type="checkbox" id="themeToggle" className="themeToggleInput" checked={isChecked} onChange={toggleTheme} />
+                                    <svg width={18} height={18} viewBox="0 0 20 20" fill="currentColor" stroke="none">
+                                        <mask id="moon-mask">
+                                            <rect x={0} y={0} width={20} height={20} fill="white" />
+                                            <circle cx={11} cy={3} r={8} fill="black" />
+                                        </mask>
+                                        <circle className="sunMoon" cx={10} cy={10} r={8} mask="url(#moon-mask)" />
+                                        <g>
+                                            <circle className="sunRay sunRay1" cx={18} cy={10} r="1.5" />
+                                            <circle className="sunRay sunRay2" cx={14} cy="16.928" r="1.5" />
+                                            <circle className="sunRay sunRay3" cx={6} cy="16.928" r="1.5" />
+                                            <circle className="sunRay sunRay4" cx={2} cy={10} r="1.5" />
+                                            <circle className="sunRay sunRay5" cx={6} cy="3.1718" r="1.5" />
+                                            <circle className="sunRay sunRay6" cx={14} cy="3.1718" r="1.5" />
+                                        </g>
+                                    </svg>
+                                </label>
+                                <div className="theme-switch">
+
+                                    <p className="mode">Mode</p>
+                                </div>
                             </li>
                         </ul>
                     </div>

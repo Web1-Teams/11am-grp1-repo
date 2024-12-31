@@ -16,6 +16,9 @@ import Profile from "./pages/profile";
 
 
 function App() {
+  const setDarkMode = () => {
+    document.querySelector("body").classList.add("dark-mode")
+  }
   const loadCartItems = () => {
     const savedCart = localStorage.getItem("cartItems");
     return savedCart ? JSON.parse(savedCart) : [];
@@ -28,7 +31,7 @@ function App() {
     }
   }, [cartItems]);
   return (
-    <div className="App">
+    <div>
       <BrowserRouter>
         <Routes>
           <Route index element={<Main />} />
