@@ -1,0 +1,29 @@
+
+.middle {
+    width: 85%;
+    margin-left: 15%;
+    border-left: 0.0625rem solid #996DC6;
+    background-color: #1A1A2E;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    
+}
+.middle html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.middle button {
+    border: #1e1e2e;
+    border-radius: 1.563rem;
+   
+}
+.middle button:hover {
+    background-color: #996dc6;
+    transition: 250ms;
+}
