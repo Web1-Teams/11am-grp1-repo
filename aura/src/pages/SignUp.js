@@ -71,7 +71,7 @@ const SignUp = () => {
             <h4>Join us - it's quick, easy, and totally free!</h4>
             <form onSubmit={handleSubmit}>
                 <div className="form-row">
-                    <div className="form-group">
+                    <div className="form-group3">
                         <label>First Name</label>
                         <input
                             type="text"
@@ -81,7 +81,7 @@ const SignUp = () => {
                             required
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group3">
                         <label>Last Name</label>
                         <input
                             type="text"
@@ -93,7 +93,7 @@ const SignUp = () => {
                     </div>
                 </div>
                 <div className="form-row">
-                    <div className="form-group">
+                    <div className="form-group3">
                         <label>Email</label>
                         <input
                             type="email"
@@ -105,7 +105,7 @@ const SignUp = () => {
                     </div>
                 </div>
                 <div className="form-row">
-                    <div className="form-group">
+                    <div className="form-group3">
                         <label>Password</label>
                         <input
                             type="password"
@@ -115,7 +115,7 @@ const SignUp = () => {
                             required
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group3">
                         <label>Confirm Password</label>
                         <input
                             type="password"
