@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Shop from "./pages/shop";
 import Main from "./pages/main";
 import Cart from "./pages/cart";
+import Community from "./pages/community";
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
           <Route index element={<Main />} />
           <Route path="/home" element={<Main />} />
           <Route path="/shop" element={<Shop cartItems={cartItems} setCartItems={setCartItems} />} />
-          <Route path="/community" element={<Shop />} />
+          <Route path="/community" element={<Community />} />
           <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
           <Route path="/about" element={<Shop />} />
           <Route path="/upload" element={<Shop />} />
