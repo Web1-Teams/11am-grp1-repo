@@ -4,7 +4,7 @@ import ChatBoxCommunity from '../components/ChatBoxCommunity';
 import WriteBoxCommunity from '../components/WriteBoxCommunity';
 import '../pages/styles/Community.css';
 
-const App = () => {
+const Community = () => {
   const [users, setUsers] = useState([
     { id: 1, name: 'Maggie Smith', avatar: 'https://www.palestineremembered.com/Jerusalem/GeoPoint/Dome_Of_The_Rock-10150.jpg', messages: ['Hey, I’m interested in your work'] },
     { id: 2, name: 'Emma Watson', avatar: 'https://image.made-in-china.com/2f0j00QWagThVImqzc/Birthday-Wedding-Party-Club-Promotion-Gift-Flower-Red-Fresh-Cut-Flower-Rose.jpg', messages: ['I’m a big fan of your art...'] },
@@ -39,14 +39,17 @@ const App = () => {
   const activeMessages = activeUser ? activeUser.messages : [];
 
   return (
-    <div className="CommBody">
+<div className="community">
+<div className="CommBody">
       <UserListCommunity users={users} onUserClick={handleUserClick} />
       <div className="main-content">
         <ChatBoxCommunity activeUser={activeUser} messages={activeMessages} />
         <WriteBoxCommunity activeUser={activeUser} onSendMessage={handleSendMessage} />
       </div>
     </div>
+</div>
+
   );
 };
 
-export default App;
+export default Community;
