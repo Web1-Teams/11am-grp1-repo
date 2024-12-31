@@ -1,4 +1,4 @@
-body .CommBody {
+.community body .CommBody {
   margin: 0;
   font-family: Arial, sans-serif;
   display: flex;
@@ -6,7 +6,7 @@ body .CommBody {
   width: 100vw;
 }
 
-.main-content {
+.community .main-content {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@ body .CommBody {
   color: #fff;
 }
 
-.user-avatar-chat {
+.community .user-avatar-chat {
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -22,21 +22,21 @@ body .CommBody {
   margin-top: 10px;
 }
 
-.user-avatar-chatCommunity {
+.community .user-avatar-chatCommunity {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-right: 15px;
 }
 
-.Chat-UserName {
+.community .Chat-UserName {
   position: fixed;
   left: 365px;
   top: 30px;
   color: white;
 }
 
-header {
+.community header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,40 +45,40 @@ header {
   color: #fff;
 }
 
-.logo img {
+.community .logo img {
   height: 40px;
 }
 
-nav ul {
+.community nav ul {
   display: flex;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-nav ul li {
+.community nav ul li {
   margin: 0 15px;
   transition: color 0.3s ease;
 }
 
-nav ul li a {
+.community nav ul li a {
   color: #fff;
   text-decoration: none;
   font-size: 16px;
   transition: color 0.3s ease;
 }
 
-nav ul li:hover a {
+.community nav ul li:hover a {
   color: #6a5acd;
 }
 
-.user-list {
+.community .user-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.user-item {
+.community .user-item {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
@@ -86,37 +86,37 @@ nav ul li:hover a {
   cursor: pointer;
 }
 
-.user-item:hover {
+.community .user-item:hover {
   background-color: #6f6f8b;
   border-radius: 5px;
   padding: 5px;
 }
 
-.user-avatar {
+.community .user-avatar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-right: 15px;
 }
 
-.user-details {
+.community .user-details {
   flex: 1;
 }
 
-.user-name {
+.community .user-name {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.user-message {
+.community .user-message {
   font-size: 14px;
   color: #ffffff;
   margin: 5px 0 0;
   word-wrap: break-word;
 }
 
-.message-time {
+.community .message-time {
   font-size: 12px;
   color: #666;
   margin-top: 5px; 
@@ -129,7 +129,7 @@ nav ul li:hover a {
   border-top: 1px solid #968bd6;
 }
 
-.message-section input {
+.community .message-section input {
   flex: 1;
   padding: 10px;
   font-size: 16px;
@@ -140,7 +140,7 @@ nav ul li:hover a {
   color: #fff;
 }
 
-.message-section button {
+.community .message-section button {
   padding: 10px 20px;
   font-size: 16px;
   background-color: #6a5acd;
@@ -150,11 +150,11 @@ nav ul li:hover a {
   cursor: pointer;
 }
 
-.message-section button:hover {
+.community .message-section button:hover {
   background-color: #5848b7;
 }
 
-.sidebar {
+.community .sidebar {
   width: 300px;
   background-color: #29293d;
   color: #fff;
@@ -164,14 +164,14 @@ nav ul li:hover a {
   box-sizing: border-box;
 }
 
-.search-bar {
+.community .search-bar {
   margin-bottom: 20px;
   background-color: #29293d;
   border-radius: 5px;
   padding: 5px;
 }
 
-.search-bar input {
+.community .search-bar input {
   width: 100%;
   padding: 10px;
   border: none;
@@ -182,7 +182,7 @@ nav ul li:hover a {
   color: #fff;
 }
 
-.chat-box {
+.community .chat-box {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -190,33 +190,33 @@ nav ul li:hover a {
   overflow-y: auto;
 }
 
-.chat-box .selected-user {
+.community .chat-box .selected-user {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
 
-.chat-box .selected-user img {
+.community .chat-box .selected-user img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-right: 10px;
 }
 
-.chat-box .selected-user .Chat-UserName {
+.community .chat-box .selected-user .Chat-UserName {
   font-size: 16px;
   font-weight: bold;
   color: #fff;
 }
 
-.chat-box .messages {
+.community .chat-box .messages {
   flex: 1;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
 }
 
-.chat-box .message-item {
+.community .chat-box .message-item {
   background-color: #38384a;
   padding: 10px;
   margin-bottom: 10px;
@@ -224,18 +224,18 @@ nav ul li:hover a {
   max-width: 70%;
 }
 
-.chat-box .message-item.user-message {
+.community .chat-box .message-item.user-message {
   align-self: flex-end;
   background-color: #6a5acd;
   border-radius: 10px;
 }
 
-.chat-box .message-item.other-message {
+.community .chat-box .message-item.other-message {
   align-self: flex-start;
   background-color: #29293d;
 }
 
-.chat-box .no-user-selected {
+.community .chat-box .no-user-selected {
   text-align: center;
   color: #888;
 }

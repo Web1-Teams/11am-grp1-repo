@@ -39,12 +39,14 @@ const App = () => {
   const activeMessages = activeUser ? activeUser.messages : [];
 
   return (
+    <div className="community">
     <div className="CommBody">
-      <UserListCommunity users={users} onUserClick={handleUserClick} />
-      <div className="main-content">
-        <ChatBoxCommunity activeUser={activeUser} messages={activeMessages} />
-        <WriteBoxCommunity activeUser={activeUser} onSendMessage={handleSendMessage} />
-      </div>
+          <UserListCommunity users={users} onUserClick={handleUserClick} />
+          <div className="main-content">
+            <ChatBoxCommunity activeUser={activeUser} messages={activeMessages} />
+            <WriteBoxCommunity activeUser={activeUser} onSendMessage={handleSendMessage} />
+          </div>
+        </div>
     </div>
   );
 };
