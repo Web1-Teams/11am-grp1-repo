@@ -1,0 +1,92 @@
+
+ body {
+  
+  margin: 0;
+  padding: 0;
+  background-color:#1e1e2e ;
+
+}
+
+.wishlist-Class .wishlist-container { 
+  flex-wrap: wrap;
+  padding-top: 3rem;
+  display: flex;
+  margin: 2rem;
+  gap: 2rem;
+}
+button{
+  text-align: center;
+  align-content: center;
+}
+
+.wishlist-Class .list-items {
+  flex: 3;
+  background: #2a2e3c;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
+.wishlist-Class .list-items h2 {
+  color: #ddd;
+  margin-bottom: 1rem;
+}
+
+.wishlist-Class .list-items table {
+  width: 100%;
+  border-collapse: collapse;
+  
+}
+
+.wishlist-Class .list-items th {
+  color: #ddd;
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 0.063rem solid #996DC6;
+}
+
+ .wishlist-Class .list-items td{
+  color: #ddd;
+  padding: 1rem;
+  text-align: -moz-center;
+  border-bottom: 0.063rem solid #996DC6;
+ }
+
+
+.wishlist-Class .list-items .item-img{
+  text-align: left;
+}
+
+
+
+.wishlist-Class .list-items img {
+  width: 5rem;
+  height: auto;
+  margin-right: 1rem;
+  vertical-align: middle;
+}
+
+.wishlist-Class .list-items button {
+  padding: 0.2rem 0.5rem;
+  border: 1px solid #2a2e3c;
+  background: #2a2e3c;
+  color: #ddd;
+  cursor: pointer;
+}
+
+.wishlist-Class .list-items button:hover {
+  background: #4a4c50;
+}
+
+
+.wishlist-Class .cart-class .clear {
+  color: black;
+  border: none;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+}
+
+
+
+
+
