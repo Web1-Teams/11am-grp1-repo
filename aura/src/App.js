@@ -4,7 +4,9 @@ import { useState, useEffect } from "react";
 
 import Shop from "./pages/shop";
 import Main from "./pages/main";
+import Upload from "./pages/upload";
 import Cart from "./pages/cart";
+import Community from "./pages/community";
 import CheckOut from "./pages/checkout";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
@@ -16,9 +18,6 @@ import Profile from "./pages/profile";
 
 
 function App() {
-  const setDarkMode = () => {
-    document.querySelector("body").classList.add("dark-mode")
-  }
   const loadCartItems = () => {
     const savedCart = localStorage.getItem("cartItems");
     return savedCart ? JSON.parse(savedCart) : [];
@@ -37,13 +36,14 @@ function App() {
           <Route index element={<Main />} />
           <Route path="/home" element={<Main />} />
           <Route path="/shop" element={<Shop cartItems={cartItems} setCartItems={setCartItems} />} />
-          <Route path="/community" element={<Shop />} />
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/reset-pass" element={<ResetPassword />} />
-          <Route path="/verification" element={<Verification />} />
-          <Route path="/forgot-pass" element={<ForgotPassword />} />
           <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
+          <Route path="/community" element={<Community />} />
+          <Route path="/sign-in" element={<SignIn/>} />
+          <Route path="/sign-up" element={<SignUp/>} />
+          <Route path="/reset-pass" element={<ResetPassword/>} />
+          <Route path="/verification" element={<Verification/>} />
+          <Route path="/forgot-pass" element={<ForgotPassword/>} />
+          <Route path="/upload" element={<Upload />} />
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile2" element={<Profile2 />} />
