@@ -18,6 +18,7 @@
   width: 15%;
   left: 0;
   background-color: #1A1A2E; /* Dark background */
+  
 }
 
 /* Container for the navigation menu on the left */
@@ -32,7 +33,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100px;
-  z-index: 10; /* Ensure it's on top */
+  z-index: 11; /* Ensure it's on top */
 }
 
 /* Navigation list (vertical) */
