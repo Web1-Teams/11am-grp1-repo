@@ -1,5 +1,6 @@
 import React from 'react';
 import "../pages/styles/shop-sidebar-style.css"
+import { useEffect, useState } from 'react';
 
 const ShopSidebar = ({
   categoryFilter,
@@ -8,12 +9,50 @@ const ShopSidebar = ({
   setPriceFilter,
   isFilterActive,
   handleAllTabClick,
-  handleFilterTabClick
+  handleFilterTabClick,
+  setIsFilterActive,
+  setIsSidebarActive,
+  setFactive,
+  Factive
 }) => {
+
+  const [isMobile, setIsMobile] = useState(false);
+
+
+  const checkIfMobile = () => {
+    setIsMobile(window.innerWidth <= 768);
+  };
+
+  useEffect(() => {
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+    return () => {
+      window.removeEventListener('resize', checkIfMobile);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      const handleClickOutside = (event) => {
+        if (!event.target.closest('.sidebar') && isFilterActive) {
+          setIsFilterActive(false);
+          setFactive(true);
+        }
+      };
+
+      document.addEventListener("mousedown", handleClickOutside);
+
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }
+  }, [isMobile, isFilterActive, setIsFilterActive]);
+
   return (
     <>
+      <div className={` side-overlay ${isFilterActive ? 'active' : ''}`} onClick={() => setIsSidebarActive(false)}></div>
       <aside className={`sidebar shop-styling ${isFilterActive ? 'active' : ''}`}>
-        <div className={`container ${isFilterActive ? 'active' : ''}`}> {/* Add active class */}
+        <div className={`container ${isFilterActive ? 'active' : ''}`}>
           <div className="tabs">
             <input
               type="radio"
@@ -30,10 +69,10 @@ const ShopSidebar = ({
               onClick={handleFilterTabClick}
               checked={isFilterActive}
             />
-            <label className="tab" htmlFor="radio-2">Filter</label>
-            <span className="glider"></span>
+            <label className={`tab ${Factive ? 'f-active' : ''}`} htmlFor="radio-2">Filter</label>
+            <span className={`glider ${Factive ? 'f-active' : ''}`}></span>
           </div>
-          <div className={`filters ${isFilterActive ? 'active' : ''}`}> {/* Add active class */}
+          <div className={`filters ${isFilterActive ? 'active' : ''}`}>
             <div className={!isFilterActive ? 'filter-disabled' : ''}>
               <h3>Categories</h3>
               <div className="radio-input">

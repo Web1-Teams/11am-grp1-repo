@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Menuebar from "../components/menuebar"
-import Navbar from "../components/shop-navbar"
+import Navbar from "../components/navbar"
 import "./styles/menuebar.css"
 
 import GalleryItem from "../components/gallery-item";
@@ -54,7 +54,7 @@ const Main = () => {
     return (
 
         <div>
-            <div className="shop-styling"><Navbar /></div>
+            <div className="shop-styling"><Navbar IsWithSearch={true} /></div>
             <Menuebar />
             <div className="container">
                 {images.map((image, index) => (

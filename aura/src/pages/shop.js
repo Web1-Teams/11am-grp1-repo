@@ -1,7 +1,7 @@
 import "./styles/shop-page-style.css";
 import Footer from "../components/shop-footer";
 import ShopItem from "../components/shop-item";
-import Navbar from "../components/shop-navbar";
+import Navbar from "../components/navbar";
 import ShopSidebar from "../components/shop-sidebar";
 import shopItems from "../data/shop-items-data.json";
 import { useState, useEffect, useMemo } from "react";
@@ -14,6 +14,9 @@ const Shop = ({ cartItems, setCartItems }) => {
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [priceFilter, setPriceFilter] = useState("All");
   const [isFilterActive, setIsFilterActive] = useState(false);
+  const [isSidebarActive, setIsSidebarActive] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [Factive, setFactive] = useState(false);
 
   const getFilteredItems = () => {
     let filteredItems = shopItems;
@@ -21,6 +24,7 @@ const Shop = ({ cartItems, setCartItems }) => {
     if (categoryFilter !== "All") {
       filteredItems = filteredItems.filter(item => item.category === categoryFilter);
     }
+
     if (priceFilter !== "All") {
       const priceRanges = {
         "$0 - $100": [0, 100],
@@ -32,10 +36,17 @@ const Shop = ({ cartItems, setCartItems }) => {
       filteredItems = filteredItems.filter(item => item.price >= minPrice && item.price <= maxPrice);
     }
 
+    if (searchTerm) {
+      filteredItems = filteredItems.filter(item =>
+        item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.subtitle.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
     return filteredItems;
   };
 
-  const filteredItems = useMemo(() => getFilteredItems(), [categoryFilter, priceFilter]);
+  const filteredItems = useMemo(() => getFilteredItems(), [categoryFilter, priceFilter, searchTerm]);
 
   const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
 
@@ -59,10 +70,12 @@ const Shop = ({ cartItems, setCartItems }) => {
     setCategoryFilter("All");
     setPriceFilter("All");
     setIsFilterActive(false);
+    setFactive(false);
   };
 
   const handleFilterTabClick = () => {
     setIsFilterActive(true);
+    setFactive(true);
   };
 
   useEffect(() => {
@@ -83,7 +96,7 @@ const Shop = ({ cartItems, setCartItems }) => {
   return (
     <div className="shop-styling">
       <div className={isFilterActive ? "layout active" : 'layout'}>
-        <Navbar />
+        <Navbar IsWithSearch={true} setSearchTerm={setSearchTerm} />
         <ShopSidebar
           categoryFilter={categoryFilter}
           setCategoryFilter={setCategoryFilter}
@@ -92,6 +105,11 @@ const Shop = ({ cartItems, setCartItems }) => {
           isFilterActive={isFilterActive}
           handleAllTabClick={handleAllTabClick}
           handleFilterTabClick={handleFilterTabClick}
+          setIsFilterActive={setIsFilterActive}
+          isSidebarActive={isSidebarActive}
+          setIsSidebarActive={setIsSidebarActive}
+          Factive={Factive}
+          setFactive={setFactive}
         />
         <main className={isFilterActive ? "shop-items active" : "shop-items"}>
           {currentItems.map(item => (

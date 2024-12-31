@@ -1,22 +1,49 @@
 
 import logoImage from "../images/AURA.png";
 import { Link } from 'react-router-dom';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../pages/styles/shop-navbar-style.css"
 
-const Navbar = () => {
+const Navbar = ({ IsWithSearch = true, setSearchTerm }) => {
+
+    const savedTheme = localStorage.getItem('darkMode') === 'true';
 
     const [Menu, SetMenu] = useState(false);
+    const [isChecked, setIsChecked] = useState(savedTheme);
+
+    useEffect(() => {
+        if (!isChecked) {
+            document.querySelector("body").classList.add("dark-mode");
+        } else {
+            document.querySelector("body").classList.remove("dark-mode");
+        }
+        localStorage.setItem('darkMode', isChecked.toString());
+    }, [isChecked]);
+
+    const toggleTheme = () => {
+        setIsChecked(prevChecked => !prevChecked);
+    };
 
     const ToggleMenu = () => {
         SetMenu(!Menu);
     }
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (!event.target.closest('.menu') && !event.target.closest('.burger')) {
+                SetMenu(false);
+                document.getElementById("burger").checked = false
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
 
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     return (
-        <div>
+        <div className={IsWithSearch ? "" : "no-search"}>
             <nav className="shop-styling">
-
                 <Link to="/home" className="logo" />
                 <img
                     className="logo"
@@ -29,12 +56,16 @@ const Navbar = () => {
                             <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
                         </g>
                     </svg>
-                    <input placeholder="Search" type="search" className="input" />
-
+                    <input
+                        placeholder="Search"
+                        type="search"
+                        className="input"
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
                 </div>
 
 
-                <div className="burger">
+                <div className="burger" >
                     <label htmlFor="burger">
                         <input type="checkbox" id="burger" onChange={ToggleMenu} />
                         <span />
@@ -75,14 +106,28 @@ const Navbar = () => {
 
                                 </li>
                             </Link>
-                            <li className="element">
-
-                                <svg className="icon" aria-hidden="true" viewBox="0 0 24 24">
-                                    <g>
-                                        <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
-                                    </g>
-                                </svg>
-                                <p className="label">Search</p>
+                            {/*i need to reset the search when all is selected*/}
+                            <li className="element no-s">
+                                <div className="m-search">
+                                    <form className="form">
+                                        <label htmlFor="search">
+                                            <input className="input" type="text" required placeholder="Search" id="search" onChange={(e) => setSearchTerm(e.target.value)} />
+                                            <div className="fancy-bg" />
+                                            <div className="search">
+                                                <svg viewBox="0 0 24 24" aria-hidden="true" className="r-14j79pv r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-4wgw6l r-f727ji r-bnwqim r-1plcrui r-lrvibr">
+                                                    <g>
+                                                        <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z" />
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                            <button className="close-btn" type="reset">
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </label>
+                                    </form>
+                                </div>
                             </li>
                             <Link to="/cart">
                                 <li className="element">
@@ -135,6 +180,30 @@ const Navbar = () => {
                             <li className="element">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20" fill="none" className="svg-icon"><g stroke-width="1.5" stroke-linecap="round" stroke="#fff"><circle r="2.5" cy="10" cx="10"></circle><path fill-rule="evenodd" d="m8.39079 2.80235c.53842-1.51424 2.67991-1.51424 3.21831-.00001.3392.95358 1.4284 1.40477 2.3425.97027 1.4514-.68995 2.9657.82427 2.2758 2.27575-.4345.91407.0166 2.00334.9702 2.34248 1.5143.53842 1.5143 2.67996 0 3.21836-.9536.3391-1.4047 1.4284-.9702 2.3425.6899 1.4514-.8244 2.9656-2.2758 2.2757-.9141-.4345-2.0033.0167-2.3425.9703-.5384 1.5142-2.67989 1.5142-3.21831 0-.33914-.9536-1.4284-1.4048-2.34247-.9703-1.45148.6899-2.96571-.8243-2.27575-2.2757.43449-.9141-.01669-2.0034-.97028-2.3425-1.51422-.5384-1.51422-2.67994.00001-3.21836.95358-.33914 1.40476-1.42841.97027-2.34248-.68996-1.45148.82427-2.9657 2.27575-2.27575.91407.4345 2.00333-.01669 2.34247-.97026z" clip-rule="evenodd"></path></g></svg>
                                 <p className="label">Settings</p>
+                            </li>
+                            <li className="element" onClick={() => toggleTheme()}>
+                                <label htmlFor="themeToggle" className="themeToggle st-sunMoonThemeToggleBtn" type="checkbox">
+                                    <input type="checkbox" id="themeToggle" className="themeToggleInput" checked={isChecked} onChange={toggleTheme} />
+                                    <svg width={18} height={18} viewBox="0 0 20 20" fill="currentColor" stroke="none">
+                                        <mask id="moon-mask">
+                                            <rect x={0} y={0} width={20} height={20} fill="white" />
+                                            <circle cx={11} cy={3} r={8} fill="black" />
+                                        </mask>
+                                        <circle className="sunMoon" cx={10} cy={10} r={8} mask="url(#moon-mask)" />
+                                        <g>
+                                            <circle className="sunRay sunRay1" cx={18} cy={10} r="1.5" />
+                                            <circle className="sunRay sunRay2" cx={14} cy="16.928" r="1.5" />
+                                            <circle className="sunRay sunRay3" cx={6} cy="16.928" r="1.5" />
+                                            <circle className="sunRay sunRay4" cx={2} cy={10} r="1.5" />
+                                            <circle className="sunRay sunRay5" cx={6} cy="3.1718" r="1.5" />
+                                            <circle className="sunRay sunRay6" cx={14} cy="3.1718" r="1.5" />
+                                        </g>
+                                    </svg>
+                                </label>
+                                <div className="theme-switch">
+
+                                    <p className="mode">Mode</p>
+                                </div>
                             </li>
                         </ul>
                     </div>

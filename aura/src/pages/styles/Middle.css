@@ -11,7 +11,7 @@
     overflow-x: hidden;
     
 }
-.middle html, body {
+.middle html, .middle body {
     margin: 0;
     padding: 0;
     height: 100%;
