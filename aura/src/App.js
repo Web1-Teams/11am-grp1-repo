@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 
 import Shop from "./pages/shop";
 import Main from "./pages/main";
+
+import Upload from "./pages/upload";
+
 import Cart from "./pages/cart";
 import CheckOut from "./pages/checkout";
 import SignIn from "./pages/SignIn";
@@ -51,7 +54,7 @@ function App() {
           <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
 
           <Route path="/about" element={<Shop />} />
-          <Route path="/upload" element={<Shop />} />
+          <Route path="/upload" element={<Upload />} />
           <Route path="/profile" element={<Shop />} />
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/profile" element={<Profile />} />
