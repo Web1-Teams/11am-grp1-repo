@@ -32,7 +32,7 @@ const Upload = () => {
   };
 
   return (
-    <div className=''>
+    <div className='upload-container'>
     <div className="container-upload">
       <h1>Create a New Post</h1>
 
