@@ -8,6 +8,8 @@ import Main from "./pages/main";
 import Upload from "./pages/upload";
 
 import Cart from "./pages/cart";
+import Community from "./pages/community";
+
 import CheckOut from "./pages/checkout";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
@@ -39,7 +41,7 @@ function App() {
           <Route index element={<Main />} />
           <Route path="/home" element={<Main />} />
           <Route path="/shop" element={<Shop cartItems={cartItems} setCartItems={setCartItems} />} />
-          <Route path="/community" element={<Shop />} />
+          <Route path="/community" element={<Community />} />
 
 
      
