@@ -1,0 +1,212 @@
+.NavContainer{
+    position: fixed;
+    background-color: #1e1e2e;
+    padding: 2.5px;
+    left: 50px;
+    top: 150px;
+    width: 60px;
+    border-radius: 1.563rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px #996dc6, 0 0 0 1px #996dc6;
+    min-height: 100px;
+    z-index: 10;
+}
+
+.nav_list{
+    list-style-type: none;
+    line-height:2.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.563rem;
+    padding: 0.938rem;
+    margin: 0;
+
+    
+}
+
+a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+
+}
+.dark-mode button{
+    all:unset;
+}
+.dark-mode{
+    all:unset;
+    border: #1e1e2e;
+    background-color: #1e1e2e;
+    border-radius: 1.563rem;
+    
+}
+.dark-mode:hover{
+    all:unset;
+    background-color: #996dc6;
+    transition: 250mss;
+    border-radius: 1.563rem;
+    
+}
+
+.gal-icon .store-icon .mas-icon .dark-icon .about-icon {
+    position: relative;
+    
+}
+
+
+
+.gal-icon::after{
+
+    content: "";
+    color: #ffffff;
+    position:absolute;
+    border-radius: 1.563rem;
+    background-color:  #996dc6;
+    width: 0%;
+   
+
+}
+
+.gal-icon:hover::after{
+
+    content: "Gallery";
+    width:max-content ;
+    left: 65px;
+    padding: 0 0.938rem;
+    transition: 250ms;
+
+}
+
+.gal-icon:hover{
+
+    background-color: #996dc6;
+    border-radius: 1.563rem;
+    padding: 0 0.8rem;
+    transition: 250ms;
+
+}
+
+
+
+.store-icon::after{
+
+    content: "";
+    color: #ffffff;
+    position:absolute;
+    border-radius: 1.563rem;
+    background-color:  #996dc6;
+    width: 0%;
+
+}
+
+.store-icon:hover::after{
+    content: "Store";
+    width:max-content ;
+    left: 65px;
+    padding: 0 0.938rem ;
+    transition: 250ms;
+
+
+}
+
+.store-icon:hover{
+    background-color: #996dc6;
+    border-radius: 1.563rem;
+    padding: 0 0.8rem;
+    transition: 250ms;
+
+}
+
+.mas-icon::after{
+
+    content: "";
+    color: #ffffff;
+    position:absolute;
+    border-radius: 1.563rem;
+    background-color:  #996dc6;
+    border-radius: 1.563rem;
+    width: 0%;
+
+}
+
+
+.mas-icon:hover::after{
+    content: "Community";
+    width:max-content ;
+    left: 65px;
+    padding: 0 0.938rem ;
+    transition: 250ms;
+
+}
+
+.mas-icon:hover{
+    background-color: #996dc6;
+    border-radius: 1.563rem;
+    padding: 0 0.8rem;
+    transition: 250ms;
+
+}
+
+
+
+.dark-icon::after{ 
+
+    content: "";
+    color: #ffffff;
+    position:absolute;
+    background-color:  #996dc6;
+    width: 0%;
+    
+
+}
+
+
+.dark-icon:hover::after{
+    content: "Dark Mode";
+    width: max-content;
+    border-radius: 1.563rem;
+    left: 65px;
+    padding: 0 0.938rem ;
+    transition: 250ms;
+}
+
+.dark-icon:hover{
+    background-color: #996dc6;
+    border-radius: 1.563rem;
+    padding: 0 0.8rem;
+    transition: 250ms;
+
+}
+
+.about-icon::after{
+
+    content: "";
+    color: #ffffff;
+    position:absolute;
+    background-color:  #996dc6;
+    width: 0%;
+    
+    
+    
+}
+
+.about-icon:hover::after{
+    content: "About";
+    width: max-content;
+    border-radius: 1.563rem;
+    left: 65px;
+    bottom: 17px;
+    padding: 0 0.938rem ;
+    transition: 250ms;
+
+
+}
+.about-icon:hover{
+    background-color: #996dc6;
+    border-radius: 1.563rem;
+    padding: 0 0.8rem;
+    transition: 250ms;
+
+}
