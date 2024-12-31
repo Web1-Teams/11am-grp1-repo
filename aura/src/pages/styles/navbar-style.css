@@ -204,7 +204,8 @@
   padding: 4px 7px;
   border-radius: 99px;
   cursor: pointer;
-  height: 2em;
+  height: 2.5em;
+  box-sizing: border-box;
 }
 
 .menu-card .list .element svg {
@@ -215,8 +216,11 @@
 }
 
 .menu-card .list .element:hover {
-  background-color: #996dc6;
-  color: #ffffff;
+  background-color: #996dc6; 
+  box-sizing: border-box;
+  padding: 0 0.8rem;
+  transition: 250ms;
+  color: #fff;
 }
 
 
@@ -364,7 +368,7 @@
 
   .themeToggle {
     color: #fff;
-    width: 3em;
+    width: 1.5em;
   }
   
   .st-sunMoonThemeToggleBtn {
@@ -374,14 +378,13 @@
   
   .st-sunMoonThemeToggleBtn .themeToggleInput {
     opacity: 0;
-    width: 100%;
     aspect-ratio: 1;
   }
   
   .st-sunMoonThemeToggleBtn svg {
     position: absolute;
     left: 0.1em;
-    bottom: 25%;
+    bottom: 0%;
     width: 100%;
     height: 100%;
     transition: transform 0.4s ease;
@@ -447,11 +450,7 @@
   display: flex;
   width: 100%;
 }
-.mode{
-  position: absolute;
-  bottom: 1.5em;
-  left: 3.2em;
-}
+
 @media (max-width: 1024px) {
   .shop-styling .group{
     width: 250px;

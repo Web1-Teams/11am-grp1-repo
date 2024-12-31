@@ -96,7 +96,7 @@ const Shop = ({ cartItems, setCartItems }) => {
   return (
     <div className="shop-styling">
       <div className={isFilterActive ? "layout active" : 'layout'}>
-        <Navbar IsWithSearch={true} setSearchTerm={setSearchTerm} />
+        <Navbar IsWithSearch={true} setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
         <ShopSidebar
           categoryFilter={categoryFilter}
           setCategoryFilter={setCategoryFilter}
