@@ -9,7 +9,7 @@ import { useState, useEffect, useMemo } from "react";
 
 const ITEMS_PER_PAGE = 12;
 
-const Shop = ({ cartItems, setCartItems }) => {
+const Shop = ({ cartItems, setCartItems , wishlistItems , setWishlistItems }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [priceFilter, setPriceFilter] = useState("All");
@@ -93,6 +93,13 @@ const Shop = ({ cartItems, setCartItems }) => {
     });
   };
 
+  const addToWishlist = (item) =>{
+    setWishlistItems((prevWishlistItems) =>{
+      const updatedWishlist =[...prevWishlistItems , item];
+    return updatedWishlist;
+    });
+  };
+
   return (
     <div className="shop-styling">
       <div className={isFilterActive ? "layout active" : 'layout'}>
@@ -117,7 +124,9 @@ const Shop = ({ cartItems, setCartItems }) => {
               key={item.id}
               data={item}
               addToCart={addToCart}
+              addToWishlist ={addToWishlist}
               cartItems={cartItems}
+              wishlistItems={wishlistItems}
               isFilterActive={isFilterActive}
             />
           ))}

@@ -1,27 +1,29 @@
+import { Link } from "react-router-dom";
+
 const Menuebar = () => {
   return (
     <div className="NavContainer">
       <div className="menuebar">
         <ul className="nav_list">
           <li className="gal-icon">
-            <a href="#">
+            <Link to ="/home">
               <i className="fa-regular fa-images"></i>
-            </a>
+            </Link>
           </li>
           <li className="store-icon">
-            <a href="#">
+            <Link to="/shop">
               <i className="fa-solid fa-store"></i>
-            </a>
+            </Link>
           </li>
           <li className="mas-icon">
-            <a href="#">
+            <Link to="/community">
               <i className="fa-regular fa-comments"></i>
-            </a>
+            </Link>
           </li>
           <li className="about-icon">
-            <a href="#">
+            <Link to="/about">
               <i className="fa-solid fa-question"></i>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
