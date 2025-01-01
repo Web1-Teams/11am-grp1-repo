@@ -1,62 +1,74 @@
 
-  
+
  
+<<<<<<< HEAD
+  .cart-class .cart-container { 
+=======
   
   
  
   .cart-container { 
+>>>>>>> 7c212af1c162bcc0abf04bd89fe3776374b12de8
     padding-top: 3rem;
     display: flex;
-    margin: 2rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 5rem 2rem; 
     gap: 2rem;
+    
   }
   
-  .cart-items {
+   .cart-class  .cart-items {
     flex: 3;
-    background: #2a2e3c;
+    background: var(--dark-variant);
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+    margin: 0;
+    
+  }
+  .cart-class  .cart-items p{
+    color: var(--light);
   }
   
-  .cart-items h2 {
-    color: #ddd;
+  .cart-class  .cart-items h2 {
+    color: var(--light);
     margin-bottom: 1rem;
   }
   
-  .cart-items table {
+  .cart-class  .cart-items table {
     width: 100%;
     border-collapse: collapse;
   }
   
-  .cart-items th, .cart-items td {
+  .cart-class  .cart-items th, .cart-items td {
     color: #ddd;
     padding: 1rem;
     text-align: left;
-    border-bottom: 0.063rem solid #996DC6;
+    border-bottom: 0.063rem solid var( --secondary-color);
   }
  
-  .cart-items img {
+  .cart-class  .cart-items img {
     width: 5rem;
     height: auto;
     margin-right: 1rem;
     vertical-align: middle;
   }
   
-  .cart-items button {
+  .cart-class  .cart-items button {
     padding: 0.2rem 0.5rem;
-    border: 1px solid #2a2e3c;
-    background: #2a2e3c;
+    border: 1px solid var(--dark-variant);
+    background: var(--dark-variant);
     color: #ddd;
     cursor: pointer;
   }
   
-  .cart-items button:hover {
+  .cart-class  .cart-items button:hover {
     background: #4a4c50;
   }
   
   
-  .remove {
+  .cart-class  .remove {
     color: black;
     border: none;
     padding: 0.2rem 0.5rem;
@@ -64,40 +76,57 @@
   }
   
   
-  .summary {
+  .cart-class  .summary {
     flex: 1;
-    background: #2a2e3c ;
+    background: var(--dark-variant) ;
     padding: 1rem;
     border-radius:0.5rem;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
   
-  .summary h3 {
-    color: #ddd;
+  .cart-class  .summary h3 {
+    color: var(--light);
     margin-bottom: 1rem;
   }
   
-  .summary p {
-    color: #ddd;
+  .cart-class  .summary p {
+    color: var(--light);
     display: flex;
     justify-content: space-between;
     margin: 0.5rem 0;
   }
   
-  .summary input {
+  .cart-class  .summary input {
     width: 90%;
-    background-color: #2a2e3c;
-    color: #ddd;
+    background-color: var(--light);
+    color: var(--dark-variant);
     padding: 0.5rem; 
     margin: 1rem 0;
-    border: 0.063rem solid #ddd;
+    border: 0.063rem solid var(--light);
     border-radius: 0.25rem;
   }
-  .summary label{
-    color: #ddd;
+  .cart-class  .summary label{
+    color: var(--light);
   }
+
+  @media only screen and (max-width: 767px) {
+    .cart-class .cart-container {
+      flex-direction: column;
+      gap: 1rem;
+    }
   
-  .checkout{
-    position: absolute;
-    right: 6em;
+    .cart-class .cart-items {
+      flex: unset;
+    }
+  
+    .cart-class .summary {
+      width: 93%;
+      order: 2; /* Ensures the summary appears below the items */
+    }
   }
+
+
+
