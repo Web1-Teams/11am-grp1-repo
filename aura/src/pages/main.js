@@ -53,7 +53,7 @@ const Main = () => {
 
     return (
 
-        <div>
+        <div className="gallary-body">
             <div className="shop-styling"><Navbar IsWithSearch={true} /></div>
             <Menuebar />
             <div className="container">
@@ -67,15 +67,15 @@ const Main = () => {
             </div>
 
             {modalVisible && selectedImage && (
-                <div className="modal">
-                    <div className="modal-content">
+                <div className="modal-main">
+                    <div className="modal-content-main">
                         <img src={selectedImage.src} alt={selectedImage.title} />
-                        <div className="modal-details">
+                        <div className="modal-details-main">
                             <h1>{selectedImage.title}</h1>
                             <p><strong>Owner:</strong> {selectedImage.owner}</p>
                             <p><strong>Price:</strong> {selectedImage.price}</p>
                         </div>
-                        <button className="close-btn" onClick={closeModal}>X</button>
+                        <button className="close-btn-main" onClick={closeModal}>X</button>
                     </div>
                 </div>
             )}
