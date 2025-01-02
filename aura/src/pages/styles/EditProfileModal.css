@@ -37,19 +37,19 @@
 }
 
 /* Form fields styling */
-.form-group {
+.form-group2 {
     margin-bottom: 1.5rem;
 }
 
-.form-group label {
+.form-group2 label {
     font-size: 1rem;
     color: #555;
     margin-bottom: 0.5rem;
     display: block; /* Makes the label block level */
 }
 
-.form-group input,
-.form-group textarea {
+.form-group2 input,
+.form-group2 textarea {
     width: 100%; /* Full width */
     padding: 0.8rem;
     border: 1px solid #ccc; /* Light gray border */
@@ -59,7 +59,7 @@
 }
 
 /* Prevent textarea resizing */
-.form-group textarea {
+.form-group2 textarea {
     resize: none;
 }
 

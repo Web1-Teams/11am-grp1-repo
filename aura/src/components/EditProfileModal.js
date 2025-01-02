@@ -59,7 +59,7 @@ const EditProfileModal = () => {
                 {/* Form for editing profile details */}
                 <form>
                     {/* Profile Picture Section */}
-                    <div className="form-group">
+                    <div className="form-group2">
                         <label htmlFor="profilePicture">Profile Picture</label>
                         <div className="profile-picture-preview">
                             <img src={profileImage} alt="ProfilePic" id="profilePreview" />
@@ -69,17 +69,17 @@ const EditProfileModal = () => {
                         </div>
                     </div>
                     {/* Username Section */}
-                    <div className="form-group">
+                    <div className="form-group2">
                         <label htmlFor="username">Username</label>
                         <input type="text" id="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
                     </div>
                     {/* Bio Section */}
-                    <div className="form-group">
+                    <div className="form-group2">
                         <label htmlFor="bio2">Bio</label>
                         <textarea id="bio2" name="bio2" rows="3" value={bio} onChange={(e) => setBio(e.target.value)} />
                     </div>
                     {/* Email Section */}
-                    <div className="form-group">
+                    <div className="form-group2">
                         <label htmlFor="email">Email</label>
                         <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
