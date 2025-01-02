@@ -1,10 +1,8 @@
 
 
 import "./styles/wishlistStyle.css";
-const wishListItems = ({ wishlistItems, removeFromWishlist, addToCartFromWishlist }) =>{
+const wishList = ({ wishlistItems, removeFromWishlist, addToCartFromWishlist }) =>{
 
-
-const WishList = () => {
   return (
     <div className = "shop-styling wishlist-Class">
     <div className="wishlist-container">
@@ -33,7 +31,7 @@ const WishList = () => {
           <button className="remove" onClick ={(removeFromWishlist(item.id))}>REMOVE</button>
         </td>
         <td>
-          <button className="add-to-cart" onClick ={(addToCartFromWishlist(item.id))}>ADD TO CART</button>
+          <button className="add-to-cart" onClick ={(addToCartFromWishlist(item.id))(removeFromWishlist(item.id))}>ADD TO CART</button>
         </td>
       </tr>
       ))
@@ -53,5 +51,5 @@ const WishList = () => {
 
 
 
-};
-export default  wishListItems;
+
+export default  wishList;

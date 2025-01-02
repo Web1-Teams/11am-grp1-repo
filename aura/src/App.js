@@ -15,6 +15,7 @@ import Verification from "./pages/Verification";
 import ForgotPassword from "./pages/ForgotPassword";
 import Profile2 from "./pages/profile2";
 import Profile from "./pages/profile";
+import Wishlist from "./pages/wishlist";
 
 
 function App() {
@@ -29,14 +30,26 @@ function App() {
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
     }
   }, [cartItems]);
+
+  const loadWishlistItems = ()=> {
+    const savedWishlist= localStorage.getItem("cartItems");
+    return savedWishlist? JSON.parse(savedWishlist) : [];
+  }
+  const[wishlistItems,setWishlistItems] = useState(loadWishlistItems());
+  useEffect(()=>{
+    if(wishlistItems.length > 0){
+      localStorage.setItem("wishlistItems" , JSON.stringify(wishlistItems));
+    } 
+  } , [wishlistItems]);
   return (
     <div>
       <BrowserRouter>
         <Routes>
           <Route index element={<Main />} />
           <Route path="/home" element={<Main />} />
-          <Route path="/shop" element={<Shop cartItems={cartItems} setCartItems={setCartItems} />} />
+          <Route path="/shop" element={<Shop cartItems={cartItems} setCartItems={setCartItems} wishlistItems={wishlistItems} setWishlistItems={setWishlistItems} />} />
           <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
+          <Route path="wishlist" element={<Wishlist/> }/>
           <Route path="/community" element={<Community />} />
           <Route path="/sign-in" element={<SignIn/>} />
           <Route path="/sign-up" element={<SignUp/>} />
