@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../pages/styles/PostModal.css'; // Importing external CSS for modal styling
+import '../pages/styles/PostModal.css';
 
 const PostModal = ({ post, onClose }) => {
   // State for tracking the like count
