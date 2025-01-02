@@ -1,20 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../pages/styles/upload-style.css'
 
 
-const Upload = () => {
-  const [isForSale, setIsForSale] = useState(false);
-  const [imagePreview, setImagePreview] = useState(null);
+const CreateNewPost = () => {
+  const [postDetails, setPostDetails] = useState(() => {
+    const savedDetails = localStorage.getItem('postDetails');
+    return savedDetails
+      ? JSON.parse(savedDetails)
+      : {
+          imagePreview: null,
+          title: '',
+          description: '',
+          category: '',
+          tags: '',
+          originalOrPrint: '',
+          isForSale: false,
+          price: '',
+        };
+  });
 
-  const togglePriceInput = (value) => {
-    setIsForSale(value);
+  useEffect(() => {
+    localStorage.setItem('postDetails', JSON.stringify(postDetails));
+  }, [postDetails]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setPostDetails((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const toggleForSale = (value) => {
+    setPostDetails((prev) => ({
+      ...prev,
+      isForSale: value,
+      price: value ? prev.price : '',
+    }));
   };
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
       const imgLink = URL.createObjectURL(file);
-      setImagePreview(imgLink);
+      setPostDetails((prev) => ({
+        ...prev,
+        imagePreview: imgLink,
+      }));
     }
   };
 
@@ -23,12 +55,32 @@ const Upload = () => {
     const file = event.dataTransfer.files[0];
     if (file) {
       const imgLink = URL.createObjectURL(file);
-      setImagePreview(imgLink);
+      setPostDetails((prev) => ({
+        ...prev,
+        imagePreview: imgLink,
+      }));
     }
   };
 
   const handleDragOver = (event) => {
     event.preventDefault();
+  };
+
+  const handlePost = () => {
+    const { title, description, category, originalOrPrint, isForSale, price } = postDetails;
+
+    if (!title || !description || !category || !originalOrPrint) {
+      alert('Please fill out all required fields.');
+      return;
+    }
+
+    if (isForSale && !price) {
+      alert('Please enter a price for the post.');
+      return;
+    }
+
+    localStorage.setItem('postDetails', JSON.stringify(postDetails));
+    alert('Post details saved successfully!');
   };
 
   return (
@@ -37,30 +89,22 @@ const Upload = () => {
       <h1>Create a New Post</h1>
 
       <div className="imageUpload">
-        <label 
-          htmlFor="input-file" 
-          id="drop-area" 
-          onDragOver={handleDragOver} 
-          onDrop={handleDrop}
-        >
-          <input 
-            type="file" 
-            accept="image/*" 
-            id="input-file" 
-            hidden 
-            onChange={handleImageUpload} 
-          />
-          <div 
-            id="img-view" 
+        <label htmlFor="input-file" id="drop-area" onDragOver={handleDragOver} onDrop={handleDrop}>
+          <input type="file" accept="image/*" id="input-file" hidden onChange={handleImageUpload}/>
+          <div id="img-view"
             style={{
-              backgroundImage: imagePreview ? `url(${imagePreview})` : 'none',
-              border: imagePreview ? 'none' : '2px dashed',
-            }}
-          >
-            {!imagePreview && (
+              backgroundImage: postDetails.imagePreview
+                ? `url(${postDetails.imagePreview})`
+                : 'none',
+              border: postDetails.imagePreview ? 'none' : '2px dashed',
+            }}>
+            {!postDetails.imagePreview && (
               <>
-                <img src="../images/icon-image-upload.jpg" alt="Upload Icon" />
-                <p>Drag and drop or click here<br />to upload image</p>
+                <img src="https://img.icons8.com/?size=160&id=hAsRCSg99jYz&format=png" alt="Upload Icon" />
+                <p>
+                  Drag and drop or click here <br />
+                  to upload image
+                </p>
                 <span>Upload any image from desktop</span>
               </>
             )}
@@ -69,50 +113,52 @@ const Upload = () => {
       </div>
 
       <div className="toggle-buttons-price">
-        <button 
-          className={isForSale ? 'sale' : ''} 
-          onClick={() => togglePriceInput(true)}
-        >
+        <button
+          className={postDetails.isForSale ? 'sale' : ''}
+          onClick={() => toggleForSale(true)}>
           For Sale
         </button>
-        <button 
-          className={!isForSale ? 'show' : ''} 
-          onClick={() => togglePriceInput(false)}
-        >
+        <button
+          className={!postDetails.isForSale ? 'show' : ''}
+          onClick={() => toggleForSale(false)}>
           For Show
         </button>
       </div>
 
-      {isForSale && (
-        <div className="form-group" id="priceGroup">
+      {postDetails.isForSale && (
+        <div className="form-group1" id="priceGroup">
           <label htmlFor="price">Price</label>
-          <input type="text" id="price" placeholder="Enter price" />
+          <input type="number" id="price" name="price" value={postDetails.price} placeholder="Enter price" onChange={handleInputChange}/>
         </div>
       )}
 
-      <div className="form-group">
+      <div className="form-group1">
         <label htmlFor="title">Title</label>
-        <input type="text" id="title" placeholder="Enter title" />
+        <input type="text" id="title" name="title" value={postDetails.title} placeholder="Enter title"
+          onChange={handleInputChange}/>
       </div>
 
-      <div className="form-group">
+      <div className="form-group1">
         <label htmlFor="description">Description</label>
-        <textarea id="description" placeholder="Enter description"></textarea>
+        <textarea id="description" name="description" value={postDetails.description} placeholder="Enter description"
+          onChange={handleInputChange}></textarea>
       </div>
 
-      <div className="form-group">
+      <div className="form-group1">
         <label htmlFor="category">Category</label>
-        <select id="category">
-          <option>-- Select a Category --</option>
-          <option>Painting</option>
-          <option>Sculpture</option>
-          <option>Photography</option>
-          <option>Digital Art</option>
-          <option>Other</option>
+        <select id="category" name="category"
+          value={postDetails.category}
+          onChange={handleInputChange}>
+          <option value="">-- Select a Category --</option>
+          <option value="Painting">Painting</option>
+          <option value="Sculpture">Sculpture</option>
+          <option value="Photography">Photography</option>
+          <option value="Digital Art">Digital Art</option>
+          <option value="Other">Other</option>
         </select>
       </div>
 
-      <div className="form-group">
+      <div className="form-group1">
         <label htmlFor="tags">Tags</label>
         <select id="tags">
           <option>-- Select Tags --</option>
@@ -122,22 +168,26 @@ const Upload = () => {
         </select>
       </div>
 
-      <div className="form-group">
+      <div className="form-group1">
         <label htmlFor="originalOrPrint">Original or Print?</label>
-        <select id="originalOrPrint">
-          <option>-- Select an Option --</option>
-          <option>Original</option>
-          <option>Print</option>
+        <select id="originalOrPrint" name="originalOrPrint"
+          value={postDetails.originalOrPrint}
+          onChange={handleInputChange}>
+          <option value="">-- Select an Option --</option>
+          <option value="Original">Original</option>
+          <option value="Print">Print</option>
         </select>
       </div>
 
       <div className="post-buttons">
         <button className="preview">Preview</button>
-        <button className="post">Post</button>
+        <button className="post" onClick={handlePost}>
+          Post
+        </button>
       </div>
     </div>
     </div>
   );
 };
 
-export default Upload;
+export default CreateNewPost;
