@@ -4,14 +4,16 @@
   display: flex;
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
 }
 
 .community .main-content {
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
   background-color: #1E1E2E;
   color: #fff;
+  overflow: hidden;
 }
 
 .community .user-avatar-chat {
@@ -22,62 +24,12 @@
   margin-top: 10px;
 }
 
-.community .user-avatar-chatCommunity {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: 15px;
-}
-
 .community .Chat-UserName {
   position: fixed;
   left: 365px;
   top: 30px;
   color: white;
 }
-
-.community header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #29293d;
-  padding: 10px 20px;
-  color: #fff;
-}
-
-.community .logo img {
-  height: 40px;
-}
-
-.community nav ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.community nav ul li {
-  margin: 0 15px;
-  transition: color 0.3s ease;
-}
-
-.community nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  transition: color 0.3s ease;
-}
-
-.community nav ul li:hover a {
-  color: #6a5acd;
-}
-
-.community .user-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
 .community .user-item {
   display: flex;
   align-items: center;
@@ -100,7 +52,8 @@
 }
 
 .community .user-details {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .community .user-name {
@@ -110,23 +63,30 @@
 }
 
 .community .user-message {
-  font-size: 14px;
-  color: #ffffff;
-  margin: 5px 0 0;
-  word-wrap: break-word;
+  font-size: 14px; 
+  color: #00eeffe1; 
+  margin-top: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  max-width: 150px; 
 }
-
-.community .message-time {
-  font-size: 12px;
-  color: #666;
-  margin-top: 5px; 
+.community .chat-box .message-item.user-message {
+  background-color: #6a5acd; 
+  color: #ffffff;
 }
 .message-section {
   display: flex;
-  padding: 20px;
-  background-color: #333355;
   align-items: center;
-  border-top: 1px solid #968bd6;
+  background-color: #333355;
+  padding: 20px;
+  flex-shrink: 0;
+  position: fixed;
+  bottom: 0;
+  left: 300px;
+  width: calc(100% - 300px);
+  box-sizing: border-box;
+  z-index: 1;
 }
 
 .community .message-section input {
@@ -134,19 +94,20 @@
   padding: 10px;
   font-size: 16px;
   border: none;
-  border-radius: 5px;
-  margin-right: 10px;
+  border-radius: 5px 0 0 5px;
   background-color: #38384a;
   color: #fff;
 }
-
+.community .messages{
+  background-color: #1E1E2E;
+}
 .community .message-section button {
   padding: 10px 20px;
   font-size: 16px;
   background-color: #6a5acd;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 0 5px 5px 0;
   cursor: pointer;
 }
 
@@ -162,6 +123,12 @@
   flex-direction: column;
   padding: 20px;
   box-sizing: border-box;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
 }
 
 .community .search-bar {
@@ -188,6 +155,9 @@
   flex-direction: column;
   padding: 20px;
   overflow-y: auto;
+  height: calc(100vh - 80px);
+  margin-left: 300px;
+  box-sizing: border-box;
 }
 
 .community .chat-box .selected-user {
@@ -207,8 +177,24 @@
   font-size: 16px;
   font-weight: bold;
   color: #fff;
+  margin-left: 10px; 
+  transform: translateY(22px) translateX(10px);
 }
-
+.community .user-item .user-message.user-message-sent {
+  color: #6a5acd; 
+  font-size: 14px;
+  word-wrap: break-word; 
+  white-space: normal; 
+}
+.community .chat-box .user-message-in-chat {
+  background-color: #5848b7; 
+  color: #ffffff; 
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  max-width: 80%; 
+  align-self: flex-start; 
+}
 .community .chat-box .messages {
   flex: 1;
   overflow-y: auto;

@@ -9,14 +9,22 @@ const ChatBoxCommunity = ({ activeUser, messages }) => {
             <img src={activeUser.avatar} alt={activeUser.name} className="user-avatar-chat" />
             <span className="Chat-UserName">{activeUser.name}</span>
           </div>
+
+          {}
+          {activeUser.messages.length > 0 && (
+            <div className="user-message-in-chat">
+              {activeUser.messages[0]} {}
+            </div>
+          )}
+
           <div className="messages">
             {messages.map((message, index) => (
               <div 
-                key={index} 
-                className={`message-item ${message.isUserMessage ? 'user-message' : 'other-message'}`}
-              >
-                {message.text}
-              </div>
+              key={index} 
+              className={`message-item ${message.isUserMessage ? 'user-message' : 'other-message'}`}
+            >
+              {message.text}
+            </div>
             ))}
           </div>
         </>
