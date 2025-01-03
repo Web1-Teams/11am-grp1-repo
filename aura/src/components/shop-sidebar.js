@@ -80,74 +80,87 @@ const ShopSidebar = ({
                   <input
                     type="radio"
                     id="value-1"
-                    checked={categoryFilter === "Fonts"}
-                    onChange={() => setCategoryFilter("Fonts")}
+                    checked={categoryFilter === "Concept Art"}
+                    onChange={() => setCategoryFilter("Concept Art")}
                     name="group-1"
                     value="value-1"
                     disabled={!isFilterActive}
                   />
-                  <p className="text">Fonts</p>
+                  <p className="text">Concept Art</p>
                 </label>
                 <label className="label">
                   <input
                     type="radio"
                     id="value-2"
-                    checked={categoryFilter === "3D Models"}
-                    onChange={() => setCategoryFilter("3D Models")}
+                    checked={categoryFilter === "Digital Painting"}
+                    onChange={() => setCategoryFilter("Digital Painting")}
                     name="group-1"
                     value="value-2"
                     disabled={!isFilterActive}
                   />
-                  <p className="text">3D Models</p>
+                  <p className="text">Digital Painting</p>
                 </label>
                 <label className="label">
                   <input
                     type="radio"
                     id="value-3"
-                    checked={categoryFilter === "Graphics"}
-                    onChange={() => setCategoryFilter("Graphics")}
+                    checked={categoryFilter === "Character Design"}
+                    onChange={() => setCategoryFilter("Character Design")}
                     name="group-1"
                     value="value-3"
                     disabled={!isFilterActive}
                   />
-                  <p className="text">Graphics</p>
+                  <p className="text">Character Design</p>
                 </label>
                 <label className="label">
                   <input
                     type="radio"
                     id="value-4"
-                    checked={categoryFilter === "Templates"}
-                    onChange={() => setCategoryFilter("Templates")}
+                    checked={categoryFilter === "Environment Design"}
+                    onChange={() => setCategoryFilter("Environment Design")}
                     name="group-1"
                     value="value-4"
                     disabled={!isFilterActive}
                   />
-                  <p className="text">Templates</p>
+                  <p className="text">Environment Design</p>
                 </label>
                 <label className="label">
                   <input
                     type="radio"
                     id="value-5"
-                    checked={categoryFilter === "Textures"}
-                    onChange={() => setCategoryFilter("Textures")}
+                    checked={categoryFilter === "Fantasy Art"}
+                    onChange={() => setCategoryFilter("Fantasy Art")}
                     name="group-1"
                     value="value-5"
                     disabled={!isFilterActive}
                   />
-                  <p className="text">Textures</p>
+                  <p className="text">Fantasy Art</p>
                 </label>
                 <label className="label">
                   <input
                     type="radio"
                     id="value-6"
-                    checked={categoryFilter === "Icons"}
-                    onChange={() => setCategoryFilter("Icons")}
+                    checked={categoryFilter === "Sketch Art"}
+                    onChange={() => setCategoryFilter("Sketch Art")}
                     name="group-1"
                     value="value-6"
                     disabled={!isFilterActive}
                   />
-                  <p className="text">Icons</p>
+                  <p className="text">Sketch Art</p>
                 </label>
+                <label className="label">
+                  <input
+                    type="radio"
+                    id="value-7"
+                    checked={categoryFilter === "Game Art"}
+                    onChange={() => setCategoryFilter("Game Art")}
+                    name="group-1"
+                    value="value-7"
+                    disabled={!isFilterActive}
+                  />
+                  <p className="text">Game Art</p>
+                </label>
+
               </div>
             </div>
 

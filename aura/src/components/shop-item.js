@@ -39,14 +39,15 @@ const ShopItem = ({ data, addToCart, cartItems, addToWishlist, wishlistItems }) 
                             <div className="shop-styling pop-up">
                                 <div className="content-wrapper">
                                     <div className="left-section">
-                                        <img className="modal-img" src={data.modalImage} alt={data.title} />
+                                        <img className="modal-img" src={data.image} alt={data.title} />
                                         <h1 className="left-title">{data.title}</h1>
-                                        <p className="description left-desc">Item's description...</p>
+                                        <p className="description left-desc">{data.description}</p>
                                     </div>
                                     <div className="right-section">
                                         <div className="right-desc">
                                             <h1>{data.title}</h1>
                                             <p className="description">{data.subtitle}</p>
+                                            <p className="small-s description">{data.description}</p>
                                         </div>
                                         <div className="action-buttons">
                                             <div>
@@ -64,7 +65,7 @@ const ShopItem = ({ data, addToCart, cartItems, addToWishlist, wishlistItems }) 
                                                     onClick={() => addToWishlist(data)}
                                                 >
                                                     <label className="like-btn container">
-                                                        <input type="checkbox" defaultChecked={isItemInWishlist} />
+                                                        <input type="checkbox" checked={isItemInWishlist} readOnly />
                                                         <div className="like-btn checkmark">
                                                             <svg viewBox="0 0 256 256">
                                                                 <rect fill="none" height={256} width={256} />
@@ -89,8 +90,9 @@ const ShopItem = ({ data, addToCart, cartItems, addToWishlist, wishlistItems }) 
                 </div>
                 <div className="content">
                     <p className="title">{data.title}</p>
-                    <p className="name">{data.subtitle}</p>
-                    <p className="title price">${data.price}</p>
+                    <p className=" A_name">in {data.category}</p>
+                    <p className="price">${data.price}</p>
+                    <span></span>
                 </div>
                 <button
                     className={isItemInCart ? 'card-btn filter-disabled' : 'card-btn'}

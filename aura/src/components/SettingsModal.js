@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import '../pages/styles/SettingsModal.css';
 
-const SettingsModal = () => {
+const SettingsModal = ({ IsForProfile = true }) => {
   useEffect(() => {
     // Get references to the modal, buttons, and form elements
     const settingsModal = document.getElementById("settingsModal");
@@ -78,10 +78,12 @@ const SettingsModal = () => {
           <label htmlFor="notifications">Enable Notifications</label>
           <input type="checkbox" id="notifications" defaultChecked /> {/* Notification setting */}
         </div>
-        <div className="settings-option">
-          <label htmlFor="privacy">Set as private page</label>
-          <input type="checkbox" id="darkModes" /> {/* Dark mode setting */}
-        </div>
+        {IsForProfile && (
+          <div className="settings-option">
+            <label htmlFor="privacy">Set as private page</label>
+            <input type="checkbox" id="darkModes" /> {/* Dark mode setting */}
+          </div>
+        )}
         <div className="settings-option">
           <label htmlFor="language">Language</label>
           <select id="language"> {/* Language selection dropdown */}

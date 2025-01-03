@@ -8,7 +8,7 @@
     transition: all 0.3s ease-in-out;
     z-index: 1;
     min-height: 70vh;
-    margin-left: 20em;
+    margin-left: 17.5em;
     margin-top: 8em;
 }
 .shop-styling img{
@@ -60,8 +60,10 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    margin-top: 2em;
+    margin-top: 1em;
     transition: all 0.3s;
+    height: max-content;
+    margin-bottom: 3.5em;
 }
 
 .shop-styling .title {
@@ -70,21 +72,33 @@
     font-weight: 500;
     color:var(--primary-color);
     cursor: pointer;
+    position: absolute;
+    left: 4em;
 }
 
-.shop-styling .name {
+.shop-styling .A_name {
     text-transform: capitalize;
     font-weight: 100;
     font-size: 0.6em;
     padding: 5px;
     margin: 1em;
+    position: absolute;
+    left: 3.3em;
+    padding-top: 2.5em;
 }
 
 .shop-styling .price {
+    font-size: 0.72em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color:var(--primary-color);
+    cursor: pointer;
     font-size: 1em;
     font-weight: 700;
     margin-left: 5px;
-    margin: 1em;
+    margin: 0.6em;
+    position: absolute;
+    right: 2.5em;
 }
 
 .shop-styling button.view-btn {
@@ -124,7 +138,7 @@
 }
 
 .shop-styling .card:hover .card-image {
-    height: 11em;
+    height: 12em;
 }
 
 .shop-styling .img-container {
@@ -139,19 +153,19 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.35);
     border-radius: 0.7em;
     opacity: 0;
     transition: all 0.3s ease-in-out;
 }
 
 .shop-styling .card:hover .img-container::after {
-    opacity: 1;
+    opacity: 90%;
 }
 
 .shop-styling .card:hover .card-btn,
 .card:hover .content {
-    margin-top: 1em;
+    margin-top: 0em;
 }
 
 .shop-styling .card-btn:hover {
@@ -173,6 +187,12 @@
         grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
         width: 75%;
         margin-left: 6em ;
+    }
+    .shop-styling .card:hover .card-image {
+        height: 9em;
+    }
+    .shop-styling .content {
+        margin-bottom: 7em;
     }
     .shop-styling .card {
         width: 75%;

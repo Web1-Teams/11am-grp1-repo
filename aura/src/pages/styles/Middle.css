@@ -2,7 +2,7 @@
 .middle {
     width: 85%;
     margin-left: 15%;
-    border-left: 0.0625rem solid #996DC6;
+    border-left: 0.0625rem solid var(--secondary-color);
     background-color: #1A1A2E;
     position: relative;
     display: flex;
@@ -19,11 +19,11 @@
     overflow-y: auto;
 }
 .middle button {
-    border: #1e1e2e;
+    border: var(--dark);
     border-radius: 1.563rem;
    
 }
 .middle button:hover {
-    background-color: #996dc6;
+    background-color: var(--secondary-color);
     transition: 250ms;
 }

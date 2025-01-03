@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
-import '../pages/styles/ProfileHeader.css'; // Importing external CSS for styling
+import '../pages/styles/ProfileHeader2.css';
 
-const FollowButton = () => {
-  // State to track whether the user is followed or not
+const FollowButton = ({ onFollowToggle }) => {
   const [isFollowed, setIsFollowed] = useState(false);
 
-  // Toggles the follow state between followed and not followed
   const toggleFollow = () => {
-    setIsFollowed((prevState) => !prevState); 
+    const newState = !isFollowed; // Calculate the new state
+    setIsFollowed(newState); // Update the local state
+    onFollowToggle(newState); // Notify parent with the correct new state
   };
 
   return (
     <button
-      // Dynamically sets the class based on the follow state
       className={`Follow-btn ${isFollowed ? 'followed' : ''}`}
-      onClick={toggleFollow} // Changes follow state on button click
+      onClick={toggleFollow}
     >
-      {/* Button text changes depending on the follow state */}
       {isFollowed ? 'Following' : 'Follow'}
     </button>
   );

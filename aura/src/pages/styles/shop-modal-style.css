@@ -15,10 +15,10 @@
     overflow-y: auto;
     box-sizing: border-box;
     overflow-x: hidden;
-    max-width: max-content;
     max-height: 80vh;
     backdrop-filter: none; 
     user-select: text;
+    width:max-content;
   }
   .shop-styling .pop-up * {
     transform: none;
@@ -32,14 +32,15 @@
         "left right";
     gap: 1em;
     align-items: start;
+    overflow-x: visible;
+    width: 94%;
   }
   
   .shop-styling .left-section {
     display: flex;
     flex-direction: column;
-    margin-right: 2em;
     overflow: visible;
-    
+    padding-right: 4em;
   }
   .shop-styling .modal-img {
     border-radius: 0.7em;
@@ -62,6 +63,7 @@
     color: #bbb;
     font-size: 14px;
     margin-top: 0.5em;
+    max-width: 70%;
   }
   
   .shop-styling .right-section {
@@ -69,7 +71,7 @@
     flex-direction: column;
     gap: 0.5em;
     position: relative;
-    width: 100%;
+    width: 150%;
     justify-self: center;
     max-width: 30em;
   }
@@ -117,6 +119,9 @@
   .pop-up .like-btn{
     overflow-x:unset;
     transition: all 0.3s ease-in-out;
+  }
+  .small-s{
+    display: none;
   }
 
 
@@ -208,6 +213,10 @@
     grid-template-areas:
       "left"
       "right";
+    width: 100%;
+  }
+  .small-s{
+    display: block;
   }
 
   .shop-styling .left-section {
