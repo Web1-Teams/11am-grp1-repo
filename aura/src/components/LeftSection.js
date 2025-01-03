@@ -1,9 +1,29 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import '../pages/styles/LeftSection.css'; 
+import "../pages/styles/shop-navbar-style.css"
 import AURA from '../images/AURA.png'; 
 import { Link } from 'react-router-dom';
 
 const LeftSection = () => {
+
+  
+      const savedTheme = localStorage.getItem('darkMode') === 'true';
+  
+    
+      const [isChecked, setIsChecked] = useState(savedTheme);
+  
+      useEffect(() => {
+          if (!isChecked) {
+              document.querySelector("body").classList.add("dark-mode");
+          } else {
+              document.querySelector("body").classList.remove("dark-mode");
+          }
+          localStorage.setItem('darkMode', isChecked.toString());
+      }, [isChecked]);
+  
+      const toggleTheme = () => {
+          setIsChecked(prevChecked => !prevChecked);
+      };
   return (
     <div className="split left"> {/* Container for the left section */}
       <img className="logos" src={AURA} alt="logo" /> {/* Display the logo */}
@@ -31,21 +51,43 @@ const LeftSection = () => {
                 <span className="menus">Messages</span>
                 </Link>
             </li>
-            {/* Dark Mode Toggle */}
-            <li id="dark-icons">
-              <button className="darkButtons"> {/* Button to toggle dark mode */}
-                <i className="fas fa-moon" style={{ color: 'white' }}></i> {/* Moon icon */}
-                <span> Dark Mode</span>
-              </button>
-            </li>
-       
-            {/* Create Link */}
-            <li id="add-icons">
+                  {/* Create Link */}
+                  <li id="add-icons">
             <Link to="/upload">
                 <i className="fa fa-plus-square" style={{ fontSize: '24px' }}></i> {/* Icon for Create */}
                 <span className="adds">Create</span>
                 </Link>
             </li>
+            {/* Dark Mode Toggle */}
+            <li id="dark-icons" onClick={() => toggleTheme()}>
+       
+                                <label htmlFor="themeToggle" className="themeToggle st-sunMoonThemeToggleBtn" type="checkbox">
+                                    <input type="checkbox" id="themeToggle" className="themeToggleInput" checked={isChecked} onChange={toggleTheme} />
+                                    <svg width={18} height={18} viewBox="0 0 20 20" fill="currentColor" stroke="none">
+
+                                        <mask id="moon-mask">
+                                            <rect x={0} y={0} width={20} height={20} fill="white" />
+                                            <circle cx={11} cy={3} r={8} fill="black" />
+                                        </mask>
+                                        <circle className="sunMoon2" cx={10} cy={10} r={8} mask="url(#moon-mask)" />
+                                        <g>
+                                            <circle className="sunRay sunRay12" cx={18} cy={10} r="1.5" />
+                                            <circle className="sunRay sunRay22" cx={14} cy="16.928" r="1.5" />
+                                            <circle className="sunRay sunRay32" cx={6} cy="16.928" r="1.5" />
+                                            <circle className="sunRay sunRay42" cx={2} cy={10} r="1.5" />
+                                            <circle className="sunRay sunRay52" cx={6} cy="3.1718" r="1.5" />
+                                            <circle className="sunRay sunRay62" cx={14} cy="3.1718" r="1.5" />
+                                        </g>
+                                    </svg>
+                                </label>
+                                <div className="theme-switch2">
+                                <span className="menus">Mode</span>
+
+                                </div>
+                            </li>
+                            
+       
+      
           </ul>
         </nav>
       </div>

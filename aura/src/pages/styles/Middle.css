@@ -3,7 +3,7 @@
     width: 85%;
     margin-left: 15%;
     border-left: 0.0625rem solid var(--secondary-color);
-    background-color: #1A1A2E;
+    background-color: var(--bg-color);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -19,7 +19,7 @@
     overflow-y: auto;
 }
 .middle button {
-    border: var(--dark);
+    border: var( --bg-color);
     border-radius: 1.563rem;
    
 }
