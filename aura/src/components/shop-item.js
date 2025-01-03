@@ -61,10 +61,10 @@ const ShopItem = ({ data, addToCart, cartItems , addToWishlist , wishlistItems }
                                                     {isItemInCart ? "In Cart" : "Add to Cart"}
                                                 </button>
                                                 <div className="like-btn"
-                                                 onClick = {() => addToWishlist(data)}
+
                                                 >
                                                     <label className="like-btn container">
-                                                        <input type="checkbox"  checked={isItemInWishlist} readOnly />
+                                                        <input type="checkbox"  onChange ={() => addToWishlist(data)} Checked={isItemInWishlist} />
                                                         <div className="like-btn checkmark">
                                                             <svg viewBox="0 0 256 256">
                                                                 <rect fill="none" height={256} width={256} />

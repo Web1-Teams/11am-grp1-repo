@@ -49,7 +49,7 @@ function App() {
           <Route path="/home" element={<Main />} />
           <Route path="/shop" element={<Shop cartItems={cartItems} setCartItems={setCartItems} wishlistItems={wishlistItems} setWishlistItems={setWishlistItems} />} />
           <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
-          <Route path="wishlist" element={<Wishlist/> }/>
+          <Route path="wishlist" element={<Wishlist wishlistItems={wishlistItems} setWishlistItems={setWishlistItems }/>}/>
           <Route path="/community" element={<Community />} />
           <Route path="/sign-in" element={<SignIn/>} />
           <Route path="/sign-up" element={<SignUp/>} />
