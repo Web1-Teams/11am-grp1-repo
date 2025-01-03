@@ -100,6 +100,20 @@ const Shop = ({ cartItems, setCartItems , wishlistItems , setWishlistItems }) =>
     });
   };
 
+  const toggleWishlistItem = (item) => {
+    setWishlistItems((prevWishlistItems) => {
+      const isItemInWishlist = prevWishlistItems.some((wishlistItem) => wishlistItem.id === item.id);
+  
+      if (isItemInWishlist) {
+      
+        return prevWishlistItems.filter((wishlistItem) => wishlistItem.id !== item.id);
+      } else {
+        
+        return [...prevWishlistItems, item];
+      }
+    });
+  };
+
   return (
     <div className="shop-styling">
       <div className={isFilterActive ? "layout active" : 'layout'}>
@@ -125,6 +139,7 @@ const Shop = ({ cartItems, setCartItems , wishlistItems , setWishlistItems }) =>
               data={item}
               addToCart={addToCart}
               addToWishlist ={addToWishlist}
+              toggleWishlistItem = {toggleWishlistItem}
               cartItems={cartItems}
               wishlistItems={wishlistItems}
               isFilterActive={isFilterActive}
