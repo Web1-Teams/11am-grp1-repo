@@ -1,14 +1,9 @@
 
 
  
-<<<<<<< HEAD
+
   .cart-class .cart-container { 
-=======
-  
-  
- 
-  .cart-container { 
->>>>>>> 7c212af1c162bcc0abf04bd89fe3776374b12de8
+
     padding-top: 3rem;
     display: flex;
     justify-content: space-between;
@@ -55,7 +50,7 @@
     vertical-align: middle;
   }
   
-  .cart-class  .cart-items button {
+  .shop-styling .cart-class  .cart-items remove {
     padding: 0.2rem 0.5rem;
     border: 1px solid var(--dark-variant);
     background: var(--dark-variant);
@@ -63,7 +58,7 @@
     cursor: pointer;
   }
   
-  .cart-class  .cart-items button:hover {
+  .shop-styling .cart-class .cart-items remove:hover {
     background: #4a4c50;
   }
   
