@@ -32,9 +32,9 @@
     max-width: 11rem; /* Max width limit */
     max-height: 11rem; /* Max height limit */
     border-radius: 50%; /* Circle shape */
-    border: 0.25rem solid var(--light); /* White border around the profile image */
+    border: 0.25rem solid var( --primary-color); /* White border around the profile image */
     z-index: 1; /* Place above the background image */
-    background-color: var(--light); /* Background color for the profile image */
+    background-color: var( --bg-color); /* Background color for the profile image */
 }
 
 /* Media query for smaller screens (max-width 768px) */
@@ -53,7 +53,7 @@
 .profile-details {
     display: flex;
     flex-direction: column; /* Arrange details vertically */
-    color: var(--light); /* White text color */
+    color: var( --primary-color); /* White text color */
     margin: 1.25rem auto; /* Center the details with margin */
     text-align: center; /* Center align text */
 }
@@ -62,12 +62,13 @@
 .status {
     margin: 0.625rem 0; /* Margin around status */
     font-size: 1.25rem; /* Font size for status */
-    color: #ccc; /* Light gray color */
+    color: var(--primary-color); /* Light gray color */
 }
 
 /* Styling for individual status span elements */
 .status span {
     margin-right: 0.625rem; /* Space between status text and span */
+    color: var(--primary-color);
 }
 
 /* Bio text area styling */
@@ -75,8 +76,8 @@
     text-align: center; /* Center align bio text */
     resize: none; /* Disable resizing */
     font-size: 1.125rem; /* Font size for the bio */
-    background-color: #1A1A2E; /* Dark background for the bio */
-    color: var(--light); /* White text color */
+    background-color: var(--bg-color); /* Dark background for the bio */
+    color: var( --primary-color); /* White text color */
     border: none; /* Remove border */
     font-family: 'Times New Roman', Times, serif; /* Elegant font style */
     margin: 0.625rem auto; /* Center bio with margin */
@@ -89,7 +90,7 @@
 .edit-profile-btn {
     padding: 0.3125rem 0.9375rem; /* Padding inside the button */
     background-color: var(--secondary-color); /* Purple background color */
-    color: var(--light); /* White text color */
+    color: var( --primary-color); /* White text color */
     border: none; /* Remove button border */
     border-radius: 0.3125rem; /* Rounded corners for the button */
     cursor: pointer; /* Pointer cursor on hover */
@@ -100,6 +101,7 @@
 .fa-gear {
     font-size: 1.3rem; /* Slightly larger icon */
     cursor: pointer; /* Pointer cursor on hover */
+    color: var(--primary-color);
 }
 
 /* Padding for middle section (top) */

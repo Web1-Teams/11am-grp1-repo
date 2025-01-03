@@ -87,7 +87,7 @@
   color: #bbb;
 }
 
-.upload-container .form-group1 input,textarea{
+.upload-container .form-group1 input, .form-group1 textarea{
   width: 96%;
   padding: 5px;
   font-size: 1rem;
