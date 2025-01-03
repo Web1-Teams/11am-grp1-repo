@@ -3,7 +3,6 @@ import Footer from "../components/shop-footer";
 import ShopItem from "../components/shop-item";
 import Navbar from "../components/navbar";
 import ShopSidebar from "../components/shop-sidebar";
-import shopItems from "../data/shop-items-data.json";
 import { useState, useEffect, useMemo } from "react";
 import SettingsModal from "../components/SettingsModal";
 
@@ -18,6 +17,7 @@ const Shop = ({ cartItems, setCartItems, wishlistItems, setWishlistItems }) => {
   const [isSidebarActive, setIsSidebarActive] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [Factive, setFactive] = useState(false);
+  const shopItems = JSON.parse(localStorage.getItem('shopItems'));
 
   const getFilteredItems = () => {
     let filteredItems = shopItems;
@@ -119,7 +119,7 @@ const Shop = ({ cartItems, setCartItems, wishlistItems, setWishlistItems }) => {
     <div>
       <div className="shop-styling">
         <div className={isFilterActive ? "layout active" : 'layout'}>
-          <Navbar IsWithSearch={true} setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
+          <Navbar IsWithSearch={true} extended={true} setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
           <ShopSidebar
             categoryFilter={categoryFilter}
             setCategoryFilter={setCategoryFilter}

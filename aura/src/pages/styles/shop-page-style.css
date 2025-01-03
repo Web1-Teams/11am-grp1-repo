@@ -1,8 +1,3 @@
-
-
-
-
-
 .shop-styling .text{
   all: unset;
 }
@@ -19,14 +14,12 @@
   user-select: none;
   scroll-behavior: smooth;
   overflow-x: clip;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .shop-styling img {
   pointer-events: none;
 }
-
-
   
 .shop-styling button {
   padding: 1.3em 3em;

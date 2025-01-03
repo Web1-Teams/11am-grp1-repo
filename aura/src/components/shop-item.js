@@ -56,16 +56,15 @@ const ShopItem = ({ data, addToCart, cartItems, addToWishlist, wishlistItems }) 
                                             </div>
                                             <div className="buttons-container">
                                                 <button
-                                                    className={isItemInCart ? 'filter-disabled' : ''}
-                                                    onClick={() => addToCart(data)}
+                                                    onClick={() => isItemInCart ? window.location.href = '/cart' : addToCart(data)}
                                                 >
-                                                    {isItemInCart ? "In Cart" : "Add to Cart"}
+                                                    {isItemInCart ? "See in Cart" : "Add to Cart"}
                                                 </button>
                                                 <div className="like-btn"
                                                     onClick={() => addToWishlist(data)}
                                                 >
                                                     <label className="like-btn container">
-                                                        <input type="checkbox" checked={isItemInWishlist} readOnly />
+                                                        <input type="checkbox" defaultChecked={isItemInWishlist} />
                                                         <div className="like-btn checkmark">
                                                             <svg viewBox="0 0 256 256">
                                                                 <rect fill="none" height={256} width={256} />
@@ -95,10 +94,10 @@ const ShopItem = ({ data, addToCart, cartItems, addToWishlist, wishlistItems }) 
                     <span></span>
                 </div>
                 <button
-                    className={isItemInCart ? 'card-btn filter-disabled' : 'card-btn'}
-                    onClick={() => addToCart(data)}
+                    className='card-btn'
+                    onClick={() => isItemInCart ? window.location.href = '/cart' : addToCart(data)}
                 >
-                    {isItemInCart ? "In Cart" : "Add to Cart"}
+                    {isItemInCart ? "See in Cart" : "Add to Cart"}
                 </button>
             </div>
         </div>

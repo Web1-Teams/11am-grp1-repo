@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import "../pages/styles/navbar-style.css"
 
-const Navbar = ({ IsWithSearch = true, searchTerm, setSearchTerm }) => {
+const Navbar = ({ IsWithSearch = true, extended = false, searchTerm, setSearchTerm }) => {
 
     const savedTheme = localStorage.getItem('darkMode') === 'true';
 
@@ -176,6 +176,31 @@ const Navbar = ({ IsWithSearch = true, searchTerm, setSearchTerm }) => {
                                 </li>
                             </Link>
                         </ul>
+                        {extended && (
+                            <div>
+                                <div className="separator" />
+                                <ul className="list">
+                                    <Link to="/community">
+                                        <li className="element">
+
+                                            <i className="fa-regular fa-comments"></i>
+
+                                            <p className="label">Community</p>
+                                        </li>
+                                    </Link>
+                                    <Link to="/upload">
+                                        <li className="element">
+
+                                            <i className="fa fa-plus-square" style={{ fontSize: '21px' }}></i>
+
+                                            <p className="label c-fix">Create</p>
+                                        </li>
+                                    </Link>
+                                </ul>
+                            </div>
+
+
+                        )}
                         <div className="separator" />
                         <ul className="list">
                             <li className="element" onClick={() => openSettings()}>

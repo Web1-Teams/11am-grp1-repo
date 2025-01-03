@@ -60,6 +60,9 @@
   right: 10px;
   top: -3px;
 }
+.shop-styling .logo{
+  width:150px;
+}
 .shop-styling .nav-btn .button{
   border: 0px solid #996dc6;
   box-shadow: 0 0 5px #996dc6, 0 0 0 1px #996dc6;
@@ -448,6 +451,9 @@
 .theme-switch{
   display: flex;
   width: 100%;
+}
+.c-fix{
+  margin-left: 0.2em;
 }
 
 @media (max-width: 1024px) {

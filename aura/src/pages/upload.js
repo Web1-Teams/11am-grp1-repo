@@ -11,13 +11,13 @@ const Upload = () => {
     return savedDetails
       ? JSON.parse(savedDetails)
       : {
-          imagePreview: null,
-          title: '',
-          description: '',
-          category: '',
-          isForSale: false,
-          price: '',
-        };
+        imagePreview: null,
+        title: '',
+        description: '',
+        category: '',
+        isForSale: false,
+        price: '',
+      };
   });
 
   const navigate = useNavigate();
@@ -100,14 +100,14 @@ const Upload = () => {
     const newPost = {
       id: newId,
       title: postDetails.title,
-      subtitle: '', 
+      subtitle: '',
       description: postDetails.description,
       price: parseFloat(postDetails.price || 0),
       image: postDetails.imagePreview,
       category: postDetails.category,
-      isForSale: postDetails.isForSale, 
+      isForSale: postDetails.isForSale,
     };
-    
+
     const updatedShopItems = [...shopItems, newPost];
     localStorage.setItem('shopItems', JSON.stringify(updatedShopItems));
     alert('Post details saved successfully!');
@@ -116,17 +116,17 @@ const Upload = () => {
 
   return (
     <div className="upload-container">
-       <div className="shop-styling"><Navbar IsWithSearch={false} /></div>
+      <div className="shop-styling"><Navbar IsWithSearch={false} /></div>
       <div className="container-upload">
         <h1>Create a New Post</h1>
 
         <div className="imageUpload">
           <label
-            htmlFor="input-file" id="drop-area-upload" 
-            onDragOver={handleDragOver} 
+            htmlFor="input-file" id="drop-area-upload"
+            onDragOver={handleDragOver}
             onDrop={handleDrop}>
             <input type="file" accept="image/*" id="input-file" hidden
-              onChange={handleImageUpload}/>
+              onChange={handleImageUpload} />
             <div
               id="img-view-upload"
               style={{
@@ -137,9 +137,9 @@ const Upload = () => {
               }}>
               {!postDetails.imagePreview && (
                 <>
-                  <img src="https://img.icons8.com/?size=160&id=hAsRCSg99jYz&format=png"alt="Upload Icon"/>
+                  <img src="https://img.icons8.com/?size=160&id=hAsRCSg99jYz&format=png" alt="Upload Icon" />
                   <p>
-                    Drag and drop or click here <br/>
+                    Drag and drop or click here <br />
                     to upload image
                   </p>
                   <span>Upload any image from desktop</span>
@@ -168,7 +168,7 @@ const Upload = () => {
             <input type="number" id="price" name="price"
               value={postDetails.price}
               placeholder="Enter price"
-              onChange={handleInputChange}/>
+              onChange={handleInputChange} />
           </div>
         )}
 
@@ -177,7 +177,7 @@ const Upload = () => {
           <input type="text" id="title" name="title"
             value={postDetails.title}
             placeholder="Enter title"
-            onChange={handleInputChange}/>
+            onChange={handleInputChange} />
         </div>
 
         <div className="form-group1">

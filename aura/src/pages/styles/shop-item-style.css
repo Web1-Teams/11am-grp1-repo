@@ -1,6 +1,6 @@
 .shop-styling .shop-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24em, 20%));
+    grid-template-columns: repeat(auto-fit, minmax(25em, 20%));
     gap: 1rem;
     justify-content: center;
     overflow: hidden;
@@ -185,7 +185,6 @@
 @media (max-width: 768px) {
     .shop-styling .shop-items{
         grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
-        width: 75%;
         margin-left: 6em ;
     }
     .shop-styling .card:hover .card-image {
