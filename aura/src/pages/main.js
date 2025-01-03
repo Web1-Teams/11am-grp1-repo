@@ -13,7 +13,7 @@ const Main = () => {
 
     const images = [
         { src: "https://via.placeholder.com/300x400", owner: "Owner 1", title: "Beautiful Landscape", price: "$50" },
-        { src: "https://via.placeholder.com/300x400", owner: "Owner 2", title: "Sunset View", price: "$40" },
+        { src: "https://via.placeholder.com/200x300", owner: "Owner 4", title: "Ocean Wave", price: "$70" },
         { src: "https://via.placeholder.com/300x400", owner: "Owner 3", title: "Mountain Peak", price: "$60" },
         { src: "https://via.placeholder.com/300x400", owner: "Owner 4", title: "Ocean Wave", price: "$70" },
         { src: "https://via.placeholder.com/300x400", owner: "Owner 1", title: "Beautiful Landscape", price: "$50" },
