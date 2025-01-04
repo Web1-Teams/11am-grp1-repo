@@ -12,14 +12,14 @@ const ProfileTabs = () => {
 
   // Fetch paintings data when the component mounts
   useEffect(() => {
-     fetch('/profile.json') // Load data from a JSON file (or API)
-       .then((response) => response.json())
-       .then((data) => {
-         setShowPaintings(data.showPaintings); 
-         setSalePaintings(data.salePaintings); 
-       })
-       .catch((error) => console.error('Error loading paintings data:', error));
-   }, []);
+    fetch('/profile.json') // Load data from a JSON file (or API)
+      .then((response) => response.json())
+      .then((data) => {
+        setShowPaintings(data.showPaintings);
+        setSalePaintings(data.salePaintings);
+      })
+      .catch((error) => console.error('Error loading paintings data:', error));
+  }, []);
 
   // Switch between 'show' and 'sale' tabs
   const handleTabClick = (tab) => {
@@ -57,7 +57,7 @@ const ProfileTabs = () => {
           Posts for Sale
         </button>
       </div>
-      
+
       {/* Modal for showing post details */}
       {isModalOpen && selectedPost && (
         <div className={`modals ${isModalOpen ? 'open' : ''}`}>

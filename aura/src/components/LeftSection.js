@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../pages/styles/LeftSection.css';
-import "../pages/styles/shop-navbar-style.css"
+import "../pages/styles/navbar-style.css"
 import AURA from '../images/AURA.png';
 import { Link } from 'react-router-dom';
 
