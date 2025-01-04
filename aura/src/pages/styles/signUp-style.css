@@ -12,14 +12,14 @@ body.signup-container-body {
     align-items: center; /* Centering vertically */
     min-height: 100vh; /* Full viewport height */
     margin: 0; /* Removing default margin */
-    background-color: #1A1A2E; /* Dark background color */
+    background-color: var( --bg-color); /* Dark background color */
     font-family: 'Arial', sans-serif; /* Font styling */
 }
 
 /* Sign-up container styles */
 .signUp-container {
     width: 30rem; /* Fixed width */
-    background-color: #2A2A3D; /* Dark background */
+    background-color: var(--variant); /* Dark background */
     border-radius: 0.75rem; /* Rounded corners */
     padding: 1.875rem 1.25rem; /* Inner padding */
     box-shadow: 0 0.625rem 0.9375rem rgba(0, 0, 0, 0.2); /* Shadow for depth */
@@ -29,7 +29,7 @@ body.signup-container-body {
 .signUp-container h1 {
     font-size: 2.25rem; /* Large font size */
     text-align: center; /* Centered text */
-    color: #f3f3f3; /* Light font color */
+    color: var(--primary-color); /* Light font color */
     margin-bottom: 0.625rem; /* Space below title */
 }
 
@@ -37,7 +37,7 @@ body.signup-container-body {
 .signUp-container h4 {
     font-size: 0.875rem; /* Smaller font size */
     text-align: center; /* Centered text */
-    color: rgba(243, 243, 243, 0.8); /* Light gray font color */
+    color: var(--primary-color); /* Light gray font color */
     margin-bottom: 1.25rem; /* Space below subtitle */
 }
 
@@ -64,7 +64,7 @@ body.signup-container-body {
 /* Label styling */
 .signUp-container form label {
     font-size: 0.875rem; /* Smaller font size */
-    color: #f3f3f3; /* Light font color */
+    color: var(--primary-color); /* Light font color */
     margin-bottom: 0.3125rem; /* Space below label */
 }
 
@@ -73,10 +73,10 @@ body.signup-container-body {
     width: 100%; /* Full width */
     height: 2.5rem; /* Fixed height */
     background: transparent; /* Transparent background */
-    border: 0.125rem solid rgba(255, 255, 255, 0.3); /* Light border */
+    border: 0.125rem solid var(--primary-color); /* Light border */
     border-radius: 0.625rem; /* Rounded corners */
     font-size: 0.875rem; /* Font size */
-    color: #f3f3f3; /* Text color */
+    color: var(--primary-color); /* Text color */
     padding: 0 0.625rem; /* Padding inside the input */
     outline: none; /* Remove outline on focus */
     transition: all 0.3s ease-in-out; /* Smooth transitions */
@@ -90,14 +90,14 @@ body.signup-container-body {
 
 /* Input placeholder styling */
 .signUp-container form input::placeholder {
-    color: rgba(255, 255, 255, 0.7); /* Lighter placeholder text */
+    color: var(--primary-color); /* Lighter placeholder text */
 }
 
 /* Paragraph for additional text */
 .signUp-container p {
     text-align: center; /* Centered text */
     font-size: 0.875rem; /* Smaller font size */
-    color: #f3f3f3; /* Light font color */
+    color: var(--primary-color); /* Light font color */
     margin-top: 1.25rem; /* Space above paragraph */
 }
 
@@ -118,7 +118,7 @@ body.signup-container-body {
 .signUp-container .submit-btn {
     align-self: center; /* Center the button */
     background-color: #996DC6; /* Purple background */
-    color: #f3f3f3; /* Light font color */
+    color: var(--primary-color); /* Light font color */
     font-size: 1rem; /* Font size */
     font-weight: bold; /* Bold text */
     border: none; /* Remove border */
@@ -154,10 +154,10 @@ body.signup-container-body {
     width: 100%; /* Full width */
     height: 2.5rem; /* Fixed height */
     background: transparent; /* Transparent background */
-    border: 0.125rem solid rgba(255, 255, 255, 0.3); /* Light border */
+    border: 0.125rem solid var(--primary-color); /* Light border */
     border-radius: 0.625rem; /* Rounded corners */
     font-size: 0.875rem; /* Font size */
-    color: #f3f3f3; /* Text color */
+    color: var(--primary-color); /* Text color */
     padding: 0 0.625rem; /* Padding inside input */
     outline: none; /* Remove outline on focus */
     transition: all 0.3s ease-in-out; /* Smooth transitions */

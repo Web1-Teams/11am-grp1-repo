@@ -36,7 +36,10 @@ const LeftSection = () => {
   }
   return (
     <div className="split left"> {/* Container for the left section */}
+
+
       <Link to="/home"> <img className="logos" src={AURA} alt="logo" /> </Link> {/* Display the logo */}
+
       <div className="NavContainers"> {/* Wrapper for navigation items */}
         <nav>
           <ul id="nav_lists"> {/* Navigation list */}
@@ -91,7 +94,7 @@ const LeftSection = () => {
                 </svg>
               </label>
               <div className="theme-switch2">
-                <span className="menus">Mode</span>
+                <span className="menus"> Mode</span>
 
               </div>
             </li>
