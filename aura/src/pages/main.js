@@ -12,15 +12,15 @@ const Main = () => {
     const [selectedImage, setSelectedImage] = useState(null);
 
     const images = [
-        { src: "https://via.placeholder.com/300x400", owner: "Owner 1", title: "Beautiful Landscape", price: "$50" },
-        { src: "https://via.placeholder.com/300x400", owner: "Owner 2", title: "Sunset View", price: "$40" },
-        { src: "https://via.placeholder.com/300x400", owner: "Owner 3", title: "Mountain Peak", price: "$60" },
-        { src: "https://via.placeholder.com/300x400", owner: "Owner 4", title: "Ocean Wave", price: "$70" },
-        { src: "https://via.placeholder.com/300x400", owner: "Owner 1", title: "Beautiful Landscape", price: "$50" },
-        { src: "https://via.placeholder.com/200x300", owner: "Owner 4", title: "Ocean Wave", price: "$70" },
-        { src: "https://via.placeholder.com/300x400", owner: "Owner 3", title: "Mountain Peak", price: "$60" },
-        { src: "https://via.placeholder.com/300x400", owner: "Owner 4", title: "Ocean Wave", price: "$70" },
-        { src: "https://via.placeholder.com/300x400", owner: "Owner 1", title: "Beautiful Landscape", price: "$50" },
+        { src: "https://www.thewowstyle.com/wp-content/uploads/2015/01/picture-abstract-art.jpg", owner: "Owner 1", title: "Beautiful Landscape" },
+        { src: "https://img.freepik.com/premium-photo/woman-s-face-is-made-up-geometric-shapes-cyberpunk-colorful-fractalism-cubism_834088-1.jpg", owner: "Owner 4", title: "Ocean Wave" },
+        { src: "https://aiartshop.com/cdn/shop/files/three-dimensional-woman-abstract-ai-art-339_480x480.webp?v=1706834024", owner: "Owner 3", title: "Mountain Peak" },
+        { src: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/low-poly-woman-face-5-marco-lermer.jpg", owner: "Owner 4", title: "Ocean Wave" },
+        { src: "https://cdn.britannica.com/78/43678-050-F4DC8D93/Starry-Night-canvas-Vincent-van-Gogh-New-1889.jpg", owner: "Owner 1", title: "Beautiful Landscape" },
+        { src: "https://th.bing.com/th/id/OIP.UlIiBsYAgfFxK0SglxySPgAAAA?w=425&h=564&rs=1&pid=ImgDetMain", owner: "Owner 4", title: "Ocean Wave" },
+        { src: "https://www.easyhiker.co.uk/wp-content/uploads/2020/06/pic7-2.jpg", owner: "Owner 3", title: "Mountain Peak" },
+        { src: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/119-vincent-van-gogh-wheat-field-with-cypresses-vincent-van-gogh.jpg", owner: "Owner 4", title: "Ocean Wave" },
+        { src: "https://th.bing.com/th/id/R.a43bbc4cdfb47b48c819785da1c6c42b?rik=Krl08jjUoMbPtQ&pid=ImgRaw&r=0", owner: "Owner 1", title: "Beautiful Landscape" },
     ];
     const setGridRowSpan = (img) => {
         const rowHeight = 10; // نفس قيمة grid-auto-rows
@@ -73,7 +73,6 @@ const Main = () => {
                         <div className="modal-details-main">
                             <h1>{selectedImage.title}</h1>
                             <p><strong>Owner:</strong> {selectedImage.owner}</p>
-                            <p><strong>Price:</strong> {selectedImage.price}</p>
                         </div>
                         <button className="close-btn-main" onClick={closeModal}>X</button>
                     </div>
