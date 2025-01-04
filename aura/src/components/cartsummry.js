@@ -14,7 +14,7 @@ const Cartsummry = ({ cartItems }) => {
         Subtotal: <span>{totalPrice}€</span>
       </p>
       <Link to="/checkout">
-        <button className="checkout">Proceed to Checkout</button>
+        <button className="checkout">Go to Checkout</button>
       </Link>
     </div>
   );

@@ -21,11 +21,11 @@
     
   }
   .cart-class  .cart-items p{
-    color: var(--light);
+    color: var(--primary-color);
   }
   
   .cart-class  .cart-items h2 {
-    color: var(--light);
+    color: var(--primary-color);
     margin-bottom: 1rem;
   }
   
@@ -35,7 +35,7 @@
   }
   
   .cart-class  .cart-items th, .cart-items td {
-    color:var(--light);
+    color:var(--primary-color);
     padding: 1rem;
     text-align: left;
     border-bottom: 0.063rem solid var( --secondary-color);
@@ -115,9 +115,8 @@
 
   .cart-class  .summary button{
     white-space: nowrap;
+    padding: 1.3em 3em;
   }
-
-
   
 
   @media only screen and (max-width: 767px) {
