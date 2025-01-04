@@ -33,7 +33,7 @@
 }
 
 .close-btn:hover {
-    color: #996DC6; /* Change color on hover */
+    color: var(--secondary-color); /* Change color on hover */
 }
 
 /* Form fields styling */
@@ -81,15 +81,15 @@
 /* Update button style */
 .update-btn {
     padding: 0.5rem 1rem;
-    background: #996DC6;
-    color: #fff;
+    background: var(--secondary-color);
+    color: var( --primary-color);
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
 }
 
 .update-btn:hover {
-    background: #996DC6; /* Same color on hover */
+    background: var(--secondary-color); /* Same color on hover */
 }
 
 /* Hide the file input field */
@@ -118,15 +118,15 @@ input[type="file"] {
 
 .save-btn {
     padding: 0.5rem 1rem;
-    background: #996DC6;
-    color: #fff;
+    background: var(--secondary-color);
+    color: var( --primary-color);
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
 }
 
 .save-btn:hover {
-    background: #996DC6; /* Same color on hover */
+    background: var(--secondary-color); /* Same color on hover */
 }
 
 /* When modal is active, display it */
@@ -159,7 +159,7 @@ input[type="file"] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Center it using transform */
-    background: #fff;
+    background: var(--light);
     border-radius: 1rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slight shadow */
     width: 400px;

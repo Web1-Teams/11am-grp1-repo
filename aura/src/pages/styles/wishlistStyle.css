@@ -1,11 +1,5 @@
 
- body {
-  
-  margin: 0;
-  padding: 0;
-  background-color:#1e1e2e ;
 
-}
 
 .wishlist-Class .wishlist-container { 
   flex-wrap: wrap;
@@ -16,10 +10,8 @@
   gap: 2rem;
   
 }
-button{
-  text-align: center;
-  align-content: center;
-}
+
+
 
 .wishlist-Class .list-items {
   flex: 3;
