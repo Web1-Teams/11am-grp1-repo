@@ -94,7 +94,7 @@ const LeftSection = () => {
                 </svg>
               </label>
               <div className="theme-switch2">
-                <span className="menus">Mode</span>
+                <span className="menus"> Mode</span>
 
               </div>
             </li>
