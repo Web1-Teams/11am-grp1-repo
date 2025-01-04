@@ -116,4 +116,9 @@ The **Upload Page** empowers users to showcase their artwork by uploading images
    - Use the terminal and specify its type to be Git Bash, not PowerShell.
    - Navigate to the AURA folder: `cd aura`
    - Start the project: `npm start`
+  
+   
+### Demonstration Video
+
+For a detailed walkthrough of every single page of the website, watch the [Demonstration Video](https://drive.google.com/file/d/1bzzvNzPEe5PX20t2Y3B5LHkYkX2WXzYv/view?usp=sharing).
 
