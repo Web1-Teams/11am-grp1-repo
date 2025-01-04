@@ -90,7 +90,7 @@
 }
 
 
-.upload-container .form-group1 input,textarea{
+.upload-container .form-group1 input,.form-group1 textarea{
   width: 96%; /* Adjust width to fit inside the container */
   padding: 5px; /* Inner padding */
 

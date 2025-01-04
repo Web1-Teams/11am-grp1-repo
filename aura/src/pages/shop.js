@@ -3,13 +3,14 @@ import Footer from "../components/shop-footer";
 import ShopItem from "../components/shop-item";
 import Navbar from "../components/navbar";
 import ShopSidebar from "../components/shop-sidebar";
-import shopItems from "../data/shop-items-data.json";
 import { useState, useEffect, useMemo } from "react";
+import SettingsModal from "../components/SettingsModal";
+
 
 
 const ITEMS_PER_PAGE = 12;
 
-const Shop = ({ cartItems , addToCart  }) => {
+const Shop = ({ addToCart }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [priceFilter, setPriceFilter] = useState("All");
@@ -18,22 +19,36 @@ const Shop = ({ cartItems , addToCart  }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [Factive, setFactive] = useState(false);
 
+  const shopItems = JSON.parse(localStorage.getItem('shopItems'));
+
+  const loadCartItems = () => {
+    const savedCart = localStorage.getItem("cartItems");
+    return savedCart ? JSON.parse(savedCart) : [];
+  };
+  const [cartItems, setCartItems] = useState(loadCartItems());
+
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }
+  }, [cartItems]);
+
 
   const loadWishlistItems = () => {
     const savedWishlist = localStorage.getItem("wishlistItems");
-    console.log("save to wishlist",savedWishlist)
+    console.log("save to wishlist", savedWishlist)
     return savedWishlist ? JSON.parse(savedWishlist) : [];
   };
 
   const [wishlistItems, setWishlistItems] = useState(loadWishlistItems());
-  
 
 
-  useEffect(()=>{
-    if(wishlistItems.length > 0){
-      localStorage.setItem("wishlistItems" , JSON.stringify(wishlistItems));
-    } 
-  } , [wishlistItems]);
+
+  useEffect(() => {
+    if (wishlistItems.length > 0) {
+      localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
+    }
+  }, [wishlistItems]);
 
   const getFilteredItems = () => {
     let filteredItems = shopItems;
@@ -103,7 +118,7 @@ const Shop = ({ cartItems , addToCart  }) => {
     setCurrentPage(1);
   }, [categoryFilter, priceFilter]);
 
-  
+
 
 
   const toggleWishlistItem = (item) => {
@@ -113,52 +128,55 @@ const Shop = ({ cartItems , addToCart  }) => {
       if (isItemInWishlist) {
         return prevWishlistItems.filter((wishlistItem) => wishlistItem.id !== item.id);
       } else {
-        
+
         return [...prevWishlistItems, item];
       }
     });
   };
 
   return (
-    <div className="shop-styling">
-      <div className={isFilterActive ? "layout active" : 'layout'}>
-        <Navbar IsWithSearch={true} setSearchTerm={setSearchTerm} />
-        <ShopSidebar
-          categoryFilter={categoryFilter}
-          setCategoryFilter={setCategoryFilter}
-          priceFilter={priceFilter}
-          setPriceFilter={setPriceFilter}
-          isFilterActive={isFilterActive}
-          handleAllTabClick={handleAllTabClick}
-          handleFilterTabClick={handleFilterTabClick}
-          setIsFilterActive={setIsFilterActive}
-          isSidebarActive={isSidebarActive}
-          setIsSidebarActive={setIsSidebarActive}
-          Factive={Factive}
-          setFactive={setFactive}
-        />
-        <main className={isFilterActive ? "shop-items active" : "shop-items"}>
-          {currentItems.map(item => (
-            <ShopItem
-              key={item.id}
-              data={item}
-              addToCart={addToCart}
-              toggleWishlistItem={toggleWishlistItem}
-              cartItems={cartItems}
-              wishlistItems={wishlistItems}
-              isFilterActive={isFilterActive}
-            />
-          ))}
-        </main>
-        <Footer
-          isFilterActive={isFilterActive}
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onNext={handleNextPage}
-          onPrev={handlePrevPage}
-        />
+    <div>
+      <div className="shop-styling">
+        <div className={isFilterActive ? "layout active" : 'layout'}>
+          <Navbar IsWithSearch={true} extended={true} setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
+          <ShopSidebar
+            categoryFilter={categoryFilter}
+            setCategoryFilter={setCategoryFilter}
+            priceFilter={priceFilter}
+            setPriceFilter={setPriceFilter}
+            isFilterActive={isFilterActive}
+            handleAllTabClick={handleAllTabClick}
+            handleFilterTabClick={handleFilterTabClick}
+            setIsFilterActive={setIsFilterActive}
+            isSidebarActive={isSidebarActive}
+            setIsSidebarActive={setIsSidebarActive}
+            Factive={Factive}
+            setFactive={setFactive}
+          />
+          <main className={isFilterActive ? "shop-items active" : "shop-items"}>
+            {currentItems.map(item => (
+              <ShopItem
+                key={item.id}
+                data={item}
+                addToCart={addToCart}
+                cartItems={cartItems}
+                wishlistItems={wishlistItems}
+                isFilterActive={isFilterActive}
+              />
+            ))}
+          </main>
+          <Footer
+            isFilterActive={isFilterActive}
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onNext={handleNextPage}
+            onPrev={handlePrevPage}
+          />
+        </div>
       </div>
+      <SettingsModal IsForProfile={false} />
     </div>
+
   );
 };
 
