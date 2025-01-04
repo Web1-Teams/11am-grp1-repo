@@ -22,7 +22,3 @@
   body.dark-mode{
     background-color: var(--dark);
   }
-
-  .dark-mode *{
-    transition:unset ;
-  }

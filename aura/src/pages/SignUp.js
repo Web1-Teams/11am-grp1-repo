@@ -4,12 +4,12 @@ import { Link, useNavigate } from 'react-router-dom'; // Import Link for routing
 
 const SignUp = () => {
     // useState hooks to manage state for form inputs and error messages
-    const [firstName, setFirstName] = useState(""); 
-    const [lastName, setLastName] = useState(""); 
-    const [email, setEmail] = useState(""); 
-    const [password, setPassword] = useState(""); 
-    const [confirmPassword, setConfirmPassword] = useState(""); 
-    const [error, setError] = useState(""); 
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [error, setError] = useState("");
 
     const navigate = useNavigate(); // useNavigate hook for navigating to different pages
 
@@ -54,9 +54,9 @@ const SignUp = () => {
                 const newUser = { firstName, lastName, email, password };
                 existingUsers.push(newUser);
                 localStorage.setItem('users', JSON.stringify(existingUsers));
-
+                localStorage.setItem("isSignedIn", true);
                 // Redirect to the home page after successful registration
-                navigate("/home");
+                navigate("/sign-in");
             }
         }
     };

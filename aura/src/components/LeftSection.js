@@ -36,7 +36,7 @@ const LeftSection = () => {
   }
   return (
     <div className="split left"> {/* Container for the left section */}
-      <img className="logos" src={AURA} alt="logo" /> {/* Display the logo */}
+      <Link to="/home"> <img className="logos" src={AURA} alt="logo" /> </Link> {/* Display the logo */}
       <div className="NavContainers"> {/* Wrapper for navigation items */}
         <nav>
           <ul id="nav_lists"> {/* Navigation list */}
@@ -101,6 +101,7 @@ const LeftSection = () => {
           </ul>
         </nav>
       </div>
+
 
       {/* Logout Button */}
       <div className="logout-container">
