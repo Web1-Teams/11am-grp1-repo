@@ -7,9 +7,10 @@ import { useState, useEffect, useMemo } from "react";
 import SettingsModal from "../components/SettingsModal";
 
 
+
 const ITEMS_PER_PAGE = 12;
 
-const Shop = ({ wishlistItems, setWishlistItems }) => {
+const Shop = ({ addToCart }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [priceFilter, setPriceFilter] = useState("All");
@@ -31,6 +32,23 @@ const Shop = ({ wishlistItems, setWishlistItems }) => {
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
     }
   }, [cartItems]);
+
+
+  const loadWishlistItems = () => {
+    const savedWishlist = localStorage.getItem("wishlistItems");
+    console.log("save to wishlist", savedWishlist)
+    return savedWishlist ? JSON.parse(savedWishlist) : [];
+  };
+
+  const [wishlistItems, setWishlistItems] = useState(loadWishlistItems());
+
+
+
+  useEffect(() => {
+    if (wishlistItems.length > 0) {
+      localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
+    }
+  }, [wishlistItems]);
 
   const getFilteredItems = () => {
     let filteredItems = shopItems;
@@ -100,26 +118,14 @@ const Shop = ({ wishlistItems, setWishlistItems }) => {
     setCurrentPage(1);
   }, [categoryFilter, priceFilter]);
 
-  const addToCart = (item) => {
-    setCartItems((prevCartItems) => {
-      const updatedCart = [...prevCartItems, item];
-      return updatedCart;
-    });
-  };
 
-  const addToWishlist = (item) => {
-    setWishlistItems((prevWishlistItems) => {
-      const updatedWishlist = [...prevWishlistItems, item];
-      return updatedWishlist;
-    });
-  };
+
 
   const toggleWishlistItem = (item) => {
     setWishlistItems((prevWishlistItems) => {
       const isItemInWishlist = prevWishlistItems.some((wishlistItem) => wishlistItem.id === item.id);
 
       if (isItemInWishlist) {
-
         return prevWishlistItems.filter((wishlistItem) => wishlistItem.id !== item.id);
       } else {
 
@@ -153,7 +159,6 @@ const Shop = ({ wishlistItems, setWishlistItems }) => {
                 key={item.id}
                 data={item}
                 addToCart={addToCart}
-                addToWishlist={addToWishlist}
                 cartItems={cartItems}
                 wishlistItems={wishlistItems}
                 isFilterActive={isFilterActive}

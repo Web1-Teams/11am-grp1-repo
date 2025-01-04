@@ -15,6 +15,9 @@
     object-fit: cover;
     overflow: hidden;
 }
+.n_name{
+    color: var(--secondary-color);
+}
 
 .shop-styling .card {
     width: 20em;

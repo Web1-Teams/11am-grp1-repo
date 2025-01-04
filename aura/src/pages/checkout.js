@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../pages/styles/checkout-style.css"
+import Navbar from "../components/navbar"
 const CheckOut = () => {
   const [invoice, setInvoice] = useState(null);
 
@@ -61,7 +62,8 @@ const CheckOut = () => {
     );
   }
 
-  return ( <div className="checkout-style">
+  return (<div className="checkout-style">
+    <div className="shop-styling"><Navbar IsWithSearch={false} extended={true} /></div>
     <div className="container">
       <h1>Payment Gateway</h1>
       <form className="payment-form">
@@ -135,7 +137,7 @@ const CheckOut = () => {
         </button>
       </form>
     </div>
-    </div>
+  </div>
   );
 };
 

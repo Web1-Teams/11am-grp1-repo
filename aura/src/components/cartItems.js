@@ -1,4 +1,29 @@
+
+import { useState, useEffect } from "react";
+
 const CartItems = ({ cartItems, setCartItems }) => {
+
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      localStorage.setItem("wishlistItems", JSON.stringify(cartItems));
+    }
+  }, [cartItems]);
+
+  useEffect(() => {
+
+    const storedItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    setCartItems(storedItems);
+
+  }, []);
+
+  useEffect(() => {
+
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+  }, [cartItems]);
+
+
   const handleRemoveFromCart = (id) => {
     setCartItems(prevItems => prevItems.filter(item => item.id !== id));
   };

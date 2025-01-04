@@ -1,8 +1,11 @@
 import { useState } from "react";
 import "../pages/styles/shop-item-style.css";
 import "../pages/styles/shop-modal-style.css";
+import { Link } from "react-router-dom";
 
-const ShopItem = ({ data, addToCart, cartItems, addToWishlist, wishlistItems }) => {
+
+const ShopItem = ({ data, addToCart, cartItems, toggleWishlistItem, wishlistItems }) => {
+
     const [Modal, SetModal] = useState(false);
 
     const ToggleModal = () => {
@@ -46,7 +49,7 @@ const ShopItem = ({ data, addToCart, cartItems, addToWishlist, wishlistItems }) 
                                     <div className="right-section">
                                         <div className="right-desc">
                                             <h1>{data.title}</h1>
-                                            <p className="description">{data.subtitle}</p>
+                                            <Link to="/profile2"><p className=" n_name">{data.subtitle}</p></Link>
                                             <p className="small-s description">{data.description}</p>
                                         </div>
                                         <div className="action-buttons">
@@ -60,11 +63,15 @@ const ShopItem = ({ data, addToCart, cartItems, addToWishlist, wishlistItems }) 
                                                 >
                                                     {isItemInCart ? "See in Cart" : "Add to Cart"}
                                                 </button>
-                                                <div className="like-btn"
-                                                    onClick={() => addToWishlist(data)}
-                                                >
+                                                <div className={isItemInCart ? "like-btn filter-disabled" : "like-btn"} >
                                                     <label className="like-btn container">
-                                                        <input type="checkbox" defaultChecked={isItemInWishlist} />
+
+                                                        <input
+                                                            type="checkbox"
+                                                            defaultChecked={isItemInWishlist}
+                                                            onChange={() => { if (!isItemInCart) { toggleWishlistItem(data); } }} disabled={isItemInCart}
+                                                            {...isItemInWishlist ? "" : ""} />
+
                                                         <div className="like-btn checkmark">
                                                             <svg viewBox="0 0 256 256">
                                                                 <rect fill="none" height={256} width={256} />

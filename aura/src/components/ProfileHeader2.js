@@ -3,6 +3,7 @@ import prof from '../images/prof.jpg';
 import back from '../images/back.jpg';
 import '../pages/styles/ProfileHeader.css';
 import FollowButton from '../components/FollowButton';
+import { Link } from 'react-router-dom';
 
 const ProfileHeader = () => {
   const [followers, setFollowers] = useState(1050); // State for follower count
@@ -27,7 +28,7 @@ const ProfileHeader = () => {
           <span><strong>{followers}</strong> Followers</span>
 
           <FollowButton onFollowToggle={handleFollowToggle} /> {/* Pass the callback */}
-          <i className="fa fa-commenting"></i>
+          <Link to="/community"><i className="fa fa-commenting"></i></Link>
         </p>
 
         <textarea

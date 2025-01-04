@@ -200,6 +200,8 @@
   right:20%;
   bottom: 2%;
 }
+.like-btn path{
+  stroke: var(--primary-color);}
 
 .shop-styling .overlay{
   background-color: rgba(0, 0, 0, 0.6);

@@ -6,23 +6,23 @@ const Menuebar = () => {
       <div className="menuebar">
         <ul className="nav_list">
           <li className="gal-icon">
-            <Link to ="/home">
+            <Link to="/home">
               <i className="fa-regular fa-images"></i>
             </Link>
           </li>
-          <li className="store-icon">
+          <li className="store-icon micon">
             <Link to="/shop">
               <i className="fa-solid fa-store"></i>
             </Link>
           </li>
-          <li className="mas-icon">
+          <li className="com-icon micon">
             <Link to="/community">
               <i className="fa-regular fa-comments"></i>
             </Link>
           </li>
-          <li className="about-icon">
-            <Link to="/about">
-              <i className="fa-solid fa-question"></i>
+          <li className="add-icon micon">
+            <Link to="/upload">
+              <i className="fa fa-plus-square" ></i>
             </Link>
           </li>
         </ul>
