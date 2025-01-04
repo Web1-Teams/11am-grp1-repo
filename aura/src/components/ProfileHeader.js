@@ -1,16 +1,16 @@
 import React, { useRef } from 'react';
-import prof from '../images/prof.jpg'; 
-import back from '../images/back.jpg'; 
+import prof from '../images/prof.jpg';
+import back from '../images/back.jpg';
 import '../pages/styles/ProfileHeader.css';
 
 const ProfileHeader = () => {
   // Reference for the profile image
   const profileImageRef = useRef();
-
+  const profileImage = localStorage.getItem('profileImage') || ("https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg");
   return (
     <div className="middle-top">
       <div className="profile-container">
-        <img src={prof} alt="Profile" className="profiles" ref={profileImageRef} />
+        <img src={profileImage} alt="Profile" className="profiles" ref={profileImageRef} />
         <img src={back} alt="Background" className="back" />
       </div>
 
@@ -22,8 +22,8 @@ const ProfileHeader = () => {
           <span><strong>15</strong> Posts</span>
           {" | "}
           <span><strong>350</strong> Followers</span>
-          <button 
-            id="editProfileButton" 
+          <button
+            id="editProfileButton"
             className="edit-profile-btn"
           >
             Edit Profile
