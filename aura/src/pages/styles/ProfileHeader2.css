@@ -114,6 +114,7 @@ button.followed {
 /* Comment icon styles */
 .fa-commenting {
     cursor: pointer; /* Pointer cursor on hover */
+    color:var(--primary-color);
 }
 
 /* Small padding for the top section */
