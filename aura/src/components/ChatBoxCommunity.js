@@ -21,7 +21,7 @@ const ChatBoxCommunity = ({ activeUser, messages }) => {
             {messages.map((message, index) => (
               <div 
               key={index} 
-              className={`message-item ${message.isUserMessage ? 'user-message' : 'other-message'}`}
+              className={`message-item ${message.isUserMessage ? 'my-message' : 'other-message'}`}
             >
               {message.text}
             </div>

@@ -32,20 +32,6 @@ a{
     text-decoration: none;
 
 }
-.dark-mode{
-    all:unset;
-    border: #1e1e2e;
-    background-color: #1e1e2e;
-    border-radius: 1.563rem;
-    
-}
-.dark-mode:hover{
-    all:unset;
-    background-color: #996dc6;
-    transition: 250mss;
-    border-radius: 1.563rem;
-    
-}
 
 .gal-icon .store-icon .mas-icon .dark-icon .about-icon {
     position: relative;

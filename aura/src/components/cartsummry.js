@@ -1,6 +1,6 @@
 const Cartsummry = () => {
   return (
-    <aside className="summary">
+    <div className="summary">
       <h3>Summary</h3>
       <p>
         Subtotal: <span>232$</span>
@@ -16,7 +16,7 @@ const Cartsummry = () => {
         Total Price: <span>266€</span>
       </p>
       <button className="checkout">Proceed to Checkout</button>
-    </aside>
+    </div>
   );
 };
 
