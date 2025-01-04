@@ -6,6 +6,7 @@ import Navbar from '../components/navbar';
 
 
 const Upload = () => {
+  // State to store the details of the post being created.
   const [postDetails, setPostDetails] = useState(() => {
     const savedDetails = localStorage.getItem('postDetails');
     return savedDetails
@@ -20,9 +21,9 @@ const Upload = () => {
         };
   });
 
-  const navigate = useNavigate();
+  const navigate = useNavigate(); //To navigate to other routes.
 
-  useEffect(() => {
+  useEffect(() => {   // Cleanup effect for revoking object URLs
     return () => {
       if (postDetails.imagePreview) {
         URL.revokeObjectURL(postDetails.imagePreview);
@@ -30,14 +31,14 @@ const Upload = () => {
     };
   }, [postDetails.imagePreview]);
 
-  useEffect(() => {
+  useEffect(() => {   // Effect to save postDetails to localStorage
     if (!localStorage.getItem('shopItems')) {
       localStorage.setItem('shopItems', JSON.stringify(shopItems));
     }
     localStorage.setItem('postDetails', JSON.stringify(postDetails));
   }, [postDetails]);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e) => {   // Handles changes to input fields
     const { name, value } = e.target;
     setPostDetails((prev) => ({
       ...prev,
@@ -45,7 +46,7 @@ const Upload = () => {
     }));
   };
 
-  const toggleForSale = (value) => {
+  const toggleForSale = (value) => {   // Toggles whether the post is for sale
     setPostDetails((prev) => ({
       ...prev,
       isForSale: value,
@@ -53,7 +54,7 @@ const Upload = () => {
     }));
   };
 
-  const handleImageUpload = (event) => {
+  const handleImageUpload = (event) => {   // Handles image upload via file input
     const file = event.target.files[0];
     if (file) {
       const imgLink = URL.createObjectURL(file);
@@ -64,7 +65,7 @@ const Upload = () => {
     }
   };
 
-  const handleDrop = (event) => {
+  const handleDrop = (event) => {    // Handles image upload via drag-and-drop.
     event.preventDefault();
     const file = event.dataTransfer.files[0];
     if (file) {
@@ -80,15 +81,15 @@ const Upload = () => {
     event.preventDefault();
   };
 
-  const handlePost = () => {
+  const handlePost = () => {     // Validates input fields
     const { title, description, category, isForSale, price } = postDetails;
 
-    if (!title || !description || !category) {
+    if (!title || !description || !category) {   // Ensure all required fields are filled out
       alert('Please fill out all required fields.');
       return;
     }
 
-    if (isForSale && !price) {
+    if (isForSale && !price) {    // Ensure a price is entered if the post is for sale.
       alert('Please enter a price for the post.');
       return;
     }
@@ -109,19 +110,19 @@ const Upload = () => {
     };
     
     const updatedShopItems = [...shopItems, newPost];
-    localStorage.setItem('shopItems', JSON.stringify(updatedShopItems));
+    localStorage.setItem('shopItems', JSON.stringify(updatedShopItems));  // Save updated shop items to localStorage.
     alert('Post details saved successfully!');
     navigate('/Profile');
   };
 
   return (
     <div className="upload-container">
-       <div className="shop-styling"><Navbar IsWithSearch={false} /></div>
+       <div className="shop-styling"><Navbar IsWithSearch={false} /></div>  {/* Include the Navbar component. */}
       <div className="container-upload">
         <h1>Create a New Post</h1>
 
-        <div className="imageUpload">
-          <label
+        <div className="imageUpload"> {/* Image upload section with drag-and-drop support. */}
+          <label  
             htmlFor="input-file" id="drop-area-upload" 
             onDragOver={handleDragOver} 
             onDrop={handleDrop}>
@@ -149,7 +150,7 @@ const Upload = () => {
           </label>
         </div>
 
-        <div className="toggle-buttons-price">
+        <div className="toggle-buttons-price">   {/* Toggle buttons for "For Sale" or "For Show" options. */}
           <button
             className={postDetails.isForSale ? 'sale' : ''}
             onClick={() => toggleForSale(true)}>
@@ -162,8 +163,8 @@ const Upload = () => {
           </button>
         </div>
 
-        {postDetails.isForSale && (
-          <div className="form-group1" id="priceGroup">
+        {postDetails.isForSale && (  
+          <div className="form-group1" id="priceGroup">   {/* Price input field*/}
             <label htmlFor="price">Price</label>
             <input type="number" id="price" name="price"
               value={postDetails.price}
@@ -172,7 +173,7 @@ const Upload = () => {
           </div>
         )}
 
-        <div className="form-group1">
+        <div className="form-group1">  {/* Title input field. */}
           <label htmlFor="title">Title</label>
           <input type="text" id="title" name="title"
             value={postDetails.title}
@@ -180,7 +181,7 @@ const Upload = () => {
             onChange={handleInputChange}/>
         </div>
 
-        <div className="form-group1">
+        <div className="form-group1">   {/* Description input field. */}
           <label htmlFor="description">Description</label>
           <textarea id="description" name="description"
             value={postDetails.description}
@@ -189,7 +190,7 @@ const Upload = () => {
           ></textarea>
         </div>
 
-        <div className="form-group1">
+        <div className="form-group1">   {/* Category dropdown menu. */}
           <label htmlFor="category">Category</label>
           <select id="category" name="category"
             value={postDetails.category}
@@ -203,7 +204,7 @@ const Upload = () => {
           </select>
         </div>
 
-        <div className="post-buttons">
+        <div className="post-buttons">  {/* Post button to submit the form. */}
           <button className="post" onClick={handlePost}>
             Post
           </button>
