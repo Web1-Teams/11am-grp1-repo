@@ -1,5 +1,7 @@
 import "./styles/wishlistStyle.css";
+import Navbar from "../components/navbar.js";
 import { useState, useEffect } from "react";
+
 
 const Wishlist = ({ addToCart }) => {
   const loadWishlistItems = () => {
@@ -16,8 +18,24 @@ const Wishlist = ({ addToCart }) => {
     }
   }, [wishlistItems]);
 
+  useEffect(() => {
+
+    const storedItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
+
+    setWishlistItems(storedItems);
+
+  }, []);
+
+  useEffect(() => {
+
+    localStorage.setItem('wishlistItems', JSON.stringify(wishlistItems));
+
+  }, [wishlistItems]);
+
   const handleRemoveFromWishlist = (id) => {
+
     setWishlistItems((prevItems) => prevItems.filter((item) => item.id !== id));
+
   };
 
   const handleAddToCartAndRemoveFromWishlist = (item) => {
@@ -29,6 +47,7 @@ const Wishlist = ({ addToCart }) => {
 
   return (
     <div className="shop-styling wishlist-Class">
+      <div className="shop-styling"><Navbar IsWithSearch={false} /></div>
       <div className="wishlist-container">
         <section className="list-items">
           <h2>My Wishlist</h2>

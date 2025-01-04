@@ -67,7 +67,7 @@ const ShopItem = ({ data, addToCart, cartItems , toggleWishlistItem , wishlistIt
                                                         <input 
                                                          type="checkbox"
                                                          defaultChecked= {isItemInWishlist}
-                                                         onChange={() => toggleWishlistItem(data)} 
+                                                         onChange={() => { if (!isItemInCart) { toggleWishlistItem(data);}}}  disabled={isItemInCart}
                                                          {...isItemInWishlist ? "" : ""} />
                                                         <div className="like-btn checkmark">
                                                             <svg viewBox="0 0 256 256">
