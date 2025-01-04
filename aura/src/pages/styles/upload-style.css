@@ -69,13 +69,15 @@
 
 .upload-container .toggle-buttons-price .sale {
   background-color: #996dc6;
-  color: #fff;
+  color: var(--primary-color);
 }
 
 .upload-container .toggle-buttons-price .show {
   background-color:  #996dc6;
-  color: #fff;
+  color: var(--primary-color);
+
 }
+
 .upload-container .form-group1 {
   margin-bottom: 15px;  /* Space below each form group */
 }
@@ -84,7 +86,7 @@
   display: block; /* Make the label take full width */
   margin-bottom: 5px; /* Space below the label */
   font-size: 0.9rem; 
-  color: #bbb;
+  color: var(--primary-color);
 }
 
 
@@ -96,7 +98,7 @@
   border: 1px solid #996dc6;
   border-radius: 5px;
   background-color: var(--variant);
-  color: #fff;
+  color: var(--primary-color);
 }
 
 .upload-container .form-group1 textarea {
@@ -118,11 +120,11 @@
 }
 .upload-container .preview {
   background-color:  #996dc6;
-  color: #bbb;
+  color: var(--primary-color);
 }
 .upload-container .post {
   background-color: #996dc6;
-  color: #fff;
+  color: var(--primary-color);
 }
 .upload-container .form-group1 select {
   width: 98%; /* Adjust width to fit inside the container */
@@ -131,6 +133,6 @@
   border: 1px solid #996dc6;
   border-radius: 5px;
   background-color: var(--variant);
-  color: #fff;
+  color: var(--primary-color);
   cursor: pointer; /* Pointer cursor on hover */
 }
