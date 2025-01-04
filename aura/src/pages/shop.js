@@ -10,7 +10,7 @@ import SettingsModal from "../components/SettingsModal";
 
 const ITEMS_PER_PAGE = 12;
 
-const Shop = ({ addToCart }) => {
+const Shop = ({ addToCart, cartItems }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [priceFilter, setPriceFilter] = useState("All");
@@ -20,19 +20,6 @@ const Shop = ({ addToCart }) => {
   const [Factive, setFactive] = useState(false);
 
   const shopItems = JSON.parse(localStorage.getItem('shopItems'));
-
-  const loadCartItems = () => {
-    const savedCart = localStorage.getItem("cartItems");
-    return savedCart ? JSON.parse(savedCart) : [];
-  };
-  const [cartItems, setCartItems] = useState(loadCartItems());
-
-  useEffect(() => {
-    if (cartItems.length > 0) {
-      localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    }
-  }, [cartItems]);
-
 
   const loadWishlistItems = () => {
     const savedWishlist = localStorage.getItem("wishlistItems");
@@ -159,6 +146,7 @@ const Shop = ({ addToCart }) => {
                 key={item.id}
                 data={item}
                 addToCart={addToCart}
+                toggleWishlistItem={toggleWishlistItem}
                 cartItems={cartItems}
                 wishlistItems={wishlistItems}
                 isFilterActive={isFilterActive}
