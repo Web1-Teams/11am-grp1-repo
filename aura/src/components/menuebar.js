@@ -15,16 +15,16 @@ const Menuebar = () => {
               <i className="fa-solid fa-store"></i>
             </Link>
           </li>
-          <li className="mas-icon">
+          <li className="com-icon">
             <Link to="/community">
               <i className="fa-regular fa-comments"></i>
             </Link>
           </li>
-          <li className="about-icon">
-            <Link to="/about">
-              <i className="fa-solid fa-question"></i>
-            </Link>
-          </li>
+           <li className="add-icon">
+                      <Link to="/upload">
+                          <i className="fa fa-plus-square" ></i> 
+                          </Link>
+                      </li>
         </ul>
       </div>
     </div>

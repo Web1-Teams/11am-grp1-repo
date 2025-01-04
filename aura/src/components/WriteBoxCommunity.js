@@ -20,7 +20,7 @@ const WriteBoxCommunity = ({ activeUser, onSendMessage }) => {
         disabled={!activeUser} 
       />
       <button onClick={handleSend} disabled={!activeUser || !message.trim()}>
-        إرسال
+        Send
       </button>
     </div>
   );

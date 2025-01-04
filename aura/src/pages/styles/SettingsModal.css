@@ -15,7 +15,7 @@
 
 /* Modal content box */
 .modal-contentSettings {
-    background-color: #fff; /* White background for the modal */
+    background-color: white; /* White background for the modal */
     padding: 2rem; /* Padding around the content */
     border-radius: 10px; /* Rounded corners */
     width: 400px; /* Fixed width */
@@ -78,8 +78,8 @@
 
 /* Checkbox when checked */
 .settings-option input[type="checkbox"]:checked {
-    background-color: #996DC6; /* Purple background when checked */
-    border-color: #996DC6; /* Border turns purple */
+    background-color: var(--secondary-color); /* Purple background when checked */
+    border-color: var(--secondary-color); /* Border turns purple */
 }
 
 /* Checkmark icon inside the checkbox when checked */
@@ -103,7 +103,7 @@
 /* Special style for notifications option */
 .settings-option.notifications {
     margin-right: 2rem; /* Extra margin to the right */
-    background-color: #996DC6; /* Purple background */
+    background-color: var(--secondary-color); /* Purple background */
 }
 
 /* Input and select field styles */
@@ -122,12 +122,12 @@
 .settings-option input:focus,
 .settings-option select:focus {
     outline: none; /* Remove default outline */
-    border-color: #996DC6; /* Purple border on focus */
+    border-color: var(--secondary-color); /* Purple border on focus */
 }
 
 /* Save button style */
 .save-settings {
-    background-color: #996DC6; /* Purple background */
+    background-color: var(--secondary-color); /* Purple background */
     color: white; /* White text */
     padding: 0.8rem; /* Padding around the button */
     width: 100%; /* Full width */
@@ -140,5 +140,5 @@
 
 /* Hover effect for save button */
 .save-settings:hover {
-    background-color: #996DC6; /* Keep the purple color on hover */
+    background-color: var(--secondary-color); /* Keep the purple color on hover */
 }

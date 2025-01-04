@@ -2,7 +2,9 @@ import { useState } from "react";
 import "../pages/styles/shop-item-style.css";
 import "../pages/styles/shop-modal-style.css";
 
-const ShopItem = ({ data, addToCart, cartItems , addToWishlist , wishlistItems }) => {
+
+const ShopItem = ({ data, addToCart, cartItems, toggleWishlistItem, wishlistItems }) => {
+
     const [Modal, SetModal] = useState(false);
 
     const ToggleModal = () => {
@@ -14,10 +16,10 @@ const ShopItem = ({ data, addToCart, cartItems , addToWishlist , wishlistItems }
     }
 
     const isItemInCart = data && (cartItems || []).some(item => item.id === data.id);
-    const isItemInWishlist = data && (wishlistItems || []).some(item=> item.id === data.id); 
-   
-    
-   
+    const isItemInWishlist = data && (wishlistItems || []).some(item => item.id === data.id);
+
+
+
 
     return (
         <div className="card">
@@ -39,14 +41,15 @@ const ShopItem = ({ data, addToCart, cartItems , addToWishlist , wishlistItems }
                             <div className="shop-styling pop-up">
                                 <div className="content-wrapper">
                                     <div className="left-section">
-                                        <img className="modal-img" src={data.modalImage} alt={data.title} />
+                                        <img className="modal-img" src={data.image} alt={data.title} />
                                         <h1 className="left-title">{data.title}</h1>
-                                        <p className="description left-desc">Item's description...</p>
+                                        <p className="description left-desc">{data.description}</p>
                                     </div>
                                     <div className="right-section">
                                         <div className="right-desc">
                                             <h1>{data.title}</h1>
                                             <p className="description">{data.subtitle}</p>
+                                            <p className="small-s description">{data.description}</p>
                                         </div>
                                         <div className="action-buttons">
                                             <div>
@@ -55,16 +58,19 @@ const ShopItem = ({ data, addToCart, cartItems , addToWishlist , wishlistItems }
                                             </div>
                                             <div className="buttons-container">
                                                 <button
-                                                    className={isItemInCart ? 'filter-disabled' : ''}
-                                                    onClick={() => addToCart(data)}
+                                                    onClick={() => isItemInCart ? window.location.href = '/cart' : addToCart(data)}
                                                 >
-                                                    {isItemInCart ? "In Cart" : "Add to Cart"}
+                                                    {isItemInCart ? "See in Cart" : "Add to Cart"}
                                                 </button>
-                                                <div className="like-btn"
-                                                 onClick = {() => addToWishlist(data)}
-                                                >
+                                                <div className={isItemInCart ? "like-btn filter-disabled" : "like-btn"} >
                                                     <label className="like-btn container">
-                                                        <input type="checkbox"  checked={isItemInWishlist} readOnly />
+
+                                                        <input
+                                                            type="checkbox"
+                                                            defaultChecked={isItemInWishlist}
+                                                            onChange={() => { if (!isItemInCart) { toggleWishlistItem(data); } }} disabled={isItemInCart}
+                                                            {...isItemInWishlist ? "" : ""} />
+
                                                         <div className="like-btn checkmark">
                                                             <svg viewBox="0 0 256 256">
                                                                 <rect fill="none" height={256} width={256} />
@@ -89,14 +95,15 @@ const ShopItem = ({ data, addToCart, cartItems , addToWishlist , wishlistItems }
                 </div>
                 <div className="content">
                     <p className="title">{data.title}</p>
-                    <p className="name">{data.subtitle}</p>
-                    <p className="title price">${data.price}</p>
+                    <p className=" A_name">in {data.category}</p>
+                    <p className="price">${data.price}</p>
+                    <span></span>
                 </div>
                 <button
-                    className={isItemInCart ? 'card-btn filter-disabled' : 'card-btn'}
-                    onClick={() => addToCart(data)}
+                    className='card-btn'
+                    onClick={() => isItemInCart ? window.location.href = '/cart' : addToCart(data)}
                 >
-                    {isItemInCart ? "In Cart" : "Add to Cart"}
+                    {isItemInCart ? "See in Cart" : "Add to Cart"}
                 </button>
             </div>
         </div>
