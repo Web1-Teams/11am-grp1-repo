@@ -32,7 +32,7 @@
 .wishlist-Class .list-items th {
   color: var(--primary-color);
   padding: 1rem;
-  text-align: center;
+  text-align: left;
   border-bottom: 0.063rem solid #996DC6;
 }
 
@@ -41,6 +41,7 @@
   padding: 1rem;
   text-align: -moz-center;
   border-bottom: 0.063rem solid #996DC6;
+  position: relative;
  }
 
 
@@ -55,6 +56,8 @@
   height: auto;
   margin-right: 1rem;
   vertical-align: middle;
+  position: absolute;
+  bottom: 20%;
 }
 
 
