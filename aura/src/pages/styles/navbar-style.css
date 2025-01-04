@@ -134,6 +134,9 @@
 .shop-styling .logo:hover{
   filter: drop-shadow(0 0 2px #996dc6);
 }
+.shop-styling a{
+  text-decoration: none;
+}
 
 .burger {
   display: block;
