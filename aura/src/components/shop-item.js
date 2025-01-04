@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../pages/styles/shop-item-style.css";
 import "../pages/styles/shop-modal-style.css";
+import { Link } from "react-router-dom";
 
 
 const ShopItem = ({ data, addToCart, cartItems, toggleWishlistItem, wishlistItems }) => {
@@ -48,7 +49,7 @@ const ShopItem = ({ data, addToCart, cartItems, toggleWishlistItem, wishlistItem
                                     <div className="right-section">
                                         <div className="right-desc">
                                             <h1>{data.title}</h1>
-                                            <p className="description">{data.subtitle}</p>
+                                            <Link to="/profile2"><p className=" n_name">{data.subtitle}</p></Link>
                                             <p className="small-s description">{data.description}</p>
                                         </div>
                                         <div className="action-buttons">

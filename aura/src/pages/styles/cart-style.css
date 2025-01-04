@@ -1,17 +1,4 @@
-
-<<<<<<< HEAD
-
- 
-
-  
-  
- 
   .cart-container { 
-=======
- 
-  .cart-container { 
-
->>>>>>> 93215c4d12665c9d8dc6d78563f6c5846f1a0af9
     padding-top: 3rem;
     display: flex;
     justify-content: space-between;
@@ -50,6 +37,7 @@
     text-align: left;
     border-bottom: 0.063rem solid var( --secondary-color);
     vertical-align: middle;
+    position: relative;
   }
  
   .cart-class  .cart-items td img {
@@ -57,7 +45,8 @@
     display: block;
     height: auto;
     margin-right: 1rem;
-    
+    position: absolute;
+    bottom: 20%;
   }
   
   .cart-class  .cart-items .remove {
