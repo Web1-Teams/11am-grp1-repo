@@ -2,8 +2,6 @@
 
 .shop-styling .pop-up {
     position: fixed;
-    width: 60vw;
-    max-height: 80vh;
     top: 50%;
     left:50%;
     transform: translate(-50%,-50%);
@@ -15,10 +13,10 @@
     overflow-y: auto;
     box-sizing: border-box;
     overflow-x: hidden;
-    max-width: max-content;
     max-height: 80vh;
     backdrop-filter: none; 
     user-select: text;
+    width:fit-content;
   }
   .shop-styling .pop-up * {
     transform: none;
@@ -32,14 +30,15 @@
         "left right";
     gap: 1em;
     align-items: start;
+    overflow-x: visible;
+    width: 93%;
   }
   
   .shop-styling .left-section {
     display: flex;
     flex-direction: column;
-    margin-right: 2em;
     overflow: visible;
-    
+    padding-right: 4em;
   }
   .shop-styling .modal-img {
     border-radius: 0.7em;
@@ -62,6 +61,7 @@
     color: #bbb;
     font-size: 14px;
     margin-top: 0.5em;
+    max-width: 70%;
   }
   
   .shop-styling .right-section {
@@ -69,9 +69,10 @@
     flex-direction: column;
     gap: 0.5em;
     position: relative;
-    width: 100%;
+    width: 150%;
     justify-self: center;
     max-width: 30em;
+    margin-right: 1em;
   }
   .right-desc, .license-info{
     padding: 1em;
@@ -117,6 +118,9 @@
   .pop-up .like-btn{
     overflow-x:unset;
     transition: all 0.3s ease-in-out;
+  }
+  .small-s{
+    display: none;
   }
 
 
@@ -193,8 +197,8 @@
 .like-btn {
   transition: all 0.3s ease-in-out;
   position: absolute;
-  right:5em;
-  bottom: 0em;
+  right:20%;
+  bottom: 2%;
 }
 
 .shop-styling .overlay{
@@ -208,6 +212,10 @@
     grid-template-areas:
       "left"
       "right";
+    width: 100%;
+  }
+  .small-s{
+    display: block;
   }
 
   .shop-styling .left-section {
@@ -227,6 +235,7 @@
   .shop-styling .right-section {
     min-width: 100%;
     flex-direction: column;
+    margin-right: 0em;
   }
 
   .shop-styling .left-title, .right-desc {
@@ -256,6 +265,7 @@
     transform: translateX(0em) translateY(0em);
   }
   .like-btn {
-    right:0em;
+    right:5%;
+    bottom: 0%;
   }
 }

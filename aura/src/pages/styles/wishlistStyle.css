@@ -1,6 +1,4 @@
 
-
-
 .wishlist-Class .wishlist-container { 
   flex-wrap: wrap;
   padding-top: 3rem;
@@ -11,9 +9,6 @@
   margin-top: 4rem;
   
 }
-
-
-
 .wishlist-Class .list-items {
   flex: 3;
   background: var(--dark-variant);

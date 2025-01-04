@@ -1,6 +1,6 @@
 .NavContainer{
     position: fixed;
-    background-color: var(--variant);
+    backdrop-filter: blur(50px);
     padding: 2.5px;
     left: 30px;
     top: 150px;
@@ -11,8 +11,10 @@
     align-items: center;
     box-shadow: 0 0 5px #996dc6, 0 0 0 1px #996dc6;
     min-height: 100px;
-   
+    z-index: 10;
+    fill: var(--primary-color);
 }
+
 
 .nav_list{
     list-style-type: none;
@@ -27,7 +29,11 @@
     
 }
 
+<<<<<<< HEAD
 .NavContainer a{
+=======
+a{
+>>>>>>> 34055f7432f5c36cf8a8aafc8d7b220761f072b1
     color: var(--primary-color);
     text-decoration: none;
     

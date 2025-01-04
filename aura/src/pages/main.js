@@ -54,7 +54,7 @@ const Main = () => {
     return (
 
         <div className="gallary-body">
-            <div className="shop-styling"><Navbar IsWithSearch={true} /></div>
+            <div className="shop-styling"><Navbar IsWithSearch={true} extended={false} /></div>
             <Menuebar />
             <div className="container">
                 {images.map((image, index) => (

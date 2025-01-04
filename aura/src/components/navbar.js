@@ -2,14 +2,22 @@
 import logoImage from "../images/AURA.png";
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
-import "../pages/styles/shop-navbar-style.css"
+import "../pages/styles/navbar-style.css"
 
-const Navbar = ({ IsWithSearch = true, setSearchTerm }) => {
+const Navbar = ({ IsWithSearch = true, extended = true, searchTerm, setSearchTerm }) => {
 
     const savedTheme = localStorage.getItem('darkMode') === 'true';
-
+    let profileImage = localStorage.getItem('profileImage') || 'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg';
     const [Menu, SetMenu] = useState(false);
     const [isChecked, setIsChecked] = useState(savedTheme);
+    const [isSignedIn, setIsSignedIn] = useState(() => {
+        const storedStatus = localStorage.getItem('isSignedIn');
+        return storedStatus ? JSON.parse(storedStatus) : false;  // Default to false if not set
+    });
+    useEffect(() => {
+        localStorage.setItem('isSignedIn', JSON.stringify(isSignedIn));
+    }, [isSignedIn]);
+
 
     useEffect(() => {
         if (!isChecked) {
@@ -27,6 +35,10 @@ const Navbar = ({ IsWithSearch = true, setSearchTerm }) => {
     const ToggleMenu = () => {
         SetMenu(!Menu);
     }
+    const sign_out = () => {
+        localStorage.setItem("isSignedIn", false);
+        setIsSignedIn(false);
+    }
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (!event.target.closest('.menu') && !event.target.closest('.burger')) {
@@ -40,6 +52,11 @@ const Navbar = ({ IsWithSearch = true, setSearchTerm }) => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
+    const settingsModal = document.getElementById("settingsModal");
+
+    const openSettings = () => {
+        settingsModal.style.display = "flex";
+    };
 
     return (
         <div className={IsWithSearch ? "" : "no-search"}>
@@ -74,11 +91,29 @@ const Navbar = ({ IsWithSearch = true, setSearchTerm }) => {
                     </label>
                 </div>
 
-                <Link to="/profile">
-                    <div className="profile">
-                        <img src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg" width="50px" />
-                    </div>
-                </Link>
+                <div>
+                    {!isSignedIn ? (
+                        // If not signed in, show a button with a profile icon that links to /sign-in
+                        <Link to="/sign-in">
+                            <button className="profile profile-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" stroke-width="0" fill="currentColor" stroke="currentColor" class="icon">
+                                    <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"></path>
+                                </svg>
+                            </button>
+                        </Link>
+                    ) : (
+                        // If signed in, show the user's profile photo and link to /profile
+                        <Link to="/profile">
+                            <div className="profile">
+                                <img
+                                    src={profileImage}
+                                    width="50px"
+                                    alt="User Profile"
+                                />
+                            </div>
+                        </Link>
+                    )}
+                </div>
 
             </nav>
             {Menu && (
@@ -106,29 +141,51 @@ const Navbar = ({ IsWithSearch = true, setSearchTerm }) => {
 
                                 </li>
                             </Link>
-                            {/*i need to reset the search when all is selected*/}
-                            <li className="element no-s">
-                                <div className="m-search">
-                                    <form className="form">
-                                        <label htmlFor="search">
-                                            <input className="input" type="text" required placeholder="Search" id="search" onChange={(e) => setSearchTerm(e.target.value)} />
-                                            <div className="fancy-bg" />
-                                            <div className="search">
-                                                <svg viewBox="0 0 24 24" aria-hidden="true" className="r-14j79pv r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-4wgw6l r-f727ji r-bnwqim r-1plcrui r-lrvibr">
-                                                    <g>
-                                                        <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z" />
-                                                    </g>
-                                                </svg>
-                                            </div>
-                                            <button className="close-btn" type="reset">
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                                                </svg>
-                                            </button>
-                                        </label>
-                                    </form>
-                                </div>
-                            </li>
+                            {!IsWithSearch && (
+                                <Link to="/shop">
+                                    <li className="element">
+
+                                        <i className="fa-solid fa-store"></i>
+
+                                        <p className="label">Shop</p>
+                                    </li>
+                                </Link>
+                            )}
+                            {extended && (
+                                <Link to="/community">
+                                    <li className="element">
+
+                                        <i className="fa-regular fa-comments"></i>
+
+                                        <p className="label">Community</p>
+                                    </li>
+                                </Link>)}
+
+                            {IsWithSearch && (
+                                <li className="element no-s">
+                                    <div className="m-search">
+                                        <form className="form">
+                                            <label htmlFor="search">
+                                                <input className="input" type="text" required placeholder="Search" id="search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+                                                <div className="fancy-bg" />
+                                                <div className="search">
+                                                    <svg viewBox="0 0 24 24" aria-hidden="true" className="r-14j79pv r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-4wgw6l r-f727ji r-bnwqim r-1plcrui r-lrvibr">
+                                                        <g>
+                                                            <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z" />
+                                                        </g>
+                                                    </svg>
+                                                </div>
+                                                <button className="close-btn" type="reset">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                        <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                                                    </svg>
+                                                </button>
+                                            </label>
+                                        </form>
+                                    </div>
+                                </li>
+                            )}
+
                             <Link to="/cart">
                                 <li className="element">
 
@@ -167,17 +224,20 @@ const Navbar = ({ IsWithSearch = true, setSearchTerm }) => {
                                 </li>
                             </Link>
                         </ul>
+
                         <div className="separator" />
                         <ul className="list">
-                            <Link to="/profile">
-                                <li className="element delete">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="0" fill="currentColor" stroke="currentColor" class="icon">
-                                        <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"></path>
-                                    </svg>
-                                    <p className="label">Profile</p>
-                                </li>
-                            </Link>
-                            <li className="element">
+                            {isSignedIn && (
+                                <Link to="/upload">
+                                    <li className="element">
+
+                                        <i className="fa fa-plus-square" style={{ fontSize: '21px' }}></i>
+
+                                        <p className="label c-fix">Create</p>
+                                    </li>
+                                </Link>
+                            )}
+                            <li className="element" onClick={() => openSettings()}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20" fill="none" className="svg-icon"><g stroke-width="1.5" stroke-linecap="round" stroke="#fff"><circle r="2.5" cy="10" cx="10"></circle><path fill-rule="evenodd" d="m8.39079 2.80235c.53842-1.51424 2.67991-1.51424 3.21831-.00001.3392.95358 1.4284 1.40477 2.3425.97027 1.4514-.68995 2.9657.82427 2.2758 2.27575-.4345.91407.0166 2.00334.9702 2.34248 1.5143.53842 1.5143 2.67996 0 3.21836-.9536.3391-1.4047 1.4284-.9702 2.3425.6899 1.4514-.8244 2.9656-2.2758 2.2757-.9141-.4345-2.0033.0167-2.3425.9703-.5384 1.5142-2.67989 1.5142-3.21831 0-.33914-.9536-1.4284-1.4048-2.34247-.9703-1.45148.6899-2.96571-.8243-2.27575-2.2757.43449-.9141-.01669-2.0034-.97028-2.3425-1.51422-.5384-1.51422-2.67994.00001-3.21836.95358-.33914 1.40476-1.42841.97027-2.34248-.68996-1.45148.82427-2.9657 2.27575-2.27575.91407.4345 2.00333-.01669 2.34247-.97026z" clip-rule="evenodd"></path></g></svg>
                                 <p className="label">Settings</p>
                             </li>
@@ -200,11 +260,18 @@ const Navbar = ({ IsWithSearch = true, setSearchTerm }) => {
                                         </g>
                                     </svg>
                                 </label>
-                                <div className="theme-switch">
-
-                                    <p className="mode">Mode</p>
-                                </div>
+                                <p className="label">Mode</p>
                             </li>
+                            {isSignedIn && (
+                                <div onClick={() => sign_out()}>
+                                    <Link to="/home">
+                                        <li className="element">
+                                            <i class="fa fa-sign-out"></i>
+                                            <p className="label">Sign out</p>
+                                        </li>
+                                    </Link>
+                                </div>
+                            )}
                         </ul>
                     </div>
                 </div>
