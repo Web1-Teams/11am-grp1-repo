@@ -25,3 +25,7 @@ yarn-error.log*
 aura/node_modules/.cache/
 node_modules/
 node_modules/
+
+node_modules/
+
+.npm/
