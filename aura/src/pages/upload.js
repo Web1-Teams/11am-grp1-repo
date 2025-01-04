@@ -1,26 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import shopItems from '../data/shop-items-data.json';
 import '../pages/styles/upload-style.css'
 import Navbar from '../components/navbar';
 
 
 const Upload = () => {
+  const shopItems = JSON.parse(localStorage.getItem('shopItems')) || [];
   const [postDetails, setPostDetails] = useState(() => {
     const savedDetails = localStorage.getItem('postDetails');
     return savedDetails
       ? JSON.parse(savedDetails)
       : {
-          imagePreview: null,
-          title: '',
-          description: '',
-          category: '',
-          isForSale: false,
-          price: '',
-        };
+        imagePreview: null,
+        title: '',
+        description: '',
+        category: '',
+        isForSale: false,
+        price: '',
+      };
   });
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.setItem('postDetails', JSON.stringify(postDetails));
+  }, [postDetails]);
 
   useEffect(() => {
     return () => {
@@ -56,23 +60,33 @@ const Upload = () => {
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
-      const imgLink = URL.createObjectURL(file);
-      setPostDetails((prev) => ({
-        ...prev,
-        imagePreview: imgLink,
-      }));
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const newImage = e.target.result;
+        setPostDetails((prev) => ({
+          ...prev,
+          imagePreview: newImage,
+        }));
+      };
+      reader.readAsDataURL(file);
+
     }
   };
 
   const handleDrop = (event) => {
     event.preventDefault();
-    const file = event.dataTransfer.files[0];
+    const file = event.target.files[0];
     if (file) {
-      const imgLink = URL.createObjectURL(file);
-      setPostDetails((prev) => ({
-        ...prev,
-        imagePreview: imgLink,
-      }));
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const newImage = e.target.result;
+        setPostDetails((prev) => ({
+          ...prev,
+          imagePreview: newImage,
+        }));
+      };
+      reader.readAsDataURL(file);
+
     }
   };
 
@@ -93,40 +107,41 @@ const Upload = () => {
       return;
     }
 
-    const shopItems = JSON.parse(localStorage.getItem('shopItems')) || [];
     const maxId = shopItems.reduce((max, item) => (item.id > max ? item.id : max), 0);
     const newId = maxId + 1;
+    const user = JSON.parse(localStorage.getItem('currentUser'));
 
     const newPost = {
       id: newId,
       title: postDetails.title,
-      subtitle: '', 
+      subtitle: `By ${user.firstName} ${user.lastName}`,
       description: postDetails.description,
       price: parseFloat(postDetails.price || 0),
       image: postDetails.imagePreview,
       category: postDetails.category,
-      isForSale: postDetails.isForSale, 
+      isForSale: postDetails.isForSale,
     };
-    
+
     const updatedShopItems = [...shopItems, newPost];
     localStorage.setItem('shopItems', JSON.stringify(updatedShopItems));
+    localStorage.removeItem('postDetails');
     alert('Post details saved successfully!');
     navigate('/Profile');
   };
 
   return (
     <div className="upload-container">
-       <div className="shop-styling"><Navbar IsWithSearch={false} /></div>
+      <div className="shop-styling"><Navbar IsWithSearch={false} /></div>
       <div className="container-upload">
         <h1>Create a New Post</h1>
 
         <div className="imageUpload">
           <label
-            htmlFor="input-file" id="drop-area-upload" 
-            onDragOver={handleDragOver} 
+            htmlFor="input-file" id="drop-area-upload"
+            onDragOver={handleDragOver}
             onDrop={handleDrop}>
             <input type="file" accept="image/*" id="input-file" hidden
-              onChange={handleImageUpload}/>
+              onChange={handleImageUpload} />
             <div
               id="img-view-upload"
               style={{
@@ -137,9 +152,9 @@ const Upload = () => {
               }}>
               {!postDetails.imagePreview && (
                 <>
-                  <img src="https://img.icons8.com/?size=160&id=hAsRCSg99jYz&format=png"alt="Upload Icon"/>
+                  <img src="https://img.icons8.com/?size=160&id=hAsRCSg99jYz&format=png" alt="Upload Icon" />
                   <p>
-                    Drag and drop or click here <br/>
+                    Drag and drop or click here <br />
                     to upload image
                   </p>
                   <span>Upload any image from desktop</span>
@@ -168,7 +183,7 @@ const Upload = () => {
             <input type="number" id="price" name="price"
               value={postDetails.price}
               placeholder="Enter price"
-              onChange={handleInputChange}/>
+              onChange={handleInputChange} />
           </div>
         )}
 
@@ -177,7 +192,7 @@ const Upload = () => {
           <input type="text" id="title" name="title"
             value={postDetails.title}
             placeholder="Enter title"
-            onChange={handleInputChange}/>
+            onChange={handleInputChange} />
         </div>
 
         <div className="form-group1">

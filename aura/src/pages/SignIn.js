@@ -14,24 +14,27 @@ const SignIn = () => {
     // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent default form submission behavior
-    
+
         // Retrieve the list of users from localStorage
         const users = JSON.parse(localStorage.getItem('users')) || [];
-    
+
         // Trim and normalize inputs for better comparison
         const trimmedEmail = email.trim();
         const trimmedPassword = password.trim();
-    
+
         // Check if a user exists with matching email and password
-        const user = users.find(user => 
+        const user = users.find(user =>
             user.email.toLowerCase() === trimmedEmail.toLowerCase() && user.password === trimmedPassword
         );
-    
+
         if (user) {
             // If a match is found, save the current user in localStorage
             localStorage.setItem("currentUser", JSON.stringify(user));
+
+            localStorage.setItem("isSignedIn", true);
             // Redirect to the home page
             navigate("/home");
+
         } else {
             // If no match is found, display an error message
             setError("Invalid email or password. Please try again.");
@@ -52,8 +55,8 @@ const SignIn = () => {
         <div className="signin-container">
             {/* Sign In Header */}
             <h1>Sign In</h1>
-            <br/>
-            <br/>
+            <br />
+            <br />
             {/* Form for user login */}
             <form onSubmit={handleSubmit}>
                 {/* Email Input */}
@@ -86,18 +89,18 @@ const SignIn = () => {
                     </label>
                     <Link to="/forgot-pass">Forgot Password?</Link>
                 </div>
-                <br/>
+                <br />
 
                 {/* Error Message */}
                 {error && <p className="error-msg">{error}</p>}
 
                 {/* Submit Button */}
                 <button type="submit">Sign In</button>
-                <br/>
+                <br />
 
                 {/* Social Media Login Options */}
                 <h2>Or sign in with</h2>
-                <br/>
+                <br />
                 <div className="social-buttons">
                     <a
                         href="https://www.facebook.com/login"
