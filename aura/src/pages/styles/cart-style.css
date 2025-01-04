@@ -40,28 +40,30 @@
   }
   
   .cart-class  .cart-items th, .cart-items td {
-    color: #ddd;
+    color:var(--light);
     padding: 1rem;
     text-align: left;
     border-bottom: 0.063rem solid var( --secondary-color);
-  }
- 
-  .cart-class  .cart-items img {
-    width: 5rem;
-    height: auto;
-    margin-right: 1rem;
     vertical-align: middle;
   }
+ 
+  .cart-class  .cart-items td img {
+    width:6.5rem;
+    display: block;
+    height: auto;
+    margin-right: 1rem;
+    
+  }
   
-  .cart-class  .cart-items button {
+  .cart-class  .cart-items .remove {
     padding: 0.2rem 0.5rem;
     border: 1px solid var(--dark-variant);
     background: var(--dark-variant);
-    color: #ddd;
+    color:var(--light);
     cursor: pointer;
   }
   
-  .cart-class  .cart-items button:hover {
+  .cart-class  .cart-items .remove:hover {
     background: #4a4c50;
   }
   
@@ -110,19 +112,61 @@
     color: var(--light);
   }
 
+  .cart-class  .summary a{
+    all: unset;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cart-class  .summary button{
+    white-space: nowrap;
+  }
+
+
+  
+
   @media only screen and (max-width: 767px) {
     .cart-class .cart-container {
       flex-direction: column;
       gap: 1rem;
+  
     }
   
     .cart-class .cart-items {
       flex: unset;
+      width: 92%;
     }
   
     .cart-class .summary {
       width: 93%;
       order: 2; /* Ensures the summary appears below the items */
+
+    }
+
+
+
+    .cart-class .cart-items td.item-cell {
+      flex-direction: column; /* Stack image and title vertically */
+      align-items: flex-start; /* Align items to the start */
+    }
+  
+    .cart-class .cart-items td.item-cell img {
+      margin-right: 0;
+      margin-bottom: 0.5rem; /* Add space below the image */
+    }
+  
+    .cart-class .cart-items th,
+    .cart-class .cart-items td {
+      font-size: 0.9rem; /* Smaller text size for smaller screens */
+      padding: 0.5rem;
+    } 
+
+    
+  
+    .cart-class .cart-items .remove {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+      width: 10%;
     }
   }
 
