@@ -25,6 +25,7 @@ Now, let's dive deeper into each page and explore its features and functionality
 3. The Cart and Wishlist Pages (Done By Kareem Halawe):
 
    - Cart Page: Displays all items added to the cart along with their details. Users can remove any item from the cart, view a summary of the items, and use a "Checkout" button to proceed to the checkout page.
+     
    - Wishlist Page: Shows all items you have liked and saved for potential future purchases. Users can remove items from the wishlist or add them directly to the cart.
   
 
@@ -37,21 +38,21 @@ Now, let's dive deeper into each page and explore its features and functionality
 
 5.  The Checkout Page (Done By Sojoud Qusini):
 
-   The Checkout Page on AURA provides a seamless and secure way for users to complete their purchases. The page features an interactive form where users can enter their personal details, including name, email, 
-   address, and payment information such as the name on the card, card number, and expiration date. When the "Proceed to Checkout" button is clicked, the form data is dynamically captured using useState and 
-   stored in the invoice state. After submission, the page displays a detailed invoice containing the billing information (name and address) and payment details. To ensure security, only the last four digits of 
-  the card number are shown. Additionally, the total amount due is prominently displayed, providing clarity for the user.
+    The Checkout Page on AURA provides a seamless and secure way for users to complete their purchases. The page features an interactive form where users can enter their personal details, including name, email, 
+    address, and payment information such as the name on the card, card number, and expiration date. When the "Proceed to Checkout" button is clicked, the form data is dynamically captured using useState and 
+    stored in the invoice state. After submission, the page displays a detailed invoice containing the billing information (name and address) and payment details. To ensure security, only the last four digits of 
+    the card number are shown. Additionally, the total amount due is prominently displayed, providing clarity for the user.
 
 
 6. The Community Page (Done By Omar Hammami):
 
-   The Community Page serves as a hub for interaction and communication between sellers, buyers, and community members on the AURA platform. This page fosters engagement, allowing users to connect, share 
-   insights, and discuss their interests in art. Its straightforward and minimalist design ensures ease of use and accessibility, focusing on creating a welcoming and interactive environment for all participants.
+    The Community Page serves as a hub for interaction and communication between sellers, buyers, and community members on the AURA platform. This page fosters engagement, allowing users to connect, share 
+    insights, and discuss their interests in art. Its straightforward and minimalist design ensures ease of use and accessibility, focusing on creating a welcoming and interactive environment for all participants.
 
 
 7. The Upload Page (Done By Mohanad Yamin):
 
-   The Upload Page empowers users to showcase their artwork by uploading images, adding detailed descriptions, and categorizing their creations. With a clean, intuitive interface, this page offers:
+    The Upload Page empowers users to showcase their artwork by uploading images, adding detailed descriptions, and categorizing their creations. With a clean, intuitive interface, this page offers:
 
    - Image Upload: Effortlessly upload images of your artwork with a live preview. Use the drag-and-drop feature or select a file from your device.
      
