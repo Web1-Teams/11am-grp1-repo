@@ -23,7 +23,6 @@ function App() {
     return storedStatus ? JSON.parse(storedStatus) : false;  // Default to false if not set
   });
   localStorage.setItem('shopItems', JSON.stringify(DefaultShopItems));
-
   // Update localStorage whenever isSignedIn changes
   useEffect(() => {
     localStorage.setItem('isSignedIn', JSON.stringify(isSignedIn));
