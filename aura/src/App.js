@@ -22,12 +22,13 @@ function App() {
     const storedStatus = localStorage.getItem('isSignedIn');
     return storedStatus ? JSON.parse(storedStatus) : false;  // Default to false if not set
   });
-  localStorage.setItem('shopItems', JSON.stringify(DefaultShopItems));
-
   // Update localStorage whenever isSignedIn changes
   useEffect(() => {
     localStorage.setItem('isSignedIn', JSON.stringify(isSignedIn));
   }, [isSignedIn]);  // Only update localStorage when isSignedIn changes
+  useEffect(() => {
+    localStorage.setItem('shopItems', JSON.stringify(DefaultShopItems));
+  }, [DefaultShopItems]);
   return (
     <div>
       <BrowserRouter>
