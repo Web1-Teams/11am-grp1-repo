@@ -15,7 +15,7 @@ const Menuebar = () => {
               <i className="fa-solid fa-store"></i>
             </Link>
           </li>
-          <li className="mas-icon">
+          <li className="com-icon">
             <Link to="/community">
               <i className="fa-regular fa-comments"></i>
             </Link>

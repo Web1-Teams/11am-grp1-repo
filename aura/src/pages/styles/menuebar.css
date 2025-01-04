@@ -1,6 +1,6 @@
 .NavContainer{
     position: fixed;
-    background-color: #1e1e2e;
+    background-color: var(--variant);
     padding: 2.5px;
     left: 30px;
     top: 150px;
@@ -27,9 +27,11 @@
     
 }
 
-a{
-    color: rgb(255, 255, 255);
+.NavContainer a{
+    color: var(--primary-color);
     text-decoration: none;
+    
+    
 
 }
 
@@ -39,7 +41,7 @@ a{
 }
 
 .add-icon:hover{
-    background-color: #996dc6;
+    background-color: var( --secondary-color);
     border-radius: 1.563rem;
     padding: 0 0.8rem;
     transition: 250ms;
@@ -48,10 +50,10 @@ a{
 .gal-icon::after{
 
     content: "";
-    color: #ffffff;
+    color: var(--light);
     position:absolute;
     border-radius: 1.563rem;
-    background-color:  #996dc6;
+    background-color: var( --secondary-color);
     width: 0%;
    
 
@@ -75,7 +77,7 @@ a{
     color: #ffffff;
     position:absolute;
     border-radius: 1.563rem;
-    background-color:  #996dc6;
+    background-color: var( --secondary-color);
     width: 0%;
    
 
@@ -93,7 +95,7 @@ a{
 
 .gal-icon:hover{
 
-    background-color: #996dc6;
+    background-color: var( --secondary-color);
     border-radius: 1.563rem;
     padding: 0 0.8rem;
     transition: 250ms;
@@ -108,7 +110,7 @@ a{
     color: #ffffff;
     position:absolute;
     border-radius: 1.563rem;
-    background-color:  #996dc6;
+    background-color:  var( --secondary-color);
     width: 0%;
 
 }
@@ -124,7 +126,7 @@ a{
 }
 
 .store-icon:hover{
-    background-color: #996dc6;
+    background-color: var(--secondary-color);
     border-radius: 1.563rem;
     padding: 0 0.8rem;
     transition: 250ms;
@@ -137,7 +139,7 @@ a{
     color: #ffffff;
     position:absolute;
     border-radius: 1.563rem;
-    background-color:  #996dc6;
+    background-color:  var( --secondary-color);
     border-radius: 1.563rem;
     width: 0%;
 
@@ -154,16 +156,14 @@ a{
 }
 
 .mas-icon:hover{
-    background-color: #996dc6;
+    background-color: var( --secondary-color);
     border-radius: 1.563rem;
     padding: 0 0.8rem;
     transition: 250ms;
 
-}
-
-.add-icons {
 
 }
+
 
 
 @media only screen and (max-width: 767px) {
