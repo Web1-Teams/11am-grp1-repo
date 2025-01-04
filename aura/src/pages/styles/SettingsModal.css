@@ -15,7 +15,7 @@
 
 /* Modal content box */
 .modal-contentSettings {
-    background-color: var(--light); /* White background for the modal */
+    background-color: white; /* White background for the modal */
     padding: 2rem; /* Padding around the content */
     border-radius: 10px; /* Rounded corners */
     width: 400px; /* Fixed width */
@@ -72,7 +72,7 @@
     border: 2px solid #ccc; /* Border color */
     border-radius: 4px; /* Rounded corners for the checkbox */
     position: relative; /* Position for the checkmark */
-    background-color: var(--light); /* White background */
+    background-color: white; /* White background */
     transition: background-color 0.3s, border-color 0.3s; /* Smooth transition for background and border */
 }
 
@@ -90,8 +90,8 @@
     left: 6px; /* Left positioning */
     width: 4px; /* Width of the checkmark line */
     height: 8px; /* Height of the checkmark line */
-    border-left: 2px solid var(--light); /* Left part of the checkmark */
-    border-bottom: 2px solid var(--light); /* Bottom part of the checkmark */
+    border-left: 2px solid white; /* Left part of the checkmark */
+    border-bottom: 2px solid white; /* Bottom part of the checkmark */
     transform: rotate(45deg) scaleX(-1); /* Rotate to form a checkmark */
 }
 
@@ -128,7 +128,7 @@
 /* Save button style */
 .save-settings {
     background-color: var(--secondary-color); /* Purple background */
-    color: var(--light); /* White text */
+    color: white; /* White text */
     padding: 0.8rem; /* Padding around the button */
     width: 100%; /* Full width */
     border: none; /* No border */

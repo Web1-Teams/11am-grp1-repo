@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import prof from '../images/prof.jpg'; 
+import prof from '../images/prof.jpg';
 import '../pages/styles/EditProfileModal.css';
 
 const EditProfileModal = () => {
-    const [profileImage, setProfileImage] = useState(prof);
+    const currentImage = (localStorage.getItem('profileImage')) || ("https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg")
+    const [profileImage, setProfileImage] = useState(currentImage);
     const [username, setUsername] = useState("Sara Qadi");
     const [bio, setBio] = useState(
         `Hi, I’m Sara Qadi, a passionate painter with a love for capturing the beauty of the world through color and texture. My journey with art began in childhood, where I found joy in sketching the simplest moments around me. Over the years, I’ve honed my skills in oil paintings, blending traditional techniques with my unique vision. ✨`
@@ -19,7 +20,9 @@ const EditProfileModal = () => {
         if (file) {
             const reader = new FileReader();
             reader.onload = function (e) {
-                setProfileImage(e.target.result);
+                const newImage = e.target.result;
+                setProfileImage(newImage);
+                localStorage.setItem('profileImage', newImage);
             };
             reader.readAsDataURL(file);
         }
@@ -27,28 +30,29 @@ const EditProfileModal = () => {
 
     const handleSave = (e) => {
         e.preventDefault();
-    
+
         // Update the ProfileHeader DOM elements for username, bio, and profile image
         const profileNameElement = document.querySelector(".profile-details .status span b");
         const profileBioElement = document.querySelector(".profile-details textarea.bio");
-    
+
         if (profileNameElement) {
             profileNameElement.textContent = username; // Update username
         }
-    
+
         if (profileBioElement) {
             profileBioElement.value = bio; // Update bio
         }
-    
+
         // Update the profile image in the ProfileHeader using the ref
         const profileImageElement = document.querySelector(".profiles");
         if (profileImageElement) {
             profileImageElement.src = profileImage; // Update profile image
         }
-    
+        localStorage.setItem('profileImage', profileImage);
+        setProfileImage(profileImage);
         closeModal();
     };
-    
+
 
     useEffect(() => {
         const button = document.getElementById('editProfileButton');
@@ -65,7 +69,7 @@ const EditProfileModal = () => {
     const openModal = () => {
         document.getElementById('editProfileModal').classList.add('active');
     };
-
+    const updatedprofileImage = localStorage.getItem('profileImage')
     return (
         <div className="edit-profile-modal" id="editProfileModal">
             <div className="modal-overlay" onClick={closeModal}></div>

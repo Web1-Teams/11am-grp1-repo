@@ -17,7 +17,7 @@
 .left {
   width: 15%;
   left: 0;
-  background-color: #1A1A2E; /* Dark background */
+  background-color: var( --bg-color); /* Dark background */
   
 }
 
@@ -28,7 +28,7 @@
 /* Container for the navigation menu on the left */
 .NavContainers {
   position: fixed;
-  background-color: #1A1A2E;
+  background-color: var(--bg-color);
   padding: 4px;
   left: 20px; /* Move from the left edge */
   top: 8rem; /* Position below logo */
@@ -54,46 +54,91 @@
 
 /* Links in the sidebar */
 .left a {
-  color: var(--light); /* White text */
+  color: var( --primary-color); /* White text */
   text-decoration: none; /* No underline */
   display: flex;
   align-items: center;
   gap: 8px; /* Space between icon and text */
 }
 
-/* Dark button styles */
-.darkButtons {
-  border: var(--dark);
-  background-color: var(--dark);
-  border-radius: 1.563rem;
-  color: var(--light); /* White text */
-}
+
 
 /* Dark button hover effect */
-.darkButtons:hover, .NavContainers a:hover {
+.NavContainers a:hover{
   background-color: var(--secondary-color); /* Purple on hover */
   border-radius: 1.563rem;
-  padding: 0 0.8rem; /* Padding change */
+  padding: 0 0.5rem; /* Padding change */
   transition: 250ms; /* Smooth transition */
+  
+}
+#dark-icons:hover {
+  background-color: var(--secondary-color); /* Purple on hover */
+  border-radius: 1.563rem;
+  transition: 250ms; /* Smooth transition */
+  
+  
+}
+.sunMoon2{
+  transform-origin: center center;
+  transition: inherit;
+  transform: scale(1);
+  transform: scale(0.55);
+ color: var(--primary-color);
+
+}
+.st-sunMoonThemeToggleBtn svg .sunRay12 {
+  animation-delay: 0s !important;
+  color: var(--primary-color);
 }
 
+.st-sunMoonThemeToggleBtn svg .sunRay22 {
+  animation-delay: 0.05s !important;
+  color: var(--primary-color);
+}
+.st-sunMoonThemeToggleBtn svg .sunRay32 {
+  animation-delay: 0.1s !important;
+  color: var(--primary-color);
+}
+.st-sunMoonThemeToggleBtn svg .sunRay42 {
+  animation-delay: 0.17s !important;
+  color: var(--primary-color);
+}
+.st-sunMoonThemeToggleBtn svg .sunRay52 {
+  animation-delay: 0.25s !important;
+  color: var(--primary-color);
+}
+.st-sunMoonThemeToggleBtn svg .sunRay62 {
+  animation-delay: 0.29s !important;
+  color: var(--primary-color);
+}
+
+
 /* After content for icons (creates visual effect) */
-#gal-icons::after, #store-icons::after, #mas-icons::after, #dark-icons::after, #add-icons::after {
+#gal-icons::after, #store-icons::after, #mas-icons::after, #add-icons::after {
   content: "";
-  color: #ffffff;
+  color: var(--primary-color);
   position: absolute;
   background-color:var(--secondary-color); /* Purple background */
   width: 0%; /* Start with no width */
 }
 
 /* Icon font size */
-#gal-icons i, #store-icons i, #mas-icons i, #dark-icons i {
+#gal-icons i, #store-icons i, #mas-icons i {
   font-size: 1.5rem;
+}
+
+#dark-icons  {
+  font-size: 2rem;
+  display: inline-flex; /* Ensure the icon and text are aligned in a row */
+  
+
 }
 
 /* Menu font size */
 .menus {
   font-size: 1rem;
+  
+  
 }
 
 /* Hover effect for buttons in left section */
@@ -104,16 +149,20 @@
 
 /* Dark icon styling */
 #dark-icons {
-  color: var(--light); /* White icon color */
+  color: var( --primary-color); /* White icon color */
   
 }
 
 #dark-icons::after {
   content: "";
-  color: var(--light);
+  color: var( --primary-color);
   position: absolute;
   background-color: var(--secondary-color);
   width: 0%; /* Start with no width */
+}
+.theme-switch2{
+  display: flex;
+  width:50%;
 }
 
 /* Margin adjustments for icons */
@@ -121,17 +170,15 @@
   margin-right: 5.7rem;
 }
 #dark-icons {
-  margin-right: 6rem;
+  margin-right: 8rem;
 }
 #gal-icons {
   margin-right: 7rem;
 }
 #store-icons {
-  margin-right: 7.2rem;
+  margin-right: 7.5rem;
 }
-#about-icons {
-  margin-right: 7.3rem;
-}
+
 #add-icons {
   margin-right: 7rem;
 }
@@ -168,7 +215,7 @@ width: 17px;
 
 /* White color for the SVG path inside the button */
 .sign svg path {
-fill: var(--light);
+fill: var( --primary-color);
 }
 
 /* Text inside the floating button (appears on hover) */
@@ -177,7 +224,7 @@ position: absolute;
 right: 0%;
 width: 0%;
 opacity: 0; /* Hidden by default */
-color: var(--light);
+color: var( --primary-color);
 font-size: 1.2em;
 font-weight: 600;
 transition-duration: .3s;
@@ -213,7 +260,7 @@ transform: translate(2px, 2px); /* Button moves slightly */
 /* Logout button container positioning */
 .logout-container {
 position: fixed;
-background-color: #1A1A2E;
+background-color: var(--bg-color);
 padding: 4px;
 left: 35px;
 top: 39rem; /* Position near the bottom */
