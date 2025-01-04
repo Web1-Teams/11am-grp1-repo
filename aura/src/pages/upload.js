@@ -133,14 +133,14 @@ const Upload = () => {
 
   return (
     <div className="upload-container">
-       <div className="shop-styling"><Navbar IsWithSearch={false} /></div>  {/* Include the Navbar component. */}
+      <div className="shop-styling"><Navbar IsWithSearch={false} /></div>  {/* Include the Navbar component. */}
       <div className="container-upload">
         <h1>Create a New Post</h1>
 
         <div className="imageUpload"> {/* Image upload section with drag-and-drop support. */}
-          <label  
-            htmlFor="input-file" id="drop-area-upload" 
-            onDragOver={handleDragOver} 
+          <label
+            htmlFor="input-file" id="drop-area-upload"
+            onDragOver={handleDragOver}
 
             onDrop={handleDrop}>
             <input type="file" accept="image/*" id="input-file" hidden
@@ -180,7 +180,7 @@ const Upload = () => {
           </button>
         </div>
 
-        {postDetails.isForSale && (  
+        {postDetails.isForSale && (
           <div className="form-group1" id="priceGroup">   {/* Price input field*/}
             <label htmlFor="price">Price</label>
             <input type="number" id="price" name="price"
@@ -213,11 +213,13 @@ const Upload = () => {
             value={postDetails.category}
             onChange={handleInputChange}>
             <option value="">-- Select a Category --</option>
-            <option value="Painting">Painting</option>
-            <option value="Sculpture">Sculpture</option>
-            <option value="Photography">Photography</option>
-            <option value="Digital Art">Digital Art</option>
-            <option value="Other">Other</option>
+            <option value="Concept Art">Concept Art</option>
+            <option value="Digital Painting">Digital Painting</option>
+            <option value="Character Design">Character Design</option>
+            <option value="Environment Design">Environment Design</option>
+            <option value="Fantasy Art">Fantasy Art</option>
+            <option value="Sketch Art">Sketch Art</option>
+            <option value="Game Art">Game Art</option>
           </select>
         </div>
 
