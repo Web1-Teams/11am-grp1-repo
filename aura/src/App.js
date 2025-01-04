@@ -18,41 +18,32 @@ import DefaultShopItems from "./data/shop-items-data.json"
 import Community from "./pages/community"
 import Wishlist from "./pages/wishlist"
 function App() {
-
-
   const loadCartItems = () => {
     const savedCart = localStorage.getItem("cartItems");
     return savedCart ? JSON.parse(savedCart) : [];
   };
-
   const [cartItems, setCartItems] = useState(loadCartItems());
-  
+
   useEffect(() => {
     if (cartItems.length > 0) {
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
     }
   }, [cartItems]);
-
-
   const addToCart = (item) => {
     setCartItems((prevCartItems) => {
       const updatedCart = [...prevCartItems, item];
       return updatedCart;
     });
   };
-  
-
-
-
   const [isSignedIn, setIsSignedIn] = useState(() => {
     const storedStatus = localStorage.getItem('isSignedIn');
-    return storedStatus ? JSON.parse(storedStatus) : false;  // Default to false if not set
+    return storedStatus ? JSON.parse(storedStatus) : false;
   });
   localStorage.setItem('shopItems', JSON.stringify(DefaultShopItems));
-  // Update localStorage whenever isSignedIn changes
+
   useEffect(() => {
     localStorage.setItem('isSignedIn', JSON.stringify(isSignedIn));
-  }, [isSignedIn]);  // Only update localStorage when isSignedIn changes
+  }, [isSignedIn]);
 
   return (
     <div>
@@ -60,10 +51,9 @@ function App() {
         <Routes>
           <Route index element={<Main />} />
           <Route path="/home" element={<Main />} />
-
-          <Route path="/shop" element={<Shop  addToCart={addToCart} cartItems={cartItems} setCartItems={setCartItems}  />} />
-          <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
-          <Route path="wishlist" element={<Wishlist  addToCart={addToCart}  />}/>
+          <Route path="/shop" element={<Shop addToCart={addToCart} />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="wishlist" element={<Wishlist addToCart={addToCart} />} />
           <Route path="/community" element={<Community />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
@@ -75,7 +65,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile2" element={<Profile2 />} />
           <Route path="/upload" element={<Upload />} />
-          <Route path="/wishlist" element ={<Wishlist/>}/>
+          <Route path="/wishlist" element={<Wishlist />} />
         </Routes>
       </BrowserRouter>
     </div>
