@@ -16,14 +16,13 @@ import Profile from "./pages/profile";
 import Upload from "./pages/upload";
 import DefaultShopItems from "./data/shop-items-data.json"
 import Community from "./pages/community"
-
+import Wishlist from "./pages/wishlist"
 function App() {
   const [isSignedIn, setIsSignedIn] = useState(() => {
     const storedStatus = localStorage.getItem('isSignedIn');
     return storedStatus ? JSON.parse(storedStatus) : false;  // Default to false if not set
   });
   localStorage.setItem('shopItems', JSON.stringify(DefaultShopItems));
-
   // Update localStorage whenever isSignedIn changes
   useEffect(() => {
     localStorage.setItem('isSignedIn', JSON.stringify(isSignedIn));
@@ -46,6 +45,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile2" element={<Profile2 />} />
           <Route path="/upload" element={<Upload />} />
+          <Route path="/wishlist" element ={<Wishlist/>}/>
         </Routes>
       </BrowserRouter>
     </div>
