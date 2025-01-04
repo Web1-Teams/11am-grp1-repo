@@ -51,10 +51,10 @@
 .modal-comments {
     width: 25rem;
     height: 22.625rem;
-    background-color: #333; /* Dark background */
+    background-color: var(--variant); /* Dark background */
     border-radius: 0.5rem;
     padding: 1.25rem;
-    color: white; /* White text */
+    color: var(--primary-color); /* White text */
     overflow-y: auto; /* Enable vertical scrolling */
 }
 
@@ -93,8 +93,8 @@
     border-radius: 0.5rem;
     padding: 0.625rem;
     font-size: 0.875rem;
-    background-color: #262525; /* Dark background */
-    color: white; /* White text */
+    background-color: var(--variant); /* Dark background */
+    color: var( --primary-color); /* White text */
     margin-top: 0.625rem; /* Space above input */
     font-family: 'Arial', sans-serif; /* Use Arial font */
 }
@@ -102,8 +102,8 @@
 /* Post comment button */
 #postComment {
     padding: 0.625rem;
-    background-color: #996DC6; /* Purple background */
-    color: white; /* White text */
+    background-color: var(--secondary-color); /* Purple background */
+    color: var( --primary-color); /* White text */
     border: none;
     border-radius: 0.3125rem;
     cursor: pointer;
@@ -118,7 +118,7 @@
     top: 0.625rem;
     right: 0.9375rem; /* Position the close button at top-right */
     font-size: 1.875rem;
-    color: white; /* White color for the close icon */
+    color: var( --primary-color); /* White color for the close icon */
     cursor: pointer; /* Pointer cursor on hover */
 }
 
@@ -144,7 +144,7 @@
 
 /* Active (liked) state for like button */
 .like-button.active {
-    color: #996DC6; /* Purple color when active (liked) */
+    color: var(--secondary-color); /* Purple color when active (liked) */
 }
 
 /* Heart icon styles */
@@ -154,7 +154,7 @@
 
 /* Liked heart icon color */
 .like-button .fa-heart.liked {
-    color: #996DC6; /* Purple color when liked */
+    color: var(--secondary-color); /* Purple color when liked */
 }
 
 /* Like count label */

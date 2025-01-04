@@ -87,9 +87,11 @@
   color: #bbb;
 }
 
+
 .upload-container .form-group1 input,textarea{
   width: 96%; /* Adjust width to fit inside the container */
   padding: 5px; /* Inner padding */
+
   font-size: 1rem;
   border: 1px solid #996dc6;
   border-radius: 5px;

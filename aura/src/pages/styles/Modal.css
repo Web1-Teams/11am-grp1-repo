@@ -17,7 +17,7 @@
 }
 
 .modal-content {
-    background-color: #fff;
+    background-color: var(--bg-color);
     padding: 2rem;
     border-radius: 10px;
     width: 400px;
