@@ -9,7 +9,7 @@ import SettingsModal from "../components/SettingsModal";
 
 const ITEMS_PER_PAGE = 12;
 
-const Shop = ({ cartItems, setCartItems, wishlistItems, setWishlistItems }) => {
+const Shop = ({ wishlistItems, setWishlistItems }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [priceFilter, setPriceFilter] = useState("All");
@@ -17,7 +17,20 @@ const Shop = ({ cartItems, setCartItems, wishlistItems, setWishlistItems }) => {
   const [isSidebarActive, setIsSidebarActive] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [Factive, setFactive] = useState(false);
+
   const shopItems = JSON.parse(localStorage.getItem('shopItems'));
+
+  const loadCartItems = () => {
+    const savedCart = localStorage.getItem("cartItems");
+    return savedCart ? JSON.parse(savedCart) : [];
+  };
+  const [cartItems, setCartItems] = useState(loadCartItems());
+
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }
+  }, [cartItems]);
 
   const getFilteredItems = () => {
     let filteredItems = shopItems;

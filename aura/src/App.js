@@ -14,36 +14,35 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Profile2 from "./pages/profile2";
 import Profile from "./pages/profile";
 import Upload from "./pages/upload";
-import ShopItems from "./data/shop-items-data.json"
+import DefaultShopItems from "./data/shop-items-data.json"
+import Community from "./pages/community"
 
 function App() {
-  const loadCartItems = () => {
-    const savedCart = localStorage.getItem("cartItems");
-    return savedCart ? JSON.parse(savedCart) : [];
-  };
-
-  localStorage.setItem('shopItems', JSON.stringify(ShopItems));
-
-  const [cartItems, setCartItems] = useState(loadCartItems());
+  const [isSignedIn, setIsSignedIn] = useState(() => {
+    const storedStatus = localStorage.getItem('isSignedIn');
+    return storedStatus ? JSON.parse(storedStatus) : false;  // Default to false if not set
+  });
+  // Update localStorage whenever isSignedIn changes
   useEffect(() => {
-    if (cartItems.length > 0) {
-      localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    }
-  }, [cartItems]);
+    localStorage.setItem('isSignedIn', JSON.stringify(isSignedIn));
+  }, [isSignedIn]);  // Only update localStorage when isSignedIn changes
+  useEffect(() => {
+    localStorage.setItem('shopItems', JSON.stringify(DefaultShopItems));
+  }, [DefaultShopItems]);
   return (
     <div>
       <BrowserRouter>
         <Routes>
           <Route index element={<Main />} />
           <Route path="/home" element={<Main />} />
-          <Route path="/shop" element={<Shop cartItems={cartItems} setCartItems={setCartItems} />} />
-          <Route path="/community" element={<Shop />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/community" element={<Community />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/reset-pass" element={<ResetPassword />} />
           <Route path="/verification" element={<Verification />} />
           <Route path="/forgot-pass" element={<ForgotPassword />} />
-          <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile2" element={<Profile2 />} />

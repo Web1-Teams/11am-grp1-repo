@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import shopItems from '../data/shop-items-data.json';
 import '../pages/styles/upload-style.css'
 import Navbar from '../components/navbar';
 
 
 const Upload = () => {
+  const shopItems = JSON.parse(localStorage.getItem('shopItems')) || [];
   const [postDetails, setPostDetails] = useState(() => {
     const savedDetails = localStorage.getItem('postDetails');
     return savedDetails
@@ -21,6 +21,10 @@ const Upload = () => {
   });
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.setItem('postDetails', JSON.stringify(postDetails));
+  }, [postDetails]);
 
   useEffect(() => {
     return () => {
@@ -56,23 +60,33 @@ const Upload = () => {
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
-      const imgLink = URL.createObjectURL(file);
-      setPostDetails((prev) => ({
-        ...prev,
-        imagePreview: imgLink,
-      }));
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const newImage = e.target.result;
+        setPostDetails((prev) => ({
+          ...prev,
+          imagePreview: newImage,
+        }));
+      };
+      reader.readAsDataURL(file);
+
     }
   };
 
   const handleDrop = (event) => {
     event.preventDefault();
-    const file = event.dataTransfer.files[0];
+    const file = event.target.files[0];
     if (file) {
-      const imgLink = URL.createObjectURL(file);
-      setPostDetails((prev) => ({
-        ...prev,
-        imagePreview: imgLink,
-      }));
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const newImage = e.target.result;
+        setPostDetails((prev) => ({
+          ...prev,
+          imagePreview: newImage,
+        }));
+      };
+      reader.readAsDataURL(file);
+
     }
   };
 
@@ -93,14 +107,14 @@ const Upload = () => {
       return;
     }
 
-    const shopItems = JSON.parse(localStorage.getItem('shopItems')) || [];
     const maxId = shopItems.reduce((max, item) => (item.id > max ? item.id : max), 0);
     const newId = maxId + 1;
+    const user = JSON.parse(localStorage.getItem('currentUser'));
 
     const newPost = {
       id: newId,
       title: postDetails.title,
-      subtitle: '',
+      subtitle: `By ${user.firstName} ${user.lastName}`,
       description: postDetails.description,
       price: parseFloat(postDetails.price || 0),
       image: postDetails.imagePreview,
@@ -110,6 +124,7 @@ const Upload = () => {
 
     const updatedShopItems = [...shopItems, newPost];
     localStorage.setItem('shopItems', JSON.stringify(updatedShopItems));
+    localStorage.removeItem('postDetails');
     alert('Post details saved successfully!');
     navigate('/Profile');
   };

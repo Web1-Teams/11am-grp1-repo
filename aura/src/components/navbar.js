@@ -4,13 +4,19 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import "../pages/styles/navbar-style.css"
 
-const Navbar = ({ IsWithSearch = true, extended = false, searchTerm, setSearchTerm }) => {
+const Navbar = ({ IsWithSearch = true, extended = true, searchTerm, setSearchTerm }) => {
 
     const savedTheme = localStorage.getItem('darkMode') === 'true';
-
+    let profileImage = localStorage.getItem('profileImage') || 'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg';
     const [Menu, SetMenu] = useState(false);
     const [isChecked, setIsChecked] = useState(savedTheme);
-
+    const [isSignedIn, setIsSignedIn] = useState(() => {
+        const storedStatus = localStorage.getItem('isSignedIn');
+        return storedStatus ? JSON.parse(storedStatus) : false;  // Default to false if not set
+    });
+    useEffect(() => {
+        localStorage.setItem('isSignedIn', JSON.stringify(isSignedIn));
+    }, [isSignedIn]);
 
 
     useEffect(() => {
@@ -28,6 +34,10 @@ const Navbar = ({ IsWithSearch = true, extended = false, searchTerm, setSearchTe
 
     const ToggleMenu = () => {
         SetMenu(!Menu);
+    }
+    const sign_out = () => {
+        localStorage.setItem("isSignedIn", false);
+        setIsSignedIn(false);
     }
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -81,11 +91,29 @@ const Navbar = ({ IsWithSearch = true, extended = false, searchTerm, setSearchTe
                     </label>
                 </div>
 
-                <Link to="/profile">
-                    <div className="profile">
-                        <img src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg" width="50px" />
-                    </div>
-                </Link>
+                <div>
+                    {!isSignedIn ? (
+                        // If not signed in, show a button with a profile icon that links to /sign-in
+                        <Link to="/sign-in">
+                            <button className="profile profile-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" stroke-width="0" fill="currentColor" stroke="currentColor" class="icon">
+                                    <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"></path>
+                                </svg>
+                            </button>
+                        </Link>
+                    ) : (
+                        // If signed in, show the user's profile photo and link to /profile
+                        <Link to="/profile">
+                            <div className="profile">
+                                <img
+                                    src={profileImage}
+                                    width="50px"
+                                    alt="User Profile"
+                                />
+                            </div>
+                        </Link>
+                    )}
+                </div>
 
             </nav>
             {Menu && (
@@ -113,6 +141,26 @@ const Navbar = ({ IsWithSearch = true, extended = false, searchTerm, setSearchTe
 
                                 </li>
                             </Link>
+                            {!IsWithSearch && (
+                                <Link to="/shop">
+                                    <li className="element">
+
+                                        <i className="fa-solid fa-store"></i>
+
+                                        <p className="label">Shop</p>
+                                    </li>
+                                </Link>
+                            )}
+                            {extended && (
+                                <Link to="/community">
+                                    <li className="element">
+
+                                        <i className="fa-regular fa-comments"></i>
+
+                                        <p className="label">Community</p>
+                                    </li>
+                                </Link>)}
+
                             {IsWithSearch && (
                                 <li className="element no-s">
                                     <div className="m-search">
@@ -176,33 +224,19 @@ const Navbar = ({ IsWithSearch = true, extended = false, searchTerm, setSearchTe
                                 </li>
                             </Link>
                         </ul>
-                        {extended && (
-                            <div>
-                                <div className="separator" />
-                                <ul className="list">
-                                    <Link to="/community">
-                                        <li className="element">
 
-                                            <i className="fa-regular fa-comments"></i>
-
-                                            <p className="label">Community</p>
-                                        </li>
-                                    </Link>
-                                    <Link to="/upload">
-                                        <li className="element">
-
-                                            <i className="fa fa-plus-square" style={{ fontSize: '21px' }}></i>
-
-                                            <p className="label c-fix">Create</p>
-                                        </li>
-                                    </Link>
-                                </ul>
-                            </div>
-
-
-                        )}
                         <div className="separator" />
                         <ul className="list">
+                            {isSignedIn && (
+                                <Link to="/upload">
+                                    <li className="element">
+
+                                        <i className="fa fa-plus-square" style={{ fontSize: '21px' }}></i>
+
+                                        <p className="label c-fix">Create</p>
+                                    </li>
+                                </Link>
+                            )}
                             <li className="element" onClick={() => openSettings()}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20" fill="none" className="svg-icon"><g stroke-width="1.5" stroke-linecap="round" stroke="#fff"><circle r="2.5" cy="10" cx="10"></circle><path fill-rule="evenodd" d="m8.39079 2.80235c.53842-1.51424 2.67991-1.51424 3.21831-.00001.3392.95358 1.4284 1.40477 2.3425.97027 1.4514-.68995 2.9657.82427 2.2758 2.27575-.4345.91407.0166 2.00334.9702 2.34248 1.5143.53842 1.5143 2.67996 0 3.21836-.9536.3391-1.4047 1.4284-.9702 2.3425.6899 1.4514-.8244 2.9656-2.2758 2.2757-.9141-.4345-2.0033.0167-2.3425.9703-.5384 1.5142-2.67989 1.5142-3.21831 0-.33914-.9536-1.4284-1.4048-2.34247-.9703-1.45148.6899-2.96571-.8243-2.27575-2.2757.43449-.9141-.01669-2.0034-.97028-2.3425-1.51422-.5384-1.51422-2.67994.00001-3.21836.95358-.33914 1.40476-1.42841.97027-2.34248-.68996-1.45148.82427-2.9657 2.27575-2.27575.91407.4345 2.00333-.01669 2.34247-.97026z" clip-rule="evenodd"></path></g></svg>
                                 <p className="label">Settings</p>
@@ -228,6 +262,16 @@ const Navbar = ({ IsWithSearch = true, extended = false, searchTerm, setSearchTe
                                 </label>
                                 <p className="label">Mode</p>
                             </li>
+                            {isSignedIn && (
+                                <div onClick={() => sign_out()}>
+                                    <Link to="/home">
+                                        <li className="element">
+                                            <i class="fa fa-sign-out"></i>
+                                            <p className="label">Sign out</p>
+                                        </li>
+                                    </Link>
+                                </div>
+                            )}
                         </ul>
                     </div>
                 </div>

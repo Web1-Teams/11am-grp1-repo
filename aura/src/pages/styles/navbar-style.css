@@ -71,7 +71,40 @@
   border-radius: 50%;
   box-shadow: 0 0 5px #996dc6, 0 0 0 1px #996dc6;
   overflow-x: hidden;
+  height: 3.5em;
+  width: 3.5em;
 }
+.shop-styling .profile-button{
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 23%;
+  display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    font-size: larger;
+    padding: 0.6em;
+    border: 0px solid var(--secondary-color);
+}
+.shop-styling .profile-button:hover *{
+  fill: #fff;
+}
+.shop-styling .profile-button *{
+  color: var(--primary-color);
+  fill: var(--primary-color);
+
+}
+
+
+
+
 .shop-styling .profile {
   margin-right: 1.5em;
   margin-left: 1em;

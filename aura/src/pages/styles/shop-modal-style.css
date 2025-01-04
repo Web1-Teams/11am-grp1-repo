@@ -72,6 +72,7 @@
     width: 150%;
     justify-self: center;
     max-width: 30em;
+    margin-right: 1em;
   }
   .right-desc, .license-info{
     padding: 1em;
@@ -234,6 +235,7 @@
   .shop-styling .right-section {
     min-width: 100%;
     flex-direction: column;
+    margin-right: 0em;
   }
 
   .shop-styling .left-title, .right-desc {
