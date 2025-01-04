@@ -26,11 +26,12 @@ const ForgotPassword = () => {
                     type="email"
                     placeholder="Enter your email"
                 />
-                
-                {/* Submit button to reset password, which links to the Verification page */}
-                <button type="submit" className="reset-btn">
-                    <Link to="/verification">Reset Password</Link> {/* Link to the verification page */}
-                </button>
+
+                <Link to="/verification"> {/* Submit button to reset password, which links to the Verification page */}
+                    <button type="submit" className="reset-btn">
+                        Reset Password{/* Link to the verification page */}
+                    </button>
+                </Link>
             </form>
         </div>
     );

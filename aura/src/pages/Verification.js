@@ -17,12 +17,12 @@ const Verification = () => {
     return (
         <div className="verification-box"> {/* Container for the verification form */}
             <h1>Verify Your Account</h1> {/* Heading for the page */}
-            <br/>
+            <br />
             <p>
-                We've sent a verification code to your email. <br/>
+                We've sent a verification code to your email. <br />
                 Please enter it below to continue.
             </p> {/* Message prompting the user to enter the verification code */}
-            
+
             <form>
                 <label>Verification Code:</label> {/* Label for the verification code input */}
                 <input
@@ -30,17 +30,18 @@ const Verification = () => {
                     placeholder="Enter the verification code"
                     required
                 /> {/* Input field for the user to enter the verification code */}
-
-                <button type="submit" className="verify-btn"> {/* Submit button to verify the code */}
-                    <Link to="/reset-pass">Verify</Link> {/* Link to the reset password page upon verification */}
-                </button>
+                <Link to="/reset-pass">
+                    <button type="submit" className="verify-btn"> {/* Submit button to verify the code */}
+                        Verify {/* Link to the reset password page upon verification */}
+                    </button>
+                </Link>
             </form>
 
             {/* Message displayed in case the user didn't receive the verification code */}
             <p>
                 If you did not receive the code, check your spam folder or
                 <Link to="/verification"> try again</Link>.
-            </p> 
+            </p>
         </div>
     );
 };

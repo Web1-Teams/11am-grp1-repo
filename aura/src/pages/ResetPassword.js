@@ -33,9 +33,11 @@ const ResetPassword = () => {
                 />
 
                 {/* Submit button to confirm the password reset, which links to the Sign In page */}
-                <button type="submit" className="reset-btn">
-                    <Link to="/sign-in">Confirm</Link> {/* Link to Sign In page upon confirmation */}
-                </button>
+                <Link to="/sign-in">
+                    <button type="submit" className="reset-btn">
+                        Confirm {/* Link to Sign In page upon confirmation */}
+                    </button>
+                </Link>
             </form>
         </div>
     );
