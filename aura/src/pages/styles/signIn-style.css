@@ -11,7 +11,7 @@ body.signin-container-body {
     align-items: center; /* Vertically centers content */
     min-height: 100vh; /* Ensures the container takes up full height of the viewport */
     margin: 0; /* Removes default body margin */
-    background-color:var(--bg-color); /* Dark background color */
+    background-color: #1A1A2E; /* Dark background color */
     font-family: 'Arial', sans-serif; /* Sets default font for the page */
 }
 /* Main sign-in container styling */
@@ -26,11 +26,12 @@ body.signin-container-body {
     align-items: center; /* Center content horizontally */
 }
 
+/* Styling for the h1 header */
 .signin-container h1 {
-    font-size: 2rem;
-    text-align: center;
-    color: #f3f3f3;
-    margin-bottom: 1rem;
+    font-size: 2rem; /* Larger font size */
+    text-align: center; /* Center align text */
+    color: #f3f3f3;  /* Light text color */
+    margin-bottom: 1rem; /* Space below the header */
 }
 
 /* Styling for the error message displayed in the sign-in container */
