@@ -30,7 +30,13 @@
 }
 
 
+.NavContainer a{
+    color: var(--primary-color);
+    text-decoration: none;
+    
+    
 
+}
 
 .gal-icon .store-icon .mas-icon .add-icon {
     position: relative;
@@ -154,6 +160,12 @@
 }
 
 .mas-icon:hover{
+    background-color: var( --secondary-color);
+    border-radius: 1.563rem;
+    padding: 0 0.8rem;
+    transition: 250ms;
+}
+.micon:hover{
     background-color: var( --secondary-color);
     border-radius: 1.563rem;
     padding: 0 0.8rem;
