@@ -18,6 +18,32 @@ import DefaultShopItems from "./data/shop-items-data.json"
 import Community from "./pages/community"
 import Wishlist from "./pages/wishlist"
 function App() {
+
+
+  const loadCartItems = () => {
+    const savedCart = localStorage.getItem("cartItems");
+    return savedCart ? JSON.parse(savedCart) : [];
+  };
+
+  const [cartItems, setCartItems] = useState(loadCartItems());
+  
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }
+  }, [cartItems]);
+
+
+  const addToCart = (item) => {
+    setCartItems((prevCartItems) => {
+      const updatedCart = [...prevCartItems, item];
+      return updatedCart;
+    });
+  };
+  
+
+
+
   const [isSignedIn, setIsSignedIn] = useState(() => {
     const storedStatus = localStorage.getItem('isSignedIn');
     return storedStatus ? JSON.parse(storedStatus) : false;  // Default to false if not set
@@ -27,13 +53,17 @@ function App() {
   useEffect(() => {
     localStorage.setItem('isSignedIn', JSON.stringify(isSignedIn));
   }, [isSignedIn]);  // Only update localStorage when isSignedIn changes
+
   return (
     <div>
       <BrowserRouter>
         <Routes>
           <Route index element={<Main />} />
           <Route path="/home" element={<Main />} />
-          <Route path="/shop" element={<Shop />} />
+
+          <Route path="/shop" element={<Shop  addToCart={addToCart} cartItems={cartItems} setCartItems={setCartItems}  />} />
+          <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
+          <Route path="wishlist" element={<Wishlist  addToCart={addToCart}  />}/>
           <Route path="/community" element={<Community />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
