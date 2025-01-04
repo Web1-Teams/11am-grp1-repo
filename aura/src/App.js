@@ -16,6 +16,7 @@ import Profile from "./pages/profile";
 import Upload from "./pages/upload";
 import DefaultShopItems from "./data/shop-items-data.json"
 import Community from "./pages/community"
+import Wishlist from "./pages/wishlist"
 
 function App() {
 
@@ -65,7 +66,6 @@ function App() {
           <Route path="/shop" element={<Shop  addToCart={addToCart} cartItems={cartItems} setCartItems={setCartItems}  />} />
           <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
           <Route path="wishlist" element={<Wishlist  addToCart={addToCart}  />}/>
-
           <Route path="/community" element={<Community />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />

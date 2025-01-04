@@ -62,9 +62,7 @@ const ShopItem = ({ data, addToCart, cartItems , toggleWishlistItem , wishlistIt
                                                 >
                                                     {isItemInCart ? "See in Cart" : "Add to Cart"}
                                                 </button>
-                                                <div className="like-btn"
-                                                    onClick={() => addToWishlist(data)}
-                                                >
+                                                <div className="like-btn" >
                                                     <label className="like-btn container">
 
                                                         <input 

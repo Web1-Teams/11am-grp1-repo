@@ -11,14 +11,15 @@
 }
 .wishlist-Class .list-items {
   flex: 3;
-  background: var(--dark-variant);
+  background: var(--variant);
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  color: var(--primary-color);
 }
 
 .wishlist-Class .list-items h2 {
-  color: var(--light);
+  color: var(--primary-color);
   margin-bottom: 1rem;
 }
 
@@ -29,14 +30,14 @@
 }
 
 .wishlist-Class .list-items th {
-  color: var(--light);
+  color: var(--primary-color);
   padding: 1rem;
   text-align: center;
   border-bottom: 0.063rem solid #996DC6;
 }
 
  .wishlist-Class .list-items td{
-  color: var(--light);
+  color: var(--primary-color);
   padding: 1rem;
   text-align: -moz-center;
   border-bottom: 0.063rem solid #996DC6;
@@ -50,31 +51,14 @@
 
 
 .wishlist-Class .list-items img {
-  width: 5rem;
+  width: 7rem;
   height: auto;
   margin-right: 1rem;
   vertical-align: middle;
 }
 
-.wishlist-Class .list-items button {
-  padding: 0.2rem 0.5rem;
-  border: 1px solid #2a2e3c;
-  background: var(--dark-variant);
-  color: var(--light);
-  cursor: pointer;
-}
-
-.wishlist-Class .list-items button:hover {
-  background: var(--dark-variant);
-}
 
 
-.wishlist-Class .cart-class .clear {
-  color: black;
-  border: none;
-  padding: 0.2rem 0.5rem;
-  cursor: pointer;
-}
 
 
 

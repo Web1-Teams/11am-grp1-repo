@@ -13,7 +13,7 @@
   
    .cart-class  .cart-items {
     flex: 3;
-    background: var(--dark-variant);
+    background: var(--variant);
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
@@ -54,7 +54,7 @@
     padding: 0.2rem 0.5rem;
     border: 1px solid var(--dark-variant);
     background: var(--dark-variant);
-    color:var(--light);
+    color:var(--primary-color);
     cursor: pointer;
   }
   
@@ -73,7 +73,7 @@
   
   .cart-class  .summary {
     flex: 1;
-    background: var(--dark-variant) ;
+    background: var(--variant) ;
     padding: 1rem;
     border-radius:0.5rem;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
@@ -83,12 +83,12 @@
   }
   
   .cart-class  .summary h3 {
-    color: var(--light);
+    color: var(--primary-color);
     margin-bottom: 1rem;
   }
   
   .cart-class  .summary p {
-    color: var(--light);
+    color: var(--primary-color);
     display: flex;
     justify-content: space-between;
     margin: 0.5rem 0;
@@ -96,15 +96,15 @@
   
   .cart-class  .summary input {
     width: 90%;
-    background-color: var(--light);
+    background-color: var(--primary-color);
     color: var(--dark-variant);
     padding: 0.5rem; 
     margin: 1rem 0;
-    border: 0.063rem solid var(--light);
+    border: 0.063rem solid var(--primary-color);
     border-radius: 0.25rem;
   }
   .cart-class  .summary label{
-    color: var(--light);
+    color: var(--primary-color);
   }
 
   .cart-class  .summary a{
@@ -134,25 +134,25 @@
   
     .cart-class .summary {
       width: 93%;
-      order: 2; /* Ensures the summary appears below the items */
+      order: 2; 
 
     }
 
 
 
     .cart-class .cart-items td.item-cell {
-      flex-direction: column; /* Stack image and title vertically */
-      align-items: flex-start; /* Align items to the start */
+      flex-direction: column; 
+      align-items: flex-start; 
     }
   
     .cart-class .cart-items td.item-cell img {
       margin-right: 0;
-      margin-bottom: 0.5rem; /* Add space below the image */
+      margin-bottom: 0.5rem; 
     }
   
     .cart-class .cart-items th,
     .cart-class .cart-items td {
-      font-size: 0.9rem; /* Smaller text size for smaller screens */
+      font-size: 0.9rem;
       padding: 0.5rem;
     } 
 
