@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../pages/styles/shop-item-style.css";
 import "../pages/styles/shop-modal-style.css";
 
-const ShopItem = ({ data, addToCart, cartItems , addToWishlist , wishlistItems }) => {
+const ShopItem = ({ data, addToCart, cartItems , toggleWishlistItem , wishlistItems }) => {
     const [Modal, SetModal] = useState(false);
 
     const ToggleModal = () => {
@@ -64,7 +64,11 @@ const ShopItem = ({ data, addToCart, cartItems , addToWishlist , wishlistItems }
 
                                                 >
                                                     <label className="like-btn container">
-                                                        <input type="checkbox"  onChange ={() => addToWishlist(data)} Checked={isItemInWishlist} />
+                                                        <input 
+                                                         type="checkbox"
+                                                         defaultChecked= {isItemInWishlist}
+                                                         onChange={() => toggleWishlistItem(data)} 
+                                                         {...isItemInWishlist ? "" : ""} />
                                                         <div className="like-btn checkmark">
                                                             <svg viewBox="0 0 256 256">
                                                                 <rect fill="none" height={256} width={256} />

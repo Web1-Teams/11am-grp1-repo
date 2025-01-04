@@ -9,7 +9,7 @@ import { useState, useEffect, useMemo } from "react";
 
 const ITEMS_PER_PAGE = 12;
 
-const Shop = ({ cartItems, setCartItems , wishlistItems , setWishlistItems }) => {
+const Shop = ({ cartItems , addToCart  }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [priceFilter, setPriceFilter] = useState("All");
@@ -17,6 +17,23 @@ const Shop = ({ cartItems, setCartItems , wishlistItems , setWishlistItems }) =>
   const [isSidebarActive, setIsSidebarActive] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [Factive, setFactive] = useState(false);
+
+
+  const loadWishlistItems = () => {
+    const savedWishlist = localStorage.getItem("wishlistItems");
+    console.log("save to wishlist",savedWishlist)
+    return savedWishlist ? JSON.parse(savedWishlist) : [];
+  };
+
+  const [wishlistItems, setWishlistItems] = useState(loadWishlistItems());
+  
+
+
+  useEffect(()=>{
+    if(wishlistItems.length > 0){
+      localStorage.setItem("wishlistItems" , JSON.stringify(wishlistItems));
+    } 
+  } , [wishlistItems]);
 
   const getFilteredItems = () => {
     let filteredItems = shopItems;
@@ -86,29 +103,18 @@ const Shop = ({ cartItems, setCartItems , wishlistItems , setWishlistItems }) =>
     setCurrentPage(1);
   }, [categoryFilter, priceFilter]);
 
-  const addToCart = (item) => {
-    setCartItems((prevCartItems) => {
-      const updatedCart = [...prevCartItems, item];
-      return updatedCart;
-    });
-  };
+  
 
-  const addToWishlist = (item) =>{
-    setWishlistItems((prevWishlistItems) =>{
-      const updatedWishlist =[...prevWishlistItems , item];
-    return updatedWishlist;
-    });
-  };
 
   const toggleWishlistItem = (item) => {
     setWishlistItems((prevWishlistItems) => {
       const isItemInWishlist = prevWishlistItems.some((wishlistItem) => wishlistItem.id === item.id);
-  
+
+      // If the item is already in the wishlist, remove it
       if (isItemInWishlist) {
-      
         return prevWishlistItems.filter((wishlistItem) => wishlistItem.id !== item.id);
       } else {
-        
+        // Otherwise, add the item to the wishlist
         return [...prevWishlistItems, item];
       }
     });
@@ -138,8 +144,7 @@ const Shop = ({ cartItems, setCartItems , wishlistItems , setWishlistItems }) =>
               key={item.id}
               data={item}
               addToCart={addToCart}
-              addToWishlist ={addToWishlist}
-              toggleWishlistItem = {toggleWishlistItem}
+              toggleWishlistItem={toggleWishlistItem}
               cartItems={cartItems}
               wishlistItems={wishlistItems}
               isFilterActive={isFilterActive}

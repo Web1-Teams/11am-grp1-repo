@@ -2,7 +2,7 @@
     position: fixed;
     background-color: #1e1e2e;
     padding: 2.5px;
-    left: 50px;
+    left: 30px;
     top: 150px;
     width: 60px;
     border-radius: 1.563rem;
@@ -11,7 +11,7 @@
     align-items: center;
     box-shadow: 0 0 5px #996dc6, 0 0 0 1px #996dc6;
     min-height: 100px;
-    z-index: 10;
+   
 }
 
 .nav_list{
@@ -33,9 +33,38 @@ a{
 
 }
 
-.gal-icon .store-icon .mas-icon .dark-icon .about-icon {
+.gal-icon .store-icon .mas-icon .add-icon {
     position: relative;
     
+}
+
+.add-icon:hover{
+    background-color: #996dc6;
+    border-radius: 1.563rem;
+    padding: 0 0.8rem;
+    transition: 250ms;
+}
+
+.gal-icon::after{
+
+    content: "";
+    color: #ffffff;
+    position:absolute;
+    border-radius: 1.563rem;
+    background-color:  #996dc6;
+    width: 0%;
+   
+
+}
+
+.gal-icon:hover::after{
+
+    content: "Create";
+    width:max-content ;
+    left: 65px;
+    padding: 0 0.938rem;
+    transition: 250ms;
+
 }
 
 
@@ -132,64 +161,19 @@ a{
 
 }
 
-
-
-.dark-icon::after{ 
-
-    content: "";
-    color: #ffffff;
-    position:absolute;
-    background-color:  #996dc6;
-    width: 0%;
-    
+.add-icons {
 
 }
 
 
-.dark-icon:hover::after{
-    content: "Dark Mode";
-    width: max-content;
-    border-radius: 1.563rem;
-    left: 65px;
-    padding: 0 0.938rem ;
-    transition: 250ms;
-}
+@media only screen and (max-width: 767px) {
 
-.dark-icon:hover{
-    background-color: #996dc6;
-    border-radius: 1.563rem;
-    padding: 0 0.8rem;
-    transition: 250ms;
+    .NavContainer{
+        width: 50px;
+        left: 10px;
+    }
 
 }
 
-.about-icon::after{
-
-    content: "";
-    color: #ffffff;
-    position:absolute;
-    background-color:  #996dc6;
-    width: 0%;
-    
-    
-    
-}
-
-.about-icon:hover::after{
-    content: "About";
-    width: max-content;
-    border-radius: 1.563rem;
-    left: 65px;
-    bottom: 17px;
-    padding: 0 0.938rem ;
-    transition: 250ms;
 
 
-}
-.about-icon:hover{
-    background-color: #996dc6;
-    border-radius: 1.563rem;
-    padding: 0 0.8rem;
-    transition: 250ms;
-
-}
